@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-
+    <form>
+        <div class="formWrapper">
+        <div class="mdl-textfield mdl-js-textfield">
+        <input id="loginEmail" tyoe="email" class="mdl-textfield__input"/>
+            <label for="loginEmail"  class="mdl-textfield__label">Enter your email</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+        <input id="loginPassword" type="password" class="mdl-textfield__input"/>
+            <label for="loginPassword"  class="mdl-textfield__label">Enter your password</label>
+        </div>
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"/>
+        </div>
+    </form>
 </body>
 </html>
