@@ -46,8 +46,14 @@ table {
     border-spacing: 0;
 }
 
-body {
+/*------------------------------------------------------*/
 
+.page-title {
+    height: 64px;
+    font-size: 34px;
+    text-align: center;
+    color: rgb(66, 66, 66);
+    line-height: 64px
 }
 
 .form-wrapper {
@@ -77,4 +83,43 @@ body {
 .add-button {
     margin: 10px;
     float: right;
+}
+
+/*------------------------------------------------------*/
+.breadcrumbs{
+    text-align: center;
+}
+.block-switcher {
+    position: absolute;
+    right: -2px;
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 195px;
+    justify-content: space-evenly;
+}
+
+
+.block-switcher-items {
+    width: 70px;
+    height: 60px;
+    background-color: #dedede;
+    text-align: center;
+    color: #fff;
+    font-size: 23px;
+    font-weight: bold;
+    display: flex;
+    cursor: pointer;
+}
+
+.block-switcher-items div {
+    height:30px;
+    margin:auto;
+}
+
+.block-switcher-items:hover {
+
+    background-color: #f2f2f2;
+    color:#dedede;
+
 }
