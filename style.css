@@ -86,9 +86,10 @@ table {
 }
 
 /*------------------------------------------------------*/
-.breadcrumbs{
+.breadcrumbs {
     text-align: center;
 }
+
 .block-switcher {
     position: absolute;
     right: -2px;
@@ -98,7 +99,6 @@ table {
     height: 195px;
     justify-content: space-evenly;
 }
-
 
 .block-switcher-items {
     width: 70px;
@@ -112,14 +112,47 @@ table {
     cursor: pointer;
 }
 
-.block-switcher-items div {
-    height:30px;
-    margin:auto;
+.block-switcher-items div,.question-block div, .question-count div  {
+    height: 30px;
+    margin: auto;
 }
 
 .block-switcher-items:hover {
-
     background-color: #f2f2f2;
-    color:#dedede;
+    color: #dedede;
+}
 
+.current-question{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.question-block {
+    height: 80px;
+    width: 80px;
+    background-color: #dedede;
+    color: #fff;
+    font-size: 23px;
+    font-weight: bold;
+    display: flex;
+}
+
+.question-count {
+    height: 80px;
+    width: 260px;
+    background-color: #fff;
+    color: rgb(66, 66, 66);
+    font-size: 23px;
+    font-weight: bold;
+    display: flex;
+    margin: 0 10px;
+}
+
+.question-slider{
+    height:300px;
+    width: 450px;
+    background-color: #dedede;
+    margin:15px;
 }
