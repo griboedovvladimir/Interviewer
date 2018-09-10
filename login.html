@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="style.css">
     <script defer src="material.js"></script>
@@ -11,18 +10,29 @@
 <body>
 <div class="form-wrapper">
     <form class="login-form">
-        <div class="form-content">
-            <div class="mdl-textfield mdl-js-textfield">
-                <input id="loginEmail" type="email" class="mdl-textfield__input"/>
-                <label for="loginEmail" class="mdl-textfield__label">Enter your email</label>
+            <div class="mdc-component mdc-component__textfield">
+                    <div dir-horizontal="" class="mdc-component__containers">
+                        <div class="mdc-component__section mdc-component__section--size-narrow">
+                        <div class="mdc-component__containers__primary mdc-textfield--theme-primary">
+                            <div class="mdc-textfield">
+                                <input type="text" id="loginName" class="mdc-textfield__input" placeholder="Your name">
+                                <label for="loginName" class="mdc-textfield__label mdc-textfield__label--float-above">Name</label>
+                            </div>
+                        </div>
+                        <div class="mdc-component__containers__secondary mdc-textfield--theme-primary">
+                            <div class="mdc-textfield">
+                                <input type="password" id="loginPassword" class="mdc-textfield__input" placeholder="Your password">
+                                <label for="loginPassword" class="mdc-textfield__label mdc-textfield__label--float-above">Passsword</label>
+                            </div>
+                        </div>
+                        <div class="mdc-component mdc-component__buttons">
+                            <div class="mdc-component__containers__primary">
+                                <button type="submit" class="mdc-button mdc-button--raised">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
             </div>
-            <div class="mdl-textfield mdl-js-textfield">
-                <input id="loginPassword" type="password" class="mdl-textfield__input"/>
-                <label for="loginPassword" class="mdl-textfield__label">Enter your password</label>
-            </div>
-            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Submit
-            </button>
-        </div>
     </form>
 </div>
 </body>

@@ -11,26 +11,26 @@
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Interviewer</span>
+        <span class="mdl-layout-title menu-title">Interviewer</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Logout</a>
             <a class="mdl-navigation__link" href="">Main</a>
             <a class="mdl-navigation__link" href="">Interview</a>
             <a class="mdl-navigation__link" href="">Statistic</a>
+            <a class="mdl-navigation__link" href="">Logout</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
         <div class="page-content">
-            <h1 class="page-title">Main</h1>
             <div class="table-wrapper">
-                <div>
-            <table class="mdl-data-table mdl-js-data-table">
+                <div class="table-content">
+            <table class="mdl-data-table mdl-js-data-table persons-table">
                 <thead>
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">Name</th>
                     <th>Level</th>
                     <th>Date</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,30 +39,48 @@
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
+                    <td>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">visibility</i>
+                    </td>
                 </tr>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">Sophia Carson</td>
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
+                    <td>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">visibility</i>
+                    </td>
                 </tr>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">Steve Moreno</td>
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
+                    <td>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">visibility</i>
+                    </td>
                 </tr>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">John Doe</td>
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
+                    <td>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">visibility</i>
+                    </td>
                 </tr>
                 </tbody>
             </table>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored add-button">
-                    Add new
-                </button>
+                    <div class="mdc-component mdc-component__buttons">
+                        <div class="mdc-component__containers__primary add-button">
+                            <button type="submit" class="mdc-button mdc-button--raised">Add new</button>
+                        </div>
+                    </div>
                     <div>
             </div>
         </div>
