@@ -3997,7 +3997,7 @@ componentHandler.register({
 
     var buttons = document.querySelectorAll('.mdc-button, .mdc-fab');
     for (var i = 0, button; button = buttons[i]; i++) {
-        mdc.ripple.MDCRipple.attachTo(button);
+       // mdc.ripple.MDCRipple.attachTo(button);
     }
 
     var nodes = document.querySelectorAll('.mdc-icon-toggle');

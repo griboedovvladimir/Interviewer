@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="style.css">
     <script defer src="material.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <script defer src="index.js"></script>
 </head>
 <body>
 <div class="form-wrapper">
@@ -15,13 +17,13 @@
                         <div class="mdc-component__section mdc-component__section--size-narrow">
                         <div class="mdc-component__containers__primary mdc-textfield--theme-primary">
                             <div class="mdc-textfield">
-                                <input type="text" id="loginName" class="mdc-textfield__input" placeholder="Your name">
+                                <input type="text" id="loginName" class="mdc-textfield__input" placeholder="Your name" pattern="[A-z.]+" minlength="3" required>
                                 <label for="loginName" class="mdc-textfield__label mdc-textfield__label--float-above">Name</label>
                             </div>
                         </div>
                         <div class="mdc-component__containers__secondary mdc-textfield--theme-primary">
                             <div class="mdc-textfield">
-                                <input type="password" id="loginPassword" class="mdc-textfield__input" placeholder="Your password">
+                                <input type="password" id="loginPassword" class="mdc-textfield__input" placeholder="Your password"  required>
                                 <label for="loginPassword" class="mdc-textfield__label mdc-textfield__label--float-above">Passsword</label>
                             </div>
                         </div>
