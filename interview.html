@@ -52,37 +52,28 @@
             </div>
 
             <div class="question-slider">
-                <div>
 
-                    <style>
-                        .question-card-wide.mdl-card {
-                            width: 512px;
-                        }
-                        .question-card-wide > .mdl-card__menu {
-                            color: #fff;
-                        }
-                    </style>
-
+                <div class="card-wrapper">
                     <div class="question-card-wide mdl-card mdl-shadow--2dp">
+                        <div class="card-content">
+                            <div class="material-icons card-arrow" aria-label="Add"><span class="mdc-fab__icon">keyboard_arrow_left</span></div>
+                            <div>
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">Question 1</h2>
                         </div>
-                        <div class="mdl-card__supporting-text">
+                        <div class="mdl-card__supporting-text card-text">
                             Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
                         </div>
+                            </div>
+                            <div class="material-icons card-arrow" aria-label="Add"><span class="mdc-fab__icon">keyboard_arrow_right</span></div>
+                            </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Failed
-                            </a>
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                So-so
-                            </a>
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Answered
-                            </a>
+                            <div class="mdc-component mdc-component__buttons">
+                                <button type="button" class="mdc-button mdc-button--plain primary-dark">Failed</button>
+                            <button type="button" class="mdc-button mdc-button--plain primary-dark">So-so</button>
+                            <button type="button" class="mdc-button mdc-button--plain primary-dark">Answered</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

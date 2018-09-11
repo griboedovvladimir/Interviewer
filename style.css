@@ -699,6 +699,10 @@ body {
     background-size: contain;
 }
 
+.primary-dark {
+    color: #00857c;
+}
+
 .form-wrapper {
     display: flex;
     justify-content: center;
@@ -779,6 +783,7 @@ body {
     width: 70px;
     height: 195px;
     justify-content: space-evenly;
+    z-index: 800;
 }
 
 .block-switcher-items {
@@ -831,7 +836,55 @@ body {
 }
 
 .question-slider {
-    margin: 15px;
+    margin: 25px 73px 25px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.question-card-wide.mdl-card {
+}
+
+.question-card-wide > .mdl-card__menu {
+    color: #fff;
+}
+
+.mdl-card{
+    width: auto;
+    max-width: 550px;
+    min-height: auto;
+}
+
+.card-content{
+    display:flex;
+}
+
+.card-arrow{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #00857c;
+    cursor: pointer;
+}
+
+.card-arrow span {
+    margin: 0 5px;
+}
+
+.card-arrow:hover{
+    background-color: #f6f6f6;
+}
+
+.card-text{
+    width: 100%;
+}
+
+.card-arrow button {
+    margin: 10px 5px;
+}
+
+.mdc-fab{
+    background-color: #4bb5ab;
+    color: #000000;
 }
 
 /*--------------------------------------*/
@@ -847,7 +900,7 @@ body {
 .chart {
     width: 30%;
     min-width: 300px;
-    margin:10px 5px;
+    margin: 10px 5px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
@@ -865,20 +918,21 @@ body {
     font-weight: bold;
 }
 
-.percentage{
+.percentage {
     height: 150px;
-   background: linear-gradient( to top,  #82ada9 30%, #fff 73%);
+    background: linear-gradient(to top, #82ada9 30%, #fff 73%);
     font-size: 50px;
     font-weight: bold;
 }
 
-.per-html{
-    background: linear-gradient( to top,  #82ada9 85%, #fff 92%);
+.per-html {
+    background: linear-gradient(to top, #82ada9 85%, #fff 92%);
 }
 
-.per-css{
-    background: linear-gradient( to top,  #82ada9 65%, #fff 73%);
+.per-css {
+    background: linear-gradient(to top, #82ada9 65%, #fff 73%);
 }
-.per-js{
-    background: linear-gradient( to top,  #82ada9 75%, #fff 86%);
+
+.per-js {
+    background: linear-gradient(to top, #82ada9 75%, #fff 86%);
 }
