@@ -37,8 +37,12 @@
             </div>
 
             <div class="current-question">
-                <div class="question-block"><div>HTML</div></div>
-                <div class="question-count"><div>question 1 from 999</div></div>
+                <div class="question-block">
+                    <div>HTML</div>
+                </div>
+                <div class="question-count">
+                    <div>question 1 from 999</div>
+                </div>
             </div>
 
             <div class="block-switcher">
@@ -58,27 +62,40 @@
                 <div class="card-wrapper">
                     <div class="question-card-wide mdl-card mdl-shadow--2dp">
                         <div class="card-content">
-                            <div class="material-icons card-arrow" aria-label="Add"><span class="mdc-fab__icon">keyboard_arrow_left</span></div>
+                            <div class="material-icons card-arrow" aria-label="Add"><span class="mdc-fab__icon">keyboard_arrow_left</span>
+                            </div>
                             <div>
-                        <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">Question 1</h2>
-                        </div>
-                        <div class="mdl-card__supporting-text card-text">
-                            Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
-                        </div>
+                                <div class="mdl-card__title">
+                                    <h2 class="mdl-card__title-text">Question 1</h2>
+                                </div>
+                                <div class="mdl-card__supporting-text card-text">
+                                    Why you would use a srcset attribute in an image tag? Explain the process the
+                                    browser uses when evaluating the content of this attribute.
+                                </div>
                             </div>
-                            <div class="material-icons card-arrow" aria-label="Add"><span class="mdc-fab__icon">keyboard_arrow_right</span></div>
+                            <div class="material-icons card-arrow" aria-label="Add"><span class="mdc-fab__icon">keyboard_arrow_right</span>
                             </div>
+                        </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <div class="mdc-component mdc-component__buttons">
-                                <button type="button" class="mdc-button mdc-button--plain primary-dark">Failed</button>
-                            <button type="button" class="mdc-button mdc-button--plain primary-dark">So-so</button>
-                            <button type="button" class="mdc-button mdc-button--plain primary-dark">Answered</button>
+                            <div class="slider-titles">
+                                <div>FAILED</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO-SO</div>
+                                <div>ANSWERED</div>
+                            </div>
+                            <div class="slider-marks">
+                                <div class="slider-marks-circle"></div>
+                                <div class="slider-marks-circle"></div>
+                                <div class="slider-marks-circle"></div>
+                            </div>
+                            <div class="slider-line">
+                            <input class="mdl-slider mdl-js-slider" type="range"
+                                   min="0" max="100" value="0" tabindex="0">
+                            </div>
+                            <textarea class="card-textarea" placeholder="Comment"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 </div>
 </div>

@@ -1,9 +1,4 @@
-//
-// document.body.addEventListener('focusin',(e)=>{
-//     if(e.target.tagName==='INPUT'){
-//         e.target.element.classList.add('dirty');
-//     }
-// });
+
 $('body').bind('focusin', function (e) {
     if (e.target.tagName === 'INPUT') {
         e.target.classList.add('dirty');

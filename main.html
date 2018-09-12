@@ -27,6 +27,7 @@
                 <thead>
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th>Specialization</th>
                     <th>Level</th>
                     <th>Date</th>
                     <th>Status</th>
@@ -36,42 +37,50 @@
                 <tbody>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">Don Aubrey</td>
+                    <td>Frontend developer</td>
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
                     <td>
-                        <i class="material-icons person-actions">create</i>
                         <i class="material-icons person-actions">visibility</i>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">delete</i>
                     </td>
                 </tr>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">Sophia Carson</td>
+                    <td>Frontend developer</td>
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
                     <td>
-                        <i class="material-icons person-actions">create</i>
                         <i class="material-icons person-actions">visibility</i>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">delete</i>
                     </td>
                 </tr>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">Steve Moreno</td>
+                    <td>Frontend developer</td>
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
                     <td>
-                        <i class="material-icons person-actions">create</i>
                         <i class="material-icons person-actions">visibility</i>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">delete</i>
                     </td>
                 </tr>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">John Doe</td>
+                    <td>Frontend developer</td>
                     <td>1</td>
                     <td>06.09.2018</td>
                     <td>ok</td>
                     <td>
-                        <i class="material-icons person-actions">create</i>
                         <i class="material-icons person-actions">visibility</i>
+                        <i class="material-icons person-actions">create</i>
+                        <i class="material-icons person-actions">delete</i>
                     </td>
                 </tr>
                 </tbody>
@@ -85,7 +94,33 @@
             </div>
         </div>
             </div>
+
+            <!-------------------Modal window---------------------------------->
+
+    <form class="login-form">
+        <div class="mdc-component mdc-component__textfield">
+
+                <div class="mdc-component__section mdc-component__section--size-narrow">
+                    <div class="mdc-component__containers__primary mdc-textfield--theme-primary">
+                        <div class="mdc-textfield">
+                            <input type="text" id="loginName" class="mdc-textfield__input" placeholder="Your name" pattern="[A-z.]+" minlength="3" required>
+                            <label for="loginName" class="mdc-textfield__label mdc-textfield__label--float-above">Candidate name</label>
+                        </div>
+                    </div>
+
+
+
+                    <div class="mdc-component mdc-component__buttons">
+                        <div class="mdc-component__containers__primary">
+                            <button type="submit" class="mdc-button mdc-button--raised">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
         </div>
+    </form>
+            </div>
+
     </main>
 </div>
 </body>
