@@ -1,0 +1,35 @@
+body {
+  color: blue;
+  font-family: sans-serif;
+  //background-image: url('../img/futurama.png');
+}
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('../fonts/ProximaNova-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: 'ProximaNova';
+}
+*{
+  font-size: 12pt;
+}
+
+ol{
+  list-style: none;
+  counter-reset: li;
+  li:before{
+    counter-increment: li;
+    content: counters(li,".")". ";
+  }
+}
+img{
+  max-width: 200px;
+  border-radius: 50%;
+}
+.form{
+  label,input,textarea {
+    display: block;
+  }
+}

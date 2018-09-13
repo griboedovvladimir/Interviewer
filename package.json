@@ -1,0 +1,34 @@
+{
+  "name": "Interviewer",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "node_modules/.bin/webpack --mode development",
+    "prod": "node_modules/.bin/webpack --mode production",
+    "dev": "node_modules/.bin/webpack-dev-server --mode development --hot --inline --open"
+  },
+  "author": "Vladimir Gridoedov",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^8.5.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "file": "^0.2.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "loader": "^2.1.1",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.1",
+    "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.0.1",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
