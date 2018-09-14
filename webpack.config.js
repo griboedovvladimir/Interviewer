@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const autoprefixer = require('autoprefixer');
+const findFilesInDir = require('./findAll');
+
 
 let conf = {
     entry:{
@@ -78,7 +80,7 @@ let conf = {
                     name: '[name].[ext]',
                     outputPath: 'img/'
                 }
-            }
+            },
         ]
     },
     plugins: [
@@ -94,7 +96,7 @@ let conf = {
                 head:'style.css',
                 js: 'main.js'
             }
-        })
+        }),
     ],
     optimization: {
         minimizer: [
@@ -109,11 +111,27 @@ let conf = {
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
-        port: 3030,
+        port: 3080,
         overlay:true
     },
     ///watch:true
 };
+
+
+let templateFilesConf = findFilesInDir('src/app', '.html')
+    .map((templateFileName) =>
+        new HtmlWebpackPlugin({
+            filename: 'layouts/'+ templateFileName.split('/').pop(),
+            template: templateFileName,
+            inject: false,
+                chunks:{}
+        })
+    );
+
+
+conf.plugins = conf.plugins.concat(templateFilesConf);
+
+
 
 module.exports = (env,options)=>{
     let production = options.mode === 'production';
@@ -122,3 +140,5 @@ module.exports = (env,options)=>{
         : 'source-map';
    return conf;
 };
+
+
