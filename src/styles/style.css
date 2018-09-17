@@ -891,13 +891,19 @@ border-color: #d50000 !important;
 .modal {
     position: absolute;
     z-index: 1000;
-    padding-top: 10%;
+    top: 15%;
     left:50%;
     margin-left:-200px;
+}
+
+.modal-hidden{
     visibility: hidden;
 }
 
 .modal-active{
+    visibility: visible;
+    top: 15%;
+padding-top: 150px;
 }
 
 /*------------------------------------------------------*/

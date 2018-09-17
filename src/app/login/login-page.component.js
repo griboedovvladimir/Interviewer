@@ -1,19 +1,6 @@
 import {guid} from "../helpers/guid";
+import {USER_DATA} from "./USER_DATA";
 
-const USER_DATA = [
-    {
-        name: "j.doe",
-        password: "123456789",
-        rights: "user",
-        token: ""
-    },
-    {
-        name: "m.smith",
-        password: "123456789",
-        rights: "admin",
-        token: ""
-    }
-];
 const LS_KEY = 'INTERVIEWER_TOKEN';
 
 export class LoginPageComonent extends HTMLElement {
@@ -29,8 +16,7 @@ export class LoginPageComonent extends HTMLElement {
         this.shadow = this.attachShadow({mode: 'open'});
         fetch('./layouts/login-page.html').then(resp => {
             resp.text().then(text => {
-                let styles = `<link rel="stylesheet" type="text/css" href = 'style.css'>`;
-                this.shadow.innerHTML = text + styles;
+                this.shadow.innerHTML = text + `<link rel="stylesheet" type="text/css" href = 'style.css'>`;
                 this.addEvents();
             });
         })
@@ -43,7 +29,7 @@ export class LoginPageComonent extends HTMLElement {
     handleEvent(e) {
         if (e.target.type === 'submit') {
             if (this.formCheck()) {
-                document.location.href = "#main";
+                document.location.href = '#main';
                 this.remove();
             }
         }
