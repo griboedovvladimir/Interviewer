@@ -1,5 +1,10 @@
 import {INTERVIEW_DATA} from "./INTERVIEW_DATA";
 import {ModalWindowComponent} from "./modal-window/modal-window.component";
+import {MenuComponent} from "../menu/menu.component";
+const MODAL = document.createElement('modal-el');
+customElements.define('modal-el', ModalWindowComponent);
+customElements.define('menu-el', MenuComponent);
+
 
 export class MainPageComponent extends HTMLElement {
     constructor() {
@@ -17,9 +22,10 @@ export class MainPageComponent extends HTMLElement {
                 this.shadow.innerHTML = text + `<link rel="stylesheet" type="text/css" href = 'style.css'>`;
                 this.tableRender(this.interviewData);
                 this.addEvents();
-                customElements.define('modal-el', ModalWindowComponent);
-                this.modal = document.createElement('modal-el');
+                this.modal = MODAL;
+                this.modal.setAttribute('visibility', 'hidden');
                 document.body.appendChild(this.modal);
+                this.menuRender();
             });
         })
     }
@@ -33,6 +39,12 @@ export class MainPageComponent extends HTMLElement {
             this.openModal();
         }
 
+    }
+
+    menuRender(){
+        const MENU = document.createElement('menu-el');
+        MENU.classList.add('mdl-layout__drawer');
+        this.shadow.querySelector('#cont').insertBefore(MENU, this.shadow.querySelector('main'));
     }
 
     tableRender(data) {
@@ -58,10 +70,21 @@ export class MainPageComponent extends HTMLElement {
     }
 
     openModal() {
+        let that = this;
+        let overlay = document.createElement('div');
+        overlay.id = 'overlay';
+        document.body.appendChild(overlay);
+        let removing = () => {
+            overlay.removeEventListener('click', removing);
+            overlay.remove();
+            that.modal.setAttribute('visibility', 'hidden');
+        };
+        overlay.addEventListener('click', removing );
+        this.modal.setAttribute('visibility', 'visible');
     }
 
     disconnectedCallback() {
-
+        this.shadow.removeEventListener('click', this);
     }
 }
 

@@ -94,7 +94,7 @@ let conf = {
             inject: false,
             chunks:{
                 head:'style.css',
-                js: 'main.js'
+                js: 'main.js',
             }
         }),
     ],

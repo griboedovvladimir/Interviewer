@@ -15828,8 +15828,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
     box-sizing: border-box;
     border-right: 1px solid rgb(224, 224, 224);
     background: rgb(250, 250, 250);
-    -webkit-transform: translateX(-250px);
-    transform: translateX(-250px);
+    /*-webkit-transform: translateX(-250px);*/
+    /*transform: translateX(-250px);*/
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     will-change: transform;
@@ -15839,7 +15839,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
     transition-property: transform;
     transition-property: transform, -webkit-transform;
     color: rgb(66, 66, 66);
-    overflow: visible;
+    overflow: hidden;
     overflow-y: auto;
     z-index: 5;
 }
