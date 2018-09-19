@@ -1,4 +1,4 @@
-import {INTERVIEW_DATA} from "../INTERVIEW_DATA";
+import {INTERVIEW_DATA} from "../../shared/INTERVIEW_DATA";
 import {MainPageComponent} from "../main-page.component";
 
 export class ModalWindowComponent extends HTMLElement {
@@ -12,7 +12,7 @@ export class ModalWindowComponent extends HTMLElement {
         this.shadow = this.attachShadow({mode: 'open'});
         fetch('./layouts/modal-window.html').then(resp => {
             resp.text().then(text => {
-                this.shadow.innerHTML = text + `<link rel="stylesheet" type="text/css" href = 'style.css'>`;
+                this.shadow.innerHTML = `<link rel="stylesheet" type="text/css" href = 'style.css'>` +text;
                 this.addEvents();
             });
         })
@@ -51,6 +51,9 @@ export class ModalWindowComponent extends HTMLElement {
             }
             this.shadow.querySelector('form').reset();
             INTERVIEW_DATA.unshift(interviewModel);
+
+            document.querySelector('main-el').remove();
+            document.getElementById('overlay').remove();
             document.body.appendChild(document.createElement('main-el'));
         }
     }
@@ -80,7 +83,6 @@ export class ModalWindowComponent extends HTMLElement {
     }
 
     disconnectedCallback() {
-        this.shadow.removeEventListener('click', this);
     }
 }
 

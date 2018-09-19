@@ -1,15 +1,18 @@
 import {LoginPageComonent} from "./login/login-page.component";
 import {MainPageComponent} from "./main/main-page.component";
+import {InterviwPageComponent} from "./iterview/inetrview-page.component";
+import {PersonStatisticPageComponent} from "./person-statistic/person-statistic-page.component";
 
 export class Router {
     constructor() {
         window.addEventListener('hashchange', this.rout, false);
         window.addEventListener('load', () => {
-          this.wrapper =  document.body.innerHTML = '';
             this.rout();
         }, false);
         customElements.define('main-el', MainPageComponent);
         customElements.define('login-el', LoginPageComonent);
+        customElements.define('interview-el', InterviwPageComponent);
+        customElements.define('person-statistic-el', PersonStatisticPageComponent);
     }
 
     rout() {
@@ -17,39 +20,61 @@ export class Router {
             case '':
                 if (localStorage.getItem('INTERVIEWER_TOKEN')) {
                     document.location.href = "#main";
-                    this.wrapper='';
+                    document.body.innerHTML = '';
                     document.body.appendChild(document.createElement('main-el'));
                 }
                 else {
                     document.location.href = "#login";
-                    this.wrapper='';
+                    document.body.innerHTML = '';
                     document.body.appendChild(document.createElement('login-el'));
                 }
                 break;
             case '#main':
                 if (localStorage.getItem('INTERVIEWER_TOKEN')) {
                     document.location.href = "#main";
-                    this.wrapper='';
+                    document.body.innerHTML = '';
+                    document.body.appendChild(document.createElement('menu-el'));
                     document.body.appendChild(document.createElement('main-el'));
                 }
                 else {
                     document.location.href = "#login";
-                    this.wrapper='';
+                    document.body.innerHTML = '';
                     document.body.appendChild(document.createElement('login-el'));
                 }
                 break;
-            case `#main/${document.location.hash.split('/')[1]}`:
-
+            case `#main/interview/${document.location.hash.split('/')[2]}`:
+                if (!document.querySelector('menu-el')) {
+                    document.body.appendChild(document.createElement('menu-el'));
+                }
+                if (document.querySelector('main-el')) {
+                    document.querySelector('main-el').remove();
+                    document.querySelector('modal-el').remove();
+                }
+                let interview = document.createElement('interview-el');
+                interview.setAttribute('person-id', document.location.hash.split('/')[2]);
+                document.body.appendChild(interview);
+                break;
+            case `#main/statistic/${document.location.hash.split('/')[2]}`:
+                if (!document.querySelector('menu-el')) {
+                    document.body.appendChild(document.createElement('menu-el'));
+                }
+                if (document.querySelector('main-el')) {
+                    document.querySelector('main-el').remove();
+                    document.querySelector('modal-el').remove();
+                }
+                let stat = document.createElement('person-statistic-el');
+                stat.setAttribute('person-id', document.location.hash.split('/')[2]);
+                document.body.appendChild(stat);
                 break;
             case '#login':
                 if (localStorage.getItem('INTERVIEWER_TOKEN')) {
                     document.location.href = "#main";
-                    this.wrapper='';
+                    document.body.innerHTML = '';
                     document.body.appendChild(document.createElement('main-el'));
                 }
                 else {
                     document.location.href = "#login";
-                    this.wrapper='';
+                    document.body.innerHTML = '';
                     document.body.appendChild(document.createElement('login-el'));
                 }
                 break;

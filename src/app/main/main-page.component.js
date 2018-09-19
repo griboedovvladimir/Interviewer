@@ -1,6 +1,7 @@
-import {INTERVIEW_DATA} from "./INTERVIEW_DATA";
+import {INTERVIEW_DATA} from "../shared/INTERVIEW_DATA";
 import {ModalWindowComponent} from "./modal-window/modal-window.component";
 import {MenuComponent} from "../menu/menu.component";
+
 const MODAL = document.createElement('modal-el');
 customElements.define('modal-el', ModalWindowComponent);
 customElements.define('menu-el', MenuComponent);
@@ -15,19 +16,19 @@ export class MainPageComponent extends HTMLElement {
     }
 
     render() {
-        document.body.innerHTML = '';
-        this.shadow = this.attachShadow({mode: 'open'});
-        fetch('./layouts/main-page.html').then(resp => {
-            resp.text().then(text => {
-                this.shadow.innerHTML = text + `<link rel="stylesheet" type="text/css" href = 'style.css'>`;
-                this.tableRender(this.interviewData);
-                this.addEvents();
-                this.modal = MODAL;
-                this.modal.setAttribute('visibility', 'hidden');
-                document.body.appendChild(this.modal);
-                this.menuRender();
-            });
-        })
+        if (!document.querySelector('main-el')) {
+            this.shadow = this.attachShadow({mode: 'open'});
+            fetch('./layouts/main-page.html').then(resp => {
+                resp.text().then(text => {
+                    this.shadow.innerHTML = `<link rel="stylesheet" type="text/css" href = 'style.css'>` + text;
+                    this.tableRender(this.interviewData);
+                    this.addEvents();
+                    this.modal = MODAL;
+                    this.modal.setAttribute('visibility', 'hidden');
+                    document.body.appendChild(this.modal);
+                });
+            })
+        }
     }
 
     addEvents() {
@@ -38,16 +39,20 @@ export class MainPageComponent extends HTMLElement {
         if (e.target.id === 'addBtn') {
             this.openModal();
         }
-        else if(e.target.id === 'edit'){
-            document.location.href = `#main/${e.target.parentNode.id}`
+        else if (e.target.id === 'edit') {
+            document.location.href = `#main/interview/${e.target.parentNode.id}`
         }
-
-    }
-
-    menuRender(){
-        const MENU = document.createElement('menu-el');
-        MENU.classList.add('mdl-layout__drawer');
-        this.shadow.querySelector('#cont').insertBefore(MENU, this.shadow.querySelector('main'));
+        else if (e.target.id === 'view') {
+            document.location.href = `#main/statistic/${e.target.parentNode.id}`
+        }
+        else if (e.target.id === 'delete') {
+            e.target.parentNode.parentNode.remove();
+            INTERVIEW_DATA.forEach((el, i, arr) => {
+                if (el.id.toString() === e.target.parentNode.id) {
+                    INTERVIEW_DATA.splice(i, 1)
+                }
+            });
+        }
     }
 
     tableRender(data) {
@@ -82,7 +87,7 @@ export class MainPageComponent extends HTMLElement {
             overlay.remove();
             that.modal.setAttribute('visibility', 'hidden');
         };
-        overlay.addEventListener('click', removing );
+        overlay.addEventListener('click', removing);
         this.modal.setAttribute('visibility', 'visible');
     }
 

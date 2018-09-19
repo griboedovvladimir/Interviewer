@@ -7,14 +7,16 @@ export class MenuComponent extends HTMLElement {
     }
 
     render() {
-        this.shadow = this.attachShadow({mode: 'open'});
-        fetch('./layouts/menu.html').then(resp => {
-            resp.text().then(text => {
-                this.shadow.innerHTML = text + `<link rel="stylesheet" type="text/css" href = 'style.css'>`;
-                this.addEvents();
-                this.locate();
-            });
-        })
+        if(!document.querySelector('menu-el')) {
+            this.shadow = this.attachShadow({mode: 'open'});
+            fetch('./layouts/menu.html').then(resp => {
+                resp.text().then(text => {
+                    this.shadow.innerHTML = `<link rel="stylesheet" type="text/css" href = 'style.css'>` +text;
+                    this.addEvents();
+                    this.locate();
+                });
+            })
+        }
     }
 
     addEvents() {
@@ -27,10 +29,20 @@ export class MenuComponent extends HTMLElement {
             localStorage.clear();
             document.location.href = "#login";
         }
+        else if(e.target.id === 'main'){
+            document.location.href = "#main";
+        }
+        else if(e.target.id === 'interview'){
+
+        }
+        else if(e.target.id === 'statistic'){
+
+        }
+
     }
 
     locate() {
-        if(window.location.hash === '#main'){
+        if(new RegExp('#main\/?([\\w\\s]+)?').test(window.location.hash)){
             this.shadow.querySelector('#main').style.color=' #00857c';
         }
     }
@@ -45,7 +57,7 @@ export class MenuComponent extends HTMLElement {
     }
 
     disconnectedCallback() {
-        this.shadow.removeEventListener('click', this);
+
     }
 }
 

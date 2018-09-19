@@ -1,5 +1,5 @@
 import {guid} from "../helpers/guid";
-import {USER_DATA} from "./USER_DATA";
+import {USER_DATA} from "../shared/USER_DATA";
 
 const LS_KEY = 'INTERVIEWER_TOKEN';
 
@@ -16,7 +16,7 @@ export class LoginPageComonent extends HTMLElement {
         this.shadow = this.attachShadow({mode: 'open'});
         fetch('./layouts/login-page.html').then(resp => {
             resp.text().then(text => {
-                this.shadow.innerHTML = text + `<link rel="stylesheet" type="text/css" href = 'style.css'>`;
+                this.shadow.innerHTML = `<link rel="stylesheet" type="text/css" href = 'style.css'>` + text;
                 this.addEvents();
             });
         })
