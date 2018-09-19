@@ -38,6 +38,9 @@ export class Router {
                     document.body.appendChild(document.createElement('login-el'));
                 }
                 break;
+            case `#main/${document.location.hash.split('/')[1]}`:
+
+                break;
             case '#login':
                 if (localStorage.getItem('INTERVIEWER_TOKEN')) {
                     document.location.href = "#main";

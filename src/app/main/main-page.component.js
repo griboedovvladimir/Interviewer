@@ -38,6 +38,9 @@ export class MainPageComponent extends HTMLElement {
         if (e.target.id === 'addBtn') {
             this.openModal();
         }
+        else if(e.target.id === 'edit'){
+            document.location.href = `#main/${e.target.parentNode.id}`
+        }
 
     }
 
@@ -62,7 +65,7 @@ export class MainPageComponent extends HTMLElement {
                 }
             }
             tr.innerHTML = tr.innerHTML + `<td id="${interview.id}"><i id="view" class="material-icons person-actions">visibility</i>
-                <i id="create" class="material-icons person-actions">create</i>
+                <i id="edit" class="material-icons person-actions">create</i>
                 <i id="delete" class="material-icons person-actions">delete</i></td>`;
             fragment.appendChild(tr);
         }
