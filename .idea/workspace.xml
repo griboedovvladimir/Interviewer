@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03f026c8-c0b1-4d17-84fb-b54135df9f37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/USER_DATA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/USER_DATA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login-page.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login-page.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/main/INTERVIEW_DATA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/INTERVIEW_DATA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/main/main-page.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main/main-page.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/main/modal-window/modal-window.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/main/modal-window/modal-window.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/menu.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Untitled Diagram.xml" beforeDir="false" afterPath="$PROJECT_DIR$/static/Untitled Diagram.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/color-theme/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/color-theme/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/color-theme/material.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/color-theme/material.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/color-theme/sceript.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/color-theme/sceript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/color-theme/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/color-theme/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/interview.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/interview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/jquery-3.3.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/jquery-3.3.1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/material.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/material.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/material.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/material.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/statistic.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/statistic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="03f026c8-c0b1-4d17-84fb-b54135df9f37" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -41,38 +15,38 @@
     <session id="-1004382703">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="23" />
+          <entry key="css" value="25" />
           <entry key="find" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="87" />
+          <entry key="html" value="100" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="76" />
-          <entry key="json" value="6" />
-          <entry key="less" value="12" />
+          <entry key="js" value="97" />
+          <entry key="json" value="8" />
+          <entry key="less" value="13" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="23" />
-          <entry key="HTML" value="87" />
+          <entry key="CSS" value="25" />
+          <entry key="HTML" value="100" />
           <entry key="Image" value="1" />
-          <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="76" />
-          <entry key="Less" value="12" />
+          <entry key="JSON" value="7" />
+          <entry key="JavaScript" value="97" />
+          <entry key="Less" value="13" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="1" />
           <entry key="XML" value="2" />
@@ -81,19 +55,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="3611" />
-          <entry key="html" value="3620" />
-          <entry key="js" value="8809" />
+          <entry key="css" value="3638" />
+          <entry key="html" value="3670" />
+          <entry key="js" value="9678" />
           <entry key="json" value="95" />
           <entry key="less" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="3611" />
-          <entry key="HTML" value="3624" />
+          <entry key="CSS" value="3638" />
+          <entry key="HTML" value="3675" />
           <entry key="JSON" value="95" />
-          <entry key="JavaScript" value="8805" />
+          <entry key="JavaScript" value="9673" />
           <entry key="Less" value="20" />
         </counts>
       </usages-collector>
@@ -109,8 +83,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/iterview/interview-page.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="150">
               <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+=======
+            <state relative-caret-position="120">
+              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+>>>>>>> frature/chart-page-native
             </state>
           </provider>
         </entry>
@@ -118,8 +97,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/iterview/inetrview-page.component.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="195">
               <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+=======
+            <state relative-caret-position="210">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="15" selection-end-column="89" />
+>>>>>>> frature/chart-page-native
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -140,7 +124,11 @@
         <entry file="file://$PROJECT_DIR$/src/app/main/main-page.component.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
+<<<<<<< HEAD
               <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+=======
+              <caret line="25" column="61" lean-forward="true" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+>>>>>>> frature/chart-page-native
             </state>
           </provider>
         </entry>
@@ -148,8 +136,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.component.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="150">
               <caret line="13" column="65" lean-forward="true" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+=======
+            <state relative-caret-position="165">
+              <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+>>>>>>> frature/chart-page-native
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -191,7 +184,11 @@
         <entry file="file://$PROJECT_DIR$/src/app/main/modal-window/modal-window.component.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
+<<<<<<< HEAD
               <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+=======
+              <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+>>>>>>> frature/chart-page-native
             </state>
           </provider>
         </entry>
@@ -216,6 +213,7 @@
       <find>slider</find>
       <find>mod</find>
       <find>mdl-layout__drawer</find>
+      <find>c</find>
     </findStrings>
     <replaceStrings>
       <replace>question</replace>
@@ -227,8 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/material.js" />
-        <option value="$PROJECT_DIR$/color-theme/index.js" />
         <option value="$PROJECT_DIR$/statistic.html" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/login.html" />
@@ -247,7 +243,6 @@
         <option value="$PROJECT_DIR$/src/app/login/simple.js" />
         <option value="$PROJECT_DIR$/src/app/login/login-page.js" />
         <option value="$PROJECT_DIR$/src/app/login/user_store.json" />
-        <option value="$PROJECT_DIR$/src/app/login/login-page.html" />
         <option value="$PROJECT_DIR$/src/app/login/login-page-style.css" />
         <option value="$PROJECT_DIR$/src/app/helpers/guid.js" />
         <option value="$PROJECT_DIR$/src/app/main/main-page-component.js" />
@@ -255,29 +250,32 @@
         <option value="$PROJECT_DIR$/src/app/login/USER_DATA.js" />
         <option value="$PROJECT_DIR$/src/app/main/modal-window/INTERVIEW_DATA.js" />
         <option value="$PROJECT_DIR$/src/app/main/INTERVIEW_DATA.js" />
-        <option value="$PROJECT_DIR$/src/styles/style.css" />
         <option value="$PROJECT_DIR$/src/static/main.html" />
-        <option value="$PROJECT_DIR$/src/app/material.js" />
         <option value="$PROJECT_DIR$/src/static/interview.html" />
         <option value="$PROJECT_DIR$/src/app/menu/menu.component.html" />
         <option value="$PROJECT_DIR$/src/static/material.css" />
-        <option value="$PROJECT_DIR$/src/app/main/main-page.html" />
         <option value="$PROJECT_DIR$/src/app/main/modal-window/modal-window.html" />
-        <option value="$PROJECT_DIR$/src/app/menu/menu.html" />
-        <option value="$PROJECT_DIR$/src/app/login/login-page.component.js" />
-        <option value="$PROJECT_DIR$/src/app/main/modal-window/modal-window.component.js" />
-        <option value="$PROJECT_DIR$/src/app/main/main-page.component.js" />
         <option value="$PROJECT_DIR$/src/styles/material.css" />
-        <option value="$PROJECT_DIR$/src/app/iterview/interview-page.html" />
         <option value="$PROJECT_DIR$/src/app/person-statistic/person-statistic.html" />
-        <option value="$PROJECT_DIR$/src/app/menu/menu.component.js" />
-        <option value="$PROJECT_DIR$/src/app/index.js" />
         <option value="$PROJECT_DIR$/src/index.html" />
-        <option value="$PROJECT_DIR$/src/app/router.js" />
-        <option value="$PROJECT_DIR$/src/app/iterview/inetrview-page.component.js" />
-        <option value="$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.component.js" />
-        <option value="$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.html" />
+        <option value="$PROJECT_DIR$/static/statistic.html" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/app/chart.js" />
+        <option value="$PROJECT_DIR$/src/app/material.js" />
+        <option value="$PROJECT_DIR$/src/app/index.js" />
+        <option value="$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.html" />
+        <option value="$PROJECT_DIR$/src/app/router.js" />
+        <option value="$PROJECT_DIR$/src/styles/style.css" />
+        <option value="$PROJECT_DIR$/src/app/main/main-page.component.js" />
+        <option value="$PROJECT_DIR$/src/app/login/login-page.component.js" />
+        <option value="$PROJECT_DIR$/src/app/iterview/inetrview-page.component.js" />
+        <option value="$PROJECT_DIR$/src/app/menu/menu.component.js" />
+        <option value="$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.component.js" />
+        <option value="$PROJECT_DIR$/src/app/menu/menu.html" />
+        <option value="$PROJECT_DIR$/src/app/main/main-page.html" />
+        <option value="$PROJECT_DIR$/src/app/main/modal-window/modal-window.component.js" />
+        <option value="$PROJECT_DIR$/src/app/login/login-page.html" />
+        <option value="$PROJECT_DIR$/src/app/iterview/interview-page.html" />
       </list>
     </option>
   </component>
@@ -296,9 +294,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="290" />
-    <option name="y" value="51" />
-    <option name="width" value="1390" />
+    <option name="x" value="216" />
+    <option name="y" value="27" />
+    <option name="width" value="1380" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -364,11 +362,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/shared" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/node_modules" />
       <recent name="$PROJECT_DIR$/src/app/main" />
-      <recent name="$PROJECT_DIR$/src/app/login" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app" />
+      <recent name="$PROJECT_DIR$/src/app/person-statistic" />
+      <recent name="$PROJECT_DIR$/src/styles" />
+      <recent name="$PROJECT_DIR$/dist" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/person-statistic" />
@@ -433,12 +438,13 @@
       <workItem from="1536821695455" duration="15359000" />
       <workItem from="1536906950404" duration="23874000" />
       <workItem from="1537169405205" duration="26772000" />
-      <workItem from="1537252912568" duration="53959000" />
+      <workItem from="1537252912568" duration="54610000" />
+      <workItem from="1537425620388" duration="12801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233043000" />
+    <option name="totallyTimeSpent" value="246495000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,7 +458,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20453347" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20453347" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -464,7 +470,11 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.6552451" visible="true" weight="0.35135135" />
+=======
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.6552451" visible="true" weight="0.35135135" />
+>>>>>>> frature/chart-page-native
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.34475487" side_tool="true" visible="true" weight="0.35135135" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -479,8 +489,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/main.html" />
-    <entry file="file://$PROJECT_DIR$/find" />
     <entry file="file://$PROJECT_DIR$/node_modules/less/lib/source-map/source-map-0.1.31.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-165">
@@ -521,35 +529,14 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/app/material.js" />
+=======
+>>>>>>> frature/chart-page-native
     <entry file="file://$PROJECT_DIR$/static/material.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="15875" column="37" lean-forward="true" selection-start-line="15875" selection-start-column="37" selection-end-line="15875" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/modal-window/modal-window.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/style.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="702" column="18" lean-forward="true" selection-start-line="702" selection-start-column="10" selection-end-line="702" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -567,19 +554,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/interview.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="49" lean-forward="true" selection-end-line="103" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/main.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/app/main/modal-window/modal-window.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -587,63 +568,12 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> frature/chart-page-native
     <entry file="file://$PROJECT_DIR$/src/styles/material.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/login/login-page.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/main-page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/USER_DATA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/INTERVIEW_DATA.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/login/login-page.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/menu/menu.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/menu/menu.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="59" lean-forward="true" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/main-page.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -658,50 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/iterview/interview-page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="62" column="64" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/iterview/inetrview-page.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -720,37 +606,243 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/app/main/main-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#div#0;n#!!top" />
+          </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/static/interview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+>>>>>>> frature/chart-page-native
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/statistic.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/app/login/login-page.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/menu/menu.html">
+      <provider selected="true" editor-type-id="text-editor" />
+=======
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/INTERVIEW_DATA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+>>>>>>> frature/chart-page-native
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/USER_DATA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+<<<<<<< HEAD
+          <caret line="13" column="59" lean-forward="true" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+=======
+          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+>>>>>>> frature/chart-page-native
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/material.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="345">
+          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+=======
+        <state relative-caret-position="60390">
+          <caret line="4026" column="2" selection-start-line="4026" selection-start-column="2" selection-end-line="4026" selection-end-column="2" />
+>>>>>>> frature/chart-page-native
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="178" column="4" lean-forward="true" selection-start-line="178" selection-start-column="4" selection-end-line="178" selection-end-column="50" />
+          <folding>
+            <element signature="e#36#70#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="63" column="64" lean-forward="true" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="150">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+=======
+        <state relative-caret-position="338">
+          <caret line="1130" column="1" lean-forward="true" selection-start-line="1130" selection-start-column="1" selection-end-line="1130" selection-end-column="1" />
+>>>>>>> frature/chart-page-native
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/login/login-page.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="195">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+=======
         <state relative-caret-position="165">
-          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+>>>>>>> frature/chart-page-native
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="65" lean-forward="true" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+        <state relative-caret-position="165">
+          <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/person-statistic/chart.js">
+    <entry file="file://$PROJECT_DIR$/src/app/menu/menu.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/person-statistic/person-statistic-page.html">
+    <entry file="file://$PROJECT_DIR$/src/app/main/modal-window/modal-window.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state relative-caret-position="285">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+    <entry file="file://$PROJECT_DIR$/src/app/main/modal-window/modal-window.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="82" column="14" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+        <state relative-caret-position="210">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/main-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="150">
+          <caret line="13" column="65" lean-forward="true" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+=======
+        <state>
+          <folding>
+            <element signature="n#div#0;n#!!top" />
+>>>>>>> frature/chart-page-native
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/login/login-page.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/iterview/inetrview-page.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="15" selection-end-column="89" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/iterview/interview-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/menu/menu.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="59" lean-forward="true" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/main-page.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="61" lean-forward="true" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
         </state>
       </provider>
     </entry>

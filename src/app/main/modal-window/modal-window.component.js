@@ -1,21 +1,24 @@
-import {INTERVIEW_DATA} from "../../shared/INTERVIEW_DATA";
-import {MainPageComponent} from "../main-page.component";
+import {StoreService} from "../../shared/store.service";
 
 export class ModalWindowComponent extends HTMLElement {
     constructor() {
         super();
         this.shadow = '';
         this.render();
+        this.store = new StoreService();
     }
 
     render() {
         this.shadow = this.attachShadow({mode: 'open'});
-        fetch('./layouts/modal-window.html').then(resp => {
-            resp.text().then(text => {
-                this.shadow.innerHTML = `<link rel="stylesheet" type="text/css" href = 'style.css'>` +text;
-                this.addEvents();
-            });
-        })
+        fetch('style.css').then(resp => {resp.text().then(text => {
+            this.shadow.innerHTML = this.shadow.innerHTML + `<style>${text}</style>`;
+            fetch('./layouts/modal-window.html').then(resp => {
+                resp.text().then(text => {
+                    this.shadow.innerHTML = this.shadow.innerHTML + text;
+                    this.addEvents();
+                });
+            })
+        })})
     }
 
     addEvents() {
@@ -50,7 +53,7 @@ export class ModalWindowComponent extends HTMLElement {
                 }
             }
             this.shadow.querySelector('form').reset();
-            INTERVIEW_DATA.unshift(interviewModel);
+            this.store.setInterviewData(interviewModel);
 
             document.querySelector('main-el').remove();
             document.getElementById('overlay').remove();

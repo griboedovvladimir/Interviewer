@@ -111,7 +111,7 @@ let conf = {
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,
-        port: 3080,
+        port: 3030,
         overlay:true
     },
     ///watch:true

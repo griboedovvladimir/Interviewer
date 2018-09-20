@@ -1129,6 +1129,13 @@ display: flex;
     padding: 5px;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
+
+.mdl-chip__text{
+    cursor: default;
+}
+.chips{
+    cursor: pointer;
+}
 /*--------------------------------------*/
 
 .charts {
