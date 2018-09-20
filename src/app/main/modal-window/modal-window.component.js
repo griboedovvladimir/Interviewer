@@ -10,12 +10,15 @@ export class ModalWindowComponent extends HTMLElement {
 
     render() {
         this.shadow = this.attachShadow({mode: 'open'});
-        fetch('./layouts/modal-window.html').then(resp => {
-            resp.text().then(text => {
-                this.shadow.innerHTML = `<link rel="stylesheet" type="text/css" href = 'style.css'>` +text;
-                this.addEvents();
-            });
-        })
+        fetch('style.css').then(resp => {resp.text().then(text => {
+            this.shadow.innerHTML = this.shadow.innerHTML + `<style>${text}</style>`;
+            fetch('./layouts/modal-window.html').then(resp => {
+                resp.text().then(text => {
+                    this.shadow.innerHTML = this.shadow.innerHTML + text;
+                    this.addEvents();
+                });
+            })
+        })})
     }
 
     addEvents() {

@@ -9,13 +9,16 @@ export class MenuComponent extends HTMLElement {
     render() {
         if(!document.querySelector('menu-el')) {
             this.shadow = this.attachShadow({mode: 'open'});
-            fetch('./layouts/menu.html').then(resp => {
-                resp.text().then(text => {
-                    this.shadow.innerHTML = `<link rel="stylesheet" type="text/css" href = 'style.css'>` +text;
-                    this.addEvents();
-                    this.locate();
-                });
-            })
+            fetch('style.css').then(resp => {resp.text().then(text => {
+                this.shadow.innerHTML = this.shadow.innerHTML + `<style>${text}</style>`;
+                fetch('./layouts/menu.html').then(resp => {
+                    resp.text().then(text => {
+                        this.shadow.innerHTML = this.shadow.innerHTML + text;
+                        this.addEvents();
+                        this.locate();
+                    });
+                })
+            })})
         }
     }
 

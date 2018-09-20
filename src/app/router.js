@@ -43,6 +43,7 @@ export class Router {
                 }
                 break;
             case `#main/interview/${document.location.hash.split('/')[2]}`:
+                if(document.querySelector('.statistic'))document.querySelector('.statistic').remove();
                 if (!document.querySelector('menu-el')) {
                     document.body.appendChild(document.createElement('menu-el'));
                 }
@@ -62,9 +63,9 @@ export class Router {
                     document.querySelector('main-el').remove();
                     document.querySelector('modal-el').remove();
                 }
-                let stat = document.createElement('person-statistic-el');
-                stat.setAttribute('person-id', document.location.hash.split('/')[2]);
-                document.body.appendChild(stat);
+                if(document.querySelector('.statistic'))document.querySelector('.statistic').remove();
+                if(document.querySelector('interview-el'))document.querySelector('interview-el').remove();
+                let stat = new PersonStatisticPageComponent;
                 break;
             case '#login':
                 if (localStorage.getItem('INTERVIEWER_TOKEN')) {
