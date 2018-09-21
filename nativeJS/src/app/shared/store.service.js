@@ -1,8 +1,8 @@
 import {INTERVIEW_DATA} from "./INTERVIEW_DATA";
 import {USER_DATA} from "./USER_DATA";
 
-const ID_LS_KEY = 'INTERVIEW_DATA_LS_KEY';
-const UD_LS_KEY = 'USER_DATA_LS_KEY';
+const ID_LS_KEY = 'INTERVIEW_DATA';
+const UD_LS_KEY = 'USER_DATA';
 let singletonInstance = null;
 
 export class StoreService {
