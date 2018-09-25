@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {LoginPage} from "./login/Login-page";
+import {MainPage} from "./main/Main-page";
+import * as CONSTANTS from '../constants';
 
 
 class App extends React.Component {
@@ -9,7 +11,8 @@ class App extends React.Component {
             <BrowserRouter>
                 <section>
                     <Switch>
-                        <Route path="/login" component={LoginPage}/>
+                        <Route path={CONSTANTS.MAIN_PAGE} component={MainPage}/>
+                        <Route path={CONSTANTS.LOGIN_PAGE} component={LoginPage}/>
                         <Route path="/" component={LoginPage}/>
                     </Switch>
                 </section>

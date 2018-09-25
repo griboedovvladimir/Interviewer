@@ -5,7 +5,7 @@ export class CheckLoginService{
     }
     public checkUser(name: string ,pass: string){
         let body = {name,pass};
-        return fetch('http://localhost:4000/authorization',{
+        return fetch('http://localhost:4040/authorization',{
             method:'POST',
             headers: {
                 'Accept': 'application/json',

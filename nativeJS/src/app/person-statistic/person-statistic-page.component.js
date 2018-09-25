@@ -1,5 +1,5 @@
 import {StoreService} from "../shared/store.service";
-import {chart} from './../chart'
+import {chart} from '../chart'
 
 export class PersonStatisticPageComponent extends HTMLElement {
     constructor() {
