@@ -4,7 +4,7 @@ import {CheckLoginService} from '../../services/check-login.service';
 import {Redirect} from "react-router";
 import * as CONSTANTS from '../../constants';
 
-export class LoginPage extends Component {
+export default class LoginPage extends Component {
     public state: { logged: boolean };
 
     constructor(props: any, private service: CheckLoginService) {
@@ -19,7 +19,7 @@ export class LoginPage extends Component {
         e.preventDefault();
         this.service.checkUser(e.target.loginName.value, e.target.loginPassword.value)
             .then(res => res.text().then(check => {
-                if (check === CONSTANTS.LOGED_API_RES) {
+                if (check === CONSTANTS.LOGGED_API_RES) {
                     this.setState({logged: true});
                 }
             }));
