@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {LoginPage} from "./login/Login-page";
+import LoginPage from "./login/Login-page";
 import {MainPage} from "./main/Main-page";
 import * as CONSTANTS from '../constants';
 
