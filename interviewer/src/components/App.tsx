@@ -4,7 +4,6 @@ import {LoginPage} from "./login/Login-page";
 import {MainPage} from "./main/Main-page";
 import * as CONSTANTS from '../constants';
 
-
 class App extends React.Component {
     public render() {
         return (

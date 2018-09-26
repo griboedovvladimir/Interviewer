@@ -12,8 +12,6 @@ const DB_config = {
 };
 
 
-const USERS = require('./data/USER_DATA');
-
 app.use(cors());
 
 app.use(bodyParser.urlencoded({
