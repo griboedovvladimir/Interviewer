@@ -1,11 +1,4 @@
-import * as CONSTANTS from '../constants';
-
-export function login(logged: string) {
-    return {
-        type: CONSTANTS.ACTION_LOGIN,
-        logged
-    };
-}
+import * as CONSTANTS from './constants';
 
 export function addInterview(name: string, level: string, specialization: string, id: string) {
     return {
