@@ -1,11 +1,14 @@
 import * as React from "react";
 import {Component} from 'react';
 import {Menu} from "../menu/Menu"
-import {MainTable} from "../table/Main-table";
+import MainTable from "../table/Main-table";
 import {MainModal} from "../modal/Main-modal";
+import {bindActionCreators, Dispatch} from "redux";
+import * as actions from "../login/actions";
+import {connect} from "react-redux";
 
 
-export class MainPage extends Component {
+ class MainPage extends Component {
 
     constructor(props: any) {
         super(props);
@@ -26,3 +29,14 @@ export class MainPage extends Component {
         )
     }
 }
+
+const mapStateToProps = (state: any) => ({
+    logged: state.login.logged,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    action: bindActionCreators({...actions}, dispatch)
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

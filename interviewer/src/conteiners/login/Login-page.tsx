@@ -22,14 +22,9 @@ class LoginPage extends Component {
         this.service.checkUser(e.target.loginName.value, e.target.loginPassword.value)
             .then(res => res.text().then(check => {
                 if (check === CONSTANTS.LOGGED_API_RES) {
-
                     this.props.action.login(true);
                 }
             }));
-    }
-
-    public componentDidUpdate() {
-        console.log(this.props.logged)
     }
 
     public render() {
