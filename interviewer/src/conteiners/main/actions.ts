@@ -1,4 +1,4 @@
-import * as CONSTANTS from '../constants';
+import * as CONSTANTS from './constants';
 
 export function login(logged: string) {
     return {

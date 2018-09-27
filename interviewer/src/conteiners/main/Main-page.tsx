@@ -1,8 +1,8 @@
 import * as React from "react";
 import {Component} from 'react';
 import {Menu} from "../menu/Menu"
-import {MainTable} from "./table/Main-table";
-import {MainModal} from "./modal/Main-modal";
+import {MainTable} from "../table/Main-table";
+import {MainModal} from "../modal/Main-modal";
 
 
 export class MainPage extends Component {

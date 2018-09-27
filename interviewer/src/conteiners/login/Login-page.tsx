@@ -1,18 +1,20 @@
 import * as React from "react";
 import {Component} from 'react';
-import {CheckLoginService} from '../../services/check-login.service';
+import {bindActionCreators, Dispatch} from 'redux';
 import {Redirect} from "react-router";
+import {connect} from 'react-redux';
 import * as CONSTANTS from '../../constants';
+import * as actions from './actions';
+import {CheckLoginService} from '../../services/check-login.service';
 
-export default class LoginPage extends Component {
-    public state: { logged: boolean };
+
+class LoginPage extends Component {
+    public props: any;
 
     constructor(props: any, private service: CheckLoginService) {
         super(props);
-        this.state = {logged: false};
-        this.service = new CheckLoginService;
-
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.service = new CheckLoginService;
     }
 
     public handleSubmit(e: any) {
@@ -20,13 +22,18 @@ export default class LoginPage extends Component {
         this.service.checkUser(e.target.loginName.value, e.target.loginPassword.value)
             .then(res => res.text().then(check => {
                 if (check === CONSTANTS.LOGGED_API_RES) {
-                    this.setState({logged: true});
+
+                    this.props.action.login(true);
                 }
             }));
     }
 
+    public componentDidUpdate() {
+        console.log(this.props.logged)
+    }
+
     public render() {
-        if (!this.state.logged) {
+        if (!this.props.logged) {
             return (
                 <div className="form-wrapper">
                     <form className="login-form" onSubmit={this.handleSubmit}>
@@ -64,8 +71,19 @@ export default class LoginPage extends Component {
                 </div>
             );
         } else {
-
             return <Redirect to={CONSTANTS.MAIN_PAGE}/>;
         }
     }
 }
+
+
+const mapStateToProps = (state: any) => ({
+    logged: state.login.logged,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    action: bindActionCreators({...actions}, dispatch)
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
