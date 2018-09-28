@@ -6,11 +6,3 @@ export function addInterview(name: string, level: string, specialization: string
         id, name, level, specialization
     };
 }
-
-export function removeInterview(id: string) {
-    return {
-        type: CONSTANTS.ACTION_REMOVE_INTERVIEW,
-        id
-    };
-}
-

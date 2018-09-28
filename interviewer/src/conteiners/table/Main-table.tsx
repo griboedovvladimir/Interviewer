@@ -1,21 +1,26 @@
 import * as React from "react";
 import {Component} from 'react';
-import {MainTableRow} from "../main-table-row/Main-table-row";
+import MainTableRow from "../main-table-row/Main-table-row";
 import {bindActionCreators, Dispatch} from "redux";
-import * as actions from "../login/actions";
+import * as actions from "./actions";
 import {connect} from "react-redux";
+import {APICallService} from "../../services/APICall.service";
 
 
 class MainTable extends Component {
     public props: any;
 
-    constructor(props: any) {
+    constructor(props: any,private api:APICallService) {
         super(props);
+        this.api = new APICallService();
+        this.api.getInterview().then(res=>{
+            this.props.action.getInterview(res);
+        })
     }
 
     public render() {
         let rows = this.props.interview.map((el: any, i: any) => {
-            return <MainTableRow key={i}/>;
+            return <MainTableRow key={i} rowData={el}/>;
         });
         return (
             <div className="table-wrapper">
@@ -33,7 +38,6 @@ class MainTable extends Component {
                         </thead>
                         <tbody>
                         {rows}
-                        <MainTableRow/>
                         </tbody>
                     </table>
                     <div className="mdc-component mdc-component__buttons">

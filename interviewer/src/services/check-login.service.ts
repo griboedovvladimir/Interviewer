@@ -1,3 +1,4 @@
+import * as CONSTANTS from '../constants'
 
 export class CheckLoginService{
     constructor(){
@@ -5,7 +6,7 @@ export class CheckLoginService{
     }
     public checkUser(name: string ,pass: string){
         let body = {name,pass};
-        return fetch('http://localhost:4040/authorization',{
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.LOGGED_API_PATH,{
             method:'POST',
             headers: {
                 'Accept': 'application/json',
