@@ -56,7 +56,7 @@ var componentHandler = {
    */
   upgradeElements: function(elements) {},
   /**
-   * Upgrades all registered components found in the current DOM. This is
+   * Upgrades all registered conteiners found in the current DOM. This is
    * automatically called on window load.
    */
   upgradeAllRegistered: function() {},
@@ -97,7 +97,7 @@ componentHandler = (function() {
   var componentConfigProperty_ = 'mdlComponentConfigInternal_';
 
   /**
-   * Searches registered components for a class we are interested in using.
+   * Searches registered conteiners for a class we are interested in using.
    * Optionally replaces a match with passed object if specified.
    *
    * @param {string} name The name of a class we want to use.
@@ -218,7 +218,7 @@ componentHandler = (function() {
 
     var upgradedList = getUpgradedListOfElement_(element);
     var classesToUpgrade = [];
-    // If jsClass is not provided scan the registered components to find the
+    // If jsClass is not provided scan the registered conteiners to find the
     // ones matching the element's CSS classList.
     if (!optJsClass) {
       var classList = element.classList;
@@ -355,7 +355,7 @@ componentHandler = (function() {
   }
 
   /**
-   * Upgrades all registered components found in the current DOM. This is
+   * Upgrades all registered conteiners found in the current DOM. This is
    * automatically called on window load.
    */
   function upgradeAllRegisteredInternal() {
@@ -486,7 +486,7 @@ window.addEventListener('load', function() {
   /**
    * Performs a "Cutting the mustard" test. If the browser supports the features
    * tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
-   * components requiring JavaScript.
+   * conteiners requiring JavaScript.
    */
   if ('classList' in document.createElement('div') &&
       'querySelector' in document &&
@@ -1756,7 +1756,7 @@ MaterialRadio.prototype.blur_ = function () {
 };
 // Public methods.
 /**
-   * Check the components disabled state.
+   * Check the conteiners disabled state.
    *
    * @public
    */
@@ -1769,7 +1769,7 @@ MaterialRadio.prototype.checkDisabled = function () {
 };
 MaterialRadio.prototype['checkDisabled'] = MaterialRadio.prototype.checkDisabled;
 /**
-   * Check the components toggled state.
+   * Check the conteiners toggled state.
    *
    * @public
    */
@@ -2498,7 +2498,7 @@ MaterialSwitch.prototype.blur_ = function () {
 };
 // Public methods.
 /**
-   * Check the components disabled state.
+   * Check the conteiners disabled state.
    *
    * @public
    */
@@ -2511,7 +2511,7 @@ MaterialSwitch.prototype.checkDisabled = function () {
 };
 MaterialSwitch.prototype['checkDisabled'] = MaterialSwitch.prototype.checkDisabled;
 /**
-   * Check the components toggled state.
+   * Check the conteiners toggled state.
    *
    * @public
    */

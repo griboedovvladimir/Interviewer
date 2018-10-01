@@ -1,0 +1,1 @@
+export const ACTION_ADD_INTERVIEW = 'ADD_INTERVIEW';

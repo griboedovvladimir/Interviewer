@@ -1,8 +1,9 @@
 import * as CONSTANTS from './constants';
+import {InterviewInterface} from "../../interfaces/interview.interface";
 
-export function addInterview(name: string, level: string, specialization: string, id: string) {
+export function addInterview(interview:InterviewInterface) {
     return {
         type: CONSTANTS.ACTION_ADD_INTERVIEW,
-        id, name, level, specialization
+        ...interview
     };
 }

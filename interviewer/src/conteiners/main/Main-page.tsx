@@ -2,7 +2,7 @@ import * as React from "react";
 import {Component} from 'react';
 import {Menu} from "../menu/Menu"
 import MainTable from "../table/Main-table";
-import {MainModal} from "../modal/Main-modal";
+import MainModal from "../modal/Main-modal";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../login/actions";
 import {connect} from "react-redux";

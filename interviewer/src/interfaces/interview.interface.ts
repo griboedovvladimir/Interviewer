@@ -1,5 +1,5 @@
 export interface InterviewInterface {
-    id: string;
+    interview_id: string;
     name: string;
     level: string;
     specialization: string;

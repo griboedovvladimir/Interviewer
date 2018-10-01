@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import * as CONSTANTS from '../../constants';
 import * as actions from './actions';
 import {CheckLoginService} from '../../services/check-login.service';
+import bound from '../../decorators/bound'
 
 
 class LoginPage extends Component {
@@ -13,11 +14,10 @@ class LoginPage extends Component {
 
     constructor(props: any, private service: CheckLoginService) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.service = new CheckLoginService;
     }
 
-    public handleSubmit(e: any) {
+    @bound public handleSubmit(e: any) {
         e.preventDefault();
         this.service.checkUser(e.target.loginName.value, e.target.loginPassword.value)
             .then(res => res.text().then(check => {

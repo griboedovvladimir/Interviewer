@@ -5,7 +5,7 @@ import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "./actions";
 import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
-
+import bound from '../../decorators/bound'
 
 class MainTable extends Component {
     public props: any;
@@ -13,14 +13,19 @@ class MainTable extends Component {
     constructor(props: any,private api:APICallService) {
         super(props);
         this.api = new APICallService();
+        // this.modalActivate = this.modalActivate.bind(this);
         this.api.getInterview().then(res=>{
             this.props.action.getInterview(res);
         })
     }
 
+    @bound public modalActivate(){
+        console.log(this.props);
+    }
+
     public render() {
-        let rows = this.props.interview.map((el: any, i: any) => {
-            return <MainTableRow key={i} rowData={el}/>;
+        let rows = this.props.interview.reverse().map((el: any, i: any) => {
+            return <MainTableRow key={el.interview_id} rowData={el}/>;
         });
         return (
             <div className="table-wrapper">
@@ -42,7 +47,7 @@ class MainTable extends Component {
                     </table>
                     <div className="mdc-component mdc-component__buttons">
                         <div className="mdc-component__containers__primary add-button">
-                            <button type="submit" className="mdc-button mdc-button--raised">Add new</button>
+                            <button type="button" className="mdc-button mdc-button--raised" onClick={this.modalActivate}>Add new</button>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,8 @@
     "no-empty": false,
     "no-console": false,
     "prefer-const": false,
-    "jsdoc-format": true
+    "jsdoc-format": true,
+    "experimentalDecorators":true
   },
   "linterOptions": {
     "exclude": [

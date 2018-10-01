@@ -1,58 +1,24 @@
 import * as CONSTANTS from './constants';
-import {guid} from "../../helpers/guid";
-import {getDateByString} from "../../helpers/getDateByString";
-// import {InterviewInterface} from "../../interfaces/interview.interface";
+import {InterviewInterface} from "../../interfaces/interview.interface";
 
-// const defaultProjects: InterviewInterface[] = [{
-//     "id" : "101",
-//     "name": "Don Aubrey",
-//     "specialization" : "Frontend developer",
-//     "level" : "1",
-//     "date": "06.09.2018",
-//     "status": "ok",
-// },
-//     {
-//         "id": "102",
-//         "name": "Sophia Carson",
-//         "specialization" : "Frontend developer",
-//         "level" : "2",
-//         "date": "11.09.2018",
-//         "status": "ok",
-//     },
-//     {
-//         "id": "103",
-//         "name": "Steve Moreno",
-//         "specialization" : "Frontend developer",
-//         "level" : "2",
-//         "date": "03.09.2018",
-//         "status": "ok",
-//     },
-//     {
-//         "id": "104",
-//         "name": "John Doe",
-//         "specialization" : "Frontend developer",
-//         "level" : "1",
-//         "date": "16.09.2018",
-//         "status": "ok",
-//     }];
 
 export function interview(state = [], action: any) {
     if (action.type === CONSTANTS.ACTION_ADD_INTERVIEW) {
         return [
+            ...state,
             {
-                id: guid(),
+                interview_id: action.interview_id,
                 name: action.name,
                 level: action.level,
                 specialization: action.specialization,
-                date: getDateByString(),
-                status: 'ok'
-            },
-            ...state
+                date: action.date,
+                status: action.status
+            }
         ];
     }
     if (action.type === CONSTANTS.ACTION_REMOVE_INTERVIEW) {
-        return state.filter((el:any)=>{
-            return el.id !== action.id;
+        return state.filter((el:InterviewInterface)=>{
+            return el.interview_id !== action.id;
        });
 }
     if (action.type === CONSTANTS.ACTION_GET_INTERVIEW) {
