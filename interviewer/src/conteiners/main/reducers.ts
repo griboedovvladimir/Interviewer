@@ -5,7 +5,6 @@ import {InterviewInterface} from "../../interfaces/interview.interface";
 export function interview(state = [], action: any) {
     if (action.type === CONSTANTS.ACTION_ADD_INTERVIEW) {
         return [
-            ...state,
             {
                 interview_id: action.interview_id,
                 name: action.name,
@@ -13,7 +12,8 @@ export function interview(state = [], action: any) {
                 specialization: action.specialization,
                 date: action.date,
                 status: action.status
-            }
+            },
+            ...state,
         ];
     }
     if (action.type === CONSTANTS.ACTION_REMOVE_INTERVIEW) {

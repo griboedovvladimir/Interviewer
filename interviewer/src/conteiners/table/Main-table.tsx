@@ -6,6 +6,7 @@ import * as actions from "./actions";
 import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
 import bound from '../../decorators/bound'
+import * as CONSTANTS from '../../constants';
 
 class MainTable extends Component {
     public props: any;
@@ -13,18 +14,30 @@ class MainTable extends Component {
     constructor(props: any,private api:APICallService) {
         super(props);
         this.api = new APICallService();
-        // this.modalActivate = this.modalActivate.bind(this);
         this.api.getInterview().then(res=>{
+            res.reverse();
             this.props.action.getInterview(res);
         })
     }
 
     @bound public modalActivate(){
-        console.log(this.props);
+        let el = document.getElementsByClassName(CONSTANTS.MODAL_HIDDEN)[0];
+        let overlay = document.createElement('div');
+        overlay.id = CONSTANTS.MODAL_OVERLAY;
+        document.body.appendChild(overlay);
+        let removing = () => {
+            overlay.removeEventListener('click', removing);
+            overlay.remove();
+            el.classList.remove(CONSTANTS.MODAL_ACTIVE);
+            el.classList.add(CONSTANTS.MODAL_HIDDEN);
+        };
+        overlay.addEventListener('click', removing);
+        el.classList.remove(CONSTANTS.MODAL_HIDDEN);
+        el.classList.add(CONSTANTS.MODAL_ACTIVE);
     }
 
     public render() {
-        let rows = this.props.interview.reverse().map((el: any, i: any) => {
+        let rows = this.props.interview.map((el: any, i: any) => {
             return <MainTableRow key={el.interview_id} rowData={el}/>;
         });
         return (

@@ -6,23 +6,27 @@ import {connect} from 'react-redux';
 import * as CONSTANTS from '../../constants';
 import * as actions from './actions';
 import {CheckLoginService} from '../../services/check-login.service';
+import {AuthorizationService} from "../../services/authorization.service";
 import bound from '../../decorators/bound'
 
 
 class LoginPage extends Component {
     public props: any;
+    public authorization:AuthorizationService;
 
     constructor(props: any, private service: CheckLoginService) {
         super(props);
         this.service = new CheckLoginService;
+        this.authorization = new AuthorizationService();
     }
 
     @bound public handleSubmit(e: any) {
         e.preventDefault();
         this.service.checkUser(e.target.loginName.value, e.target.loginPassword.value)
-            .then(res => res.text().then(check => {
-                if (check === CONSTANTS.LOGGED_API_RES) {
+            .then(res => res.json().then(check => {
+                if (check.authorization === CONSTANTS.LOGGED_API_RES) {
                     this.props.action.login(true);
+                    this.authorization.authorizate(check.token);
                 }
             }));
     }

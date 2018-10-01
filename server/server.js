@@ -17,13 +17,13 @@ app.post(PATHS_CONSTANTS.AUTHORIZATION, (req, res) => {
     let connection = sql.createConnection(DB_CONSTANTS.DB_CONFIG);
     connection.connect();
     connection.query('select * from user', (error, results) => {
-        let response = 'false';
+        let response = {authorization: 'false', token: ''};
         results.forEach(i => {
             if (i.password === req.body.pass && i.name === req.body.name) {
-                response = 'true';
+                response = {authorization: 'true', token: i.token};
             }
         });
-        res.end(response);
+        res.end(JSON.stringify(response));
     });
     connection.end();
 });
@@ -31,16 +31,16 @@ app.post(PATHS_CONSTANTS.AUTHORIZATION, (req, res) => {
 app.get(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
     let connection = sql.createConnection(DB_CONSTANTS.DB_CONFIG);
     connection.connect();
-    connection.query('select * from interview', (error, results)=> {
+    connection.query('select * from interview', (error, results) => {
         res.end(JSON.stringify(results));
     });
     connection.end();
 });
 
-app.delete(PATHS_CONSTANTS.INTERVIEW + '/:id',  (req, res) => {
+app.delete(PATHS_CONSTANTS.INTERVIEW + '/:id', (req, res) => {
     let connection = sql.createConnection(DB_CONSTANTS.DB_CONFIG);
     connection.connect();
-    connection.query('DELETE FROM `interview` WHERE `interview_id`='+req.path.split('/')[2]);
+    connection.query('DELETE FROM `interview` WHERE `interview_id`=' + req.path.split('/')[2]);
     connection.end();
 });
 
@@ -49,14 +49,13 @@ app.post(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
     connection.connect();
     connection.query(
         'INSERT INTO `interview`(`interview_id`, `name`, `level`, `specialization`, `date`, `status`) ' +
-        'VALUES (NULL,"'+ req.body.name +'","'+req.body.level+'","'+req.body.specialization+'","' +
-        ''+req.body.date+'","'+req.body.status+'")',(error, results, fields)=>{
+        'VALUES (NULL,"' + req.body.name + '","' + req.body.level + '","' + req.body.specialization + '","' +
+        '' + req.body.date + '","' + req.body.status + '")', (error, results, fields) => {
             res.end(JSON.stringify(results.insertId));
         }
     );
     connection.end();
 });
-
 
 
 app.listen(4040, () => console.log('Gator app listening on port 4040!'));

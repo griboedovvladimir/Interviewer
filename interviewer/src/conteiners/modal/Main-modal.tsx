@@ -6,6 +6,8 @@ import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
 import {getDateByString} from "../../helpers/getDateByString";
 import bound from '../../decorators/bound'
+import * as CONSTANTS from '../../constants';
+
 
 class MainModal extends Component {
     public props: any;
@@ -24,14 +26,19 @@ class MainModal extends Component {
             date: getDateByString(),
             status: 'ok'
         };
-        this.api.addInterview(interview).then((res:any) =>res.json().then(
+        this.api.addInterview(interview).then(
             (newId:any)=>{
                 this.props.action.addInterview({
                     interview_id: newId,
                     ...interview
-                })
+                });
+                let el = document.getElementsByClassName(CONSTANTS.MODAL_ACTIVE)[0];
+                let overlay = document.getElementById(CONSTANTS.MODAL_OVERLAY);
+                if(overlay){overlay.remove();}
+                el.classList.remove(CONSTANTS.MODAL_ACTIVE);
+                el.classList.add(CONSTANTS.MODAL_HIDDEN);
             }
-        ))
+        )
     }
 
     public render() {

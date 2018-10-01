@@ -16,6 +16,6 @@ export class APICallService{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(interview)})
+            body: JSON.stringify(interview)}).then(req => req.json());
     }
 }
