@@ -5,7 +5,7 @@ import {Redirect} from "react-router";
 import {connect} from 'react-redux';
 import * as CONSTANTS from '../../constants';
 import * as actions from './actions';
-import {CheckLoginService} from '../../services/check-login.service';
+import {APICallService} from "../../services/APICall.service";
 import {AuthorizationService} from "../../services/authorization.service";
 import bound from '../../decorators/bound'
 
@@ -14,9 +14,9 @@ class LoginPage extends Component {
     public props: any;
     public authorization:AuthorizationService;
 
-    constructor(props: any, private service: CheckLoginService) {
+    constructor(props: any, private service: APICallService) {
         super(props);
-        this.service = new CheckLoginService;
+        this.service = new APICallService;
         this.authorization = new AuthorizationService();
     }
 

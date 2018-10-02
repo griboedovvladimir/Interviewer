@@ -17,12 +17,12 @@ export function interview(state = [], action: any) {
         ];
     }
     if (action.type === CONSTANTS.ACTION_REMOVE_INTERVIEW) {
-        return state.filter((el:InterviewInterface)=>{
+        return state.filter((el: InterviewInterface) => {
             return el.interview_id !== action.id;
-       });
-}
+        });
+    }
     if (action.type === CONSTANTS.ACTION_GET_INTERVIEW) {
-        return [...state, ...action.interviews]
+        return [...action.interviews]
     }
     return state;
 }

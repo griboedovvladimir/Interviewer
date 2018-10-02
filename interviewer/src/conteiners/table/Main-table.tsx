@@ -11,16 +11,16 @@ import * as CONSTANTS from '../../constants';
 class MainTable extends Component {
     public props: any;
 
-    constructor(props: any,private api:APICallService) {
+    constructor(props: any, private api: APICallService) {
         super(props);
         this.api = new APICallService();
-        this.api.getInterview().then(res=>{
-            res.reverse();
-            this.props.action.getInterview(res);
+        this.api.getInterview().then(res => {
+            this.props.action.getInterview(res.reverse());
         })
     }
 
-    @bound public modalActivate(){
+    @bound
+    public modalActivate() {
         let el = document.getElementsByClassName(CONSTANTS.MODAL_HIDDEN)[0];
         let overlay = document.createElement('div');
         overlay.id = CONSTANTS.MODAL_OVERLAY;
@@ -60,7 +60,9 @@ class MainTable extends Component {
                     </table>
                     <div className="mdc-component mdc-component__buttons">
                         <div className="mdc-component__containers__primary add-button">
-                            <button type="button" className="mdc-button mdc-button--raised" onClick={this.modalActivate}>Add new</button>
+                            <button type="button" className="mdc-button mdc-button--raised"
+                                    onClick={this.modalActivate}>Add new
+                            </button>
                         </div>
                     </div>
                 </div>

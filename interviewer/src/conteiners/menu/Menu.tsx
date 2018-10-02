@@ -1,40 +1,76 @@
 import * as React from "react";
 import {Component} from 'react';
+import './Menu.css';
 import bound from "../../decorators/bound";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../login/actions";
 import {connect} from "react-redux";
+import * as CONSTANTS from "../../constants"
+import {Redirect} from 'react-router-dom'
 
 class Menu extends Component {
-    public props:any;
-
+    public props: any;
+    public activateMainItem = '';
+    public activateInterviewItem = '';
+    public activateStatisticItem = '';
+    public state = {
+        redirect: false
+    };
 
     constructor(props: any) {
         super(props);
+        this.activateMenuItem();
+    }
+    @bound
+    public setRedirect() {
+        this.setState({
+            redirect: true
+        })
     }
 
-    @bound public logout(){
+    public renderRedirect(): any {
+        if (this.state.redirect) {
+            return <Redirect to='/'/>
+        }
+    }
+
+    public activateMenuItem() {
+        switch (this.props.parent) {
+            case CONSTANTS.MENU_ITEM_MAIN:
+                this.activateMainItem = CONSTANTS.MENU_ACTIVE_ITEM_CLASS;
+                break;
+            case CONSTANTS.MENU_ITEM_INTERVIEW:
+                this.activateInterviewItem = CONSTANTS.MENU_ACTIVE_ITEM_CLASS;
+                break;
+            case CONSTANTS.MENU_ITEM_STATISTIC:
+                this.activateStatisticItem = CONSTANTS.MENU_ACTIVE_ITEM_CLASS;
+                break;
+        }
+    }
+
+    @bound
+    public logout() {
         this.props.action.login(false);
     }
 
     public render() {
-            return (
-                <div className="mdl-layout__drawer">
-                    <span className="mdl-layout-title menu-title">Interviewer</span>
-                    <nav className="mdl-navigation">
-                        <a className="mdl-navigation__link" id="main">Main</a>
-                        <a className="mdl-navigation__link" id="interview">Interview</a>
-                        <a className="mdl-navigation__link" id="statistic">Statistic</a>
-                        <a className="mdl-navigation__link" id="logout" onClick={this.logout}>Logout</a>
-                    </nav>
-                </div>
-            );
+        return (
+            <div className="mdl-layout__drawer">
+                {this.renderRedirect()}
+                <span className="mdl-layout-title menu-title">Interviewer</span>
+                <nav className="mdl-navigation">
+                    <a onClick={this.setRedirect} className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
+                    <a className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
+                    <a className={"mdl-navigation__link " + this.activateStatisticItem}>Statistic</a>
+                    <a className={"mdl-navigation__link "} onClick={this.logout}>Logout</a>
+                </nav>
+            </div>
+        );
     }
 
 }
 
-const mapStateToProps = (state: any) => ({
-});
+const mapStateToProps = (state: any, OwnProps: any) => OwnProps;
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     action: bindActionCreators({...actions}, dispatch)
