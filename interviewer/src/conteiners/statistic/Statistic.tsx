@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import * as actions from './../main/actions';
 import {AuthorizationService} from "../../services/authorization.service";
 import './Statistic.css'
+import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 
 class Statistic extends Component {
     public props: any;
@@ -18,17 +19,7 @@ class Statistic extends Component {
     public render() {
         return (
             <div className="page-content">
-                <div className="breadcrumbs">
-<span className="mdl-chip">
-    <span id="interview" className="mdl-chip__text chips">Interview</span>
-</span>
-                    <span className="mdl-chip">
-    <span id="nameChip" className="mdl-chip__text"/>
-</span>
-                    <span className="mdl-chip">
-    <span id="levelChip" className="mdl-chip__text"/>
-</span>
-                </div>
+<Breadcrumbs interviewID = {this.props.match.params.id}/>
                 <div className="charts">
                     <div className="html-chart chart">
                         <div className="chart-header">
@@ -71,7 +62,7 @@ class Statistic extends Component {
 
 
 const mapStateToProps = (state: any, OwnProps:any) => ({
-    logged: state.login.logged,...OwnProps
+    ...state,...OwnProps
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
