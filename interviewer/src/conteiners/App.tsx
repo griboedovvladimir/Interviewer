@@ -9,11 +9,13 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <section>
+
                     <Switch>
                         <Route path={CONSTANTS.MAIN_PAGE} component={MainPage}/>
                         <Route path={CONSTANTS.LOGIN_PAGE} component={LoginPage}/>
                         <Route path="/" component={LoginPage}/>
                     </Switch>
+
                 </section>
             </BrowserRouter>
         );

@@ -1,4 +1,4 @@
-;(function() {
+export function material() {
 "use strict";
 
 /**
@@ -4024,4 +4024,4 @@ componentHandler.register({
         });
     }
 
-}());
+}

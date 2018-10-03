@@ -9,7 +9,6 @@ import {APICallService} from "../../services/APICall.service";
 import {AuthorizationService} from "../../services/authorization.service";
 import bound from '../../decorators/bound'
 
-
 class LoginPage extends Component {
     public props: any;
     public authorization:AuthorizationService;
@@ -27,14 +26,21 @@ class LoginPage extends Component {
                 if (check.authorization === CONSTANTS.LOGGED_API_RES) {
                     this.props.action.login(true);
                     this.authorization.authorizate(check.token);
+                    this.renderRedirectToMain();
                 }
             }));
     }
 
+    public renderRedirectToMain(): any {
+        if (this.props.logged) {
+            return  <Redirect to={CONSTANTS.MAIN_PAGE}/>;
+        }
+    };
+
     public render() {
-        if (!this.props.logged) {
             return (
                 <div className="form-wrapper">
+                    {this.renderRedirectToMain()}
                     <form className="login-form" onSubmit={this.handleSubmit}>
                         <div className="mdc-component mdc-component__textfield">
                             <div dir-horizontal="" className="mdc-component__containers">
@@ -69,10 +75,7 @@ class LoginPage extends Component {
                     </form>
                 </div>
             );
-        } else {
-            return <Redirect to={CONSTANTS.MAIN_PAGE}/>;
         }
-    }
 }
 
 

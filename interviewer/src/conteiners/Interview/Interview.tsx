@@ -6,6 +6,7 @@ import * as actions from "../main-table/actions";
 import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
+import {InterviewBlockSwitcher} from "../interview-block-switcher/Interview-block-switcher";
 import * as CONSTANTS from "../../constants";
 
 class Interview extends Component {
@@ -30,27 +31,7 @@ class Interview extends Component {
                 <div className="page-content">
                     <Breadcrumbs interviewID={this.props.match.params.id}
                                  parent={CONSTANTS.BREADCRUMBS_PARENT_INTERVIEW}/>
-                    <div className="current-question">
-                        <div className="question-block">
-                            <div>HTML</div>
-                        </div>
-                        <div className="question-count">
-                            <div>question 1 from 999</div>
-                        </div>
-                    </div>
-
-                    <div className="block-switcher">
-                        <div id="CSSSwitcherBlock" className="block-switcher-items">
-                            <div>CSS</div>
-                        </div>
-                        <div id="HTMLSwitcherBlock" className="block-switcher-items">
-                            <div>HTML</div>
-                        </div>
-                        <div id="JSSwitcherBlock" className="block-switcher-items">
-                            <div>JS</div>
-                        </div>
-                    </div>
-
+<InterviewBlockSwitcher/>
                     <div className="question-slider">
 
                         <div className="card-wrapper">
@@ -109,6 +90,5 @@ const mapStateToProps = (state: any, OwnProps: any) => ({
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     action: bindActionCreators({...actions}, dispatch)
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Interview);
