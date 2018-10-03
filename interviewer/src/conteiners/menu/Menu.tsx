@@ -5,8 +5,9 @@ import bound from "../../decorators/bound";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../login/actions";
 import {connect} from "react-redux";
-import * as CONSTANTS from "../../constants"
-import {Redirect} from 'react-router-dom'
+import * as CONSTANTS from "../../constants";
+import {Redirect} from 'react-router-dom';
+import {AuthorizationService} from "../../services/authorization.service";
 
 class Menu extends Component {
     public props: any;
@@ -17,9 +18,10 @@ class Menu extends Component {
         redirect: false
     };
 
-    constructor(props: any) {
+    constructor(props: any, private authorizationService: AuthorizationService) {
         super(props);
         this.activateMenuItem();
+        this.authorizationService = new AuthorizationService();
     }
     @bound
     public setRedirect() {
@@ -50,6 +52,7 @@ class Menu extends Component {
 
     @bound
     public logout() {
+        this.authorizationService.logout();
         this.props.action.login(false);
     }
 

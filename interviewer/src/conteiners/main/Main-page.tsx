@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Component} from 'react';
 import Menu from "../menu/Menu"
-import MainTable from "../table/Main-table";
+import MainTable from "../main-table/Main-table";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../login/actions";
 import {connect} from "react-redux";
@@ -9,7 +9,7 @@ import MainModal from "../modal/Main-modal";
 import {Redirect} from "react-router";
 import * as CONSTANTS from "../../constants";
 import {Route, Switch} from 'react-router-dom';
-import {Interview} from "../Interview/Interview";
+import Interview from "../Interview/Interview";
 import Statistic from "../statistic/Statistic";
 
 

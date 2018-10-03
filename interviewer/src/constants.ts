@@ -28,3 +28,9 @@ export const MENU_ACTIVE_ITEM_CLASS = 'primary-dark';
 export const MENU_ITEM_MAIN = 'main';
 export const MENU_ITEM_INTERVIEW = 'interview';
 export const MENU_ITEM_STATISTIC = 'statistic';
+
+/*------------BREADCRUMBS-------------------*/
+
+export const BREADCRUMBS_ACTIVE_CLASS = 'chips';
+export const BREADCRUMBS_PARENT_INTERVIEW = 'interview';
+export const BREADCRUMBS_PARENT_STATISTIC = 'statistic';

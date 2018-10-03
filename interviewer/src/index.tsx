@@ -7,10 +7,10 @@ import { devToolsEnhancer } from 'redux-devtools-extension';
 import {Provider} from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import * as reducers from './reducers';
+import './material'
 
 const reducer = combineReducers(reducers);
 const store = createStore(reducer, /* preloadedState, */ devToolsEnhancer({name:'interviewer'}));
-
 
 ReactDOM.render((
     <Provider store={store}>
