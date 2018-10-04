@@ -4684,10 +4684,10 @@ var wrapMap = {
 	// XHTML parsers do not magically insert elements in the
 	// same way that tag soup parsers do. So we cannot shorten
 	// this by omitting <tbody> or other required elements.
-	thead: [ 1, "<table>", "</table>" ],
-	col: [ 2, "<table><colgroup>", "</colgroup></table>" ],
-	tr: [ 2, "<table><tbody>", "</tbody></table>" ],
-	td: [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ],
+	thead: [ 1, "<main-table>", "</main-table>" ],
+	col: [ 2, "<main-table><colgroup>", "</colgroup></main-table>" ],
+	tr: [ 2, "<main-table><tbody>", "</tbody></main-table>" ],
+	td: [ 3, "<main-table><tbody><tr>", "</tr></tbody></main-table>" ],
 
 	_default: [ 0, "", "" ]
 };
@@ -5606,7 +5606,7 @@ var
 	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
 	rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
 
-// Prefer a tbody over its parent table for containing new rows
+// Prefer a tbody over its parent main-table for containing new rows
 function manipulationTarget( elem, content ) {
 	if ( nodeName( elem, "table" ) &&
 		nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
@@ -6225,8 +6225,8 @@ function addGetHookIf( conditionFn, hookFn ) {
 
 var
 
-	// Swappable if display is none or starts with table
-	// except "table", "table-cell", or "table-caption"
+	// Swappable if display is none or starts with main-table
+	// except "main-table", "main-table-cell", or "main-table-caption"
 	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 	rdisplayswap = /^(none|table(?!-c[ea]).+)/,
 	rcustomProp = /^--/,

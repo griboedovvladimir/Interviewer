@@ -1,4 +1,5 @@
 exports.obj = {
     AUTHORIZATION: '/authorization',
-    INTERVIEW: '/interview'
+    INTERVIEW: '/interview',
+    QUESTION: '/question'
 };

@@ -61,7 +61,7 @@
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -263,7 +263,7 @@
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -7817,7 +7817,7 @@ textarea {
  *    `contenteditable` attribute is included anywhere else in the document.
  *    Otherwise it causes space to appear at the top and bottom of elements
  *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
+ * 2. The use of `main-table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
 .clearfix:before,
@@ -8033,7 +8033,7 @@ main {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -8682,7 +8682,7 @@ ul, ol {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -11090,7 +11090,7 @@ ul, ol {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -11283,7 +11283,7 @@ ul, ol {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -11467,7 +11467,7 @@ ul, ol {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -11697,7 +11697,7 @@ ul, ol {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -12150,7 +12150,7 @@ input.mdl-button[type="submit"] {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -12434,7 +12434,7 @@ input.mdl-button[type="submit"] {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -12768,7 +12768,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -13025,7 +13025,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -13331,7 +13331,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -13571,7 +13571,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -14040,7 +14040,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -14291,7 +14291,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -14554,7 +14554,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -14913,7 +14913,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -15292,7 +15292,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -15602,7 +15602,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -16514,7 +16514,7 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -16834,7 +16834,7 @@ fieldset[disabled] .mdl-radio .mdl-radio__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -17314,7 +17314,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -17602,7 +17602,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -18233,7 +18233,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -18582,7 +18582,7 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -18862,7 +18862,7 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -19235,7 +19235,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -19471,7 +19471,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip
@@ -19691,7 +19691,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label,
  * -----Badge
  * -----Shadows
  * -----Grid
- * -----Data table
+ * -----Data main-table
  * -----Dialog
  * -----Snackbar
  * -----Tooltip

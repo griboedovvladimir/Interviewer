@@ -6,12 +6,16 @@ import * as actions from "../main-table/actions";
 import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
-import {InterviewBlockSwitcher} from "../interview-block-switcher/Interview-block-switcher";
+import InterviewBlockSwitcher from "../interview-block-switcher/Interview-block-switcher";
 import * as CONSTANTS from "../../constants";
+import * as SWITCHER_CONSTANTS from "../interview-block-switcher/constants";
+import InterviewQuetioncard from "../interview-quetioncard/Interview-quetioncard";
+import bound from "../../decorators/bound";
 
 class Interview extends Component {
     public props: any;
     public authorization: AuthorizationService;
+    public curentQuestionBlock = SWITCHER_CONSTANTS.BLOCK_NAME_HTML;
 
     constructor(props: any, private api: APICallService) {
         super(props);
@@ -23,6 +27,13 @@ class Interview extends Component {
                 this.props.action.getInterview(res.reverse());
             });
         }
+// this.api.getQuestions(this.curentQuestionBlock).then(console.log)
+    }
+
+    @bound
+    public getCurrentQuetionBlock(value: string) {
+        this.curentQuestionBlock = value;
+        this.setState({});
     }
 
     public render() {
@@ -31,29 +42,11 @@ class Interview extends Component {
                 <div className="page-content">
                     <Breadcrumbs interviewID={this.props.match.params.id}
                                  parent={CONSTANTS.BREADCRUMBS_PARENT_INTERVIEW}/>
-<InterviewBlockSwitcher/>
+                    <InterviewBlockSwitcher updateData={this.getCurrentQuetionBlock}/>
                     <div className="question-slider">
-
                         <div className="card-wrapper">
                             <div className="question-card-wide mdl-card mdl-shadow--2dp">
-                                <div className="card-content">
-                                    <div className="material-icons card-arrow" aria-label="Add"><span
-                                        className="mdc-fab__icon">keyboard_arrow_left</span>
-                                    </div>
-                                    <div>
-                                        <div className="mdl-card__title">
-                                            <h2 className="mdl-card__title-text">Question 1</h2>
-                                        </div>
-                                        <div className="mdl-card__supporting-text card-text">
-                                            Why you would use a srcset attribute in an image tag? Explain the process
-                                            the
-                                            browser uses when evaluating the content of this attribute.
-                                        </div>
-                                    </div>
-                                    <div className="material-icons card-arrow" aria-label="Add"><span
-                                        className="mdc-fab__icon">keyboard_arrow_right</span>
-                                    </div>
-                                </div>
+                                <InterviewQuetioncard interviewID={this.props.match.params.id}/>
                                 <div className="mdl-card__actions mdl-card--border">
                                     <div className="slider-titles">
                                         <div>FAILED</div>

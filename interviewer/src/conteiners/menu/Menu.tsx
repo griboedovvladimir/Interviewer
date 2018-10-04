@@ -32,7 +32,6 @@ class Menu extends Component {
 
     public renderRedirect(): any {
         if (this.state.redirect) {
-            console.log(this.props);
             return <Redirect to='/'/>
         }
     }

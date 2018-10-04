@@ -43,7 +43,7 @@ app.get(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
 });
 
 app.delete(PATHS_CONSTANTS.INTERVIEW + '/:id', (req, res) => {
-    DBconnect('DELETE FROM `interview` WHERE `interview_id`=' + req.path.split('/')[2])
+    DBconnect('DELETE FROM `interview` WHERE `interview_id`=' + req.params.id)
 });
 
 app.post(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
@@ -52,6 +52,9 @@ app.post(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
         '' + req.body.date + '","' + req.body.status + '")').then(results => {
         res.end(JSON.stringify(results.insertId))
     });
+});
+
+app.get(PATHS_CONSTANTS.QUESTION+'/:id', (req, res) => {
 });
 
 

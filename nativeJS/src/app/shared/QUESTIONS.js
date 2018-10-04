@@ -53,7 +53,7 @@ export let QUESTIONS = [
         "id": "7",
         "rating": "3",
         "block": "css",
-        "text": " What are the benefits of CSS sprites?",
+        "text": "What are the benefits of CSS sprites?",
         "source" : "Read more books",
         "subtopic_id": "3"
     },

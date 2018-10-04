@@ -20,6 +20,11 @@ export class APICallService{
             body: JSON.stringify(interview)}).then(req => req.json());
     }
 
+    public getQuestions(blockName:string){
+        return  fetch(CONSTANTS.API_HOST + CONSTANTS.QUESTION_PATH + '/'+blockName,{
+            method:'GET'}).then(req => req.json());
+    }
+
     public checkUser(name: string ,pass: string){
         let body = {name,pass};
         return fetch(CONSTANTS.API_HOST + CONSTANTS.LOGGED_API_PATH,{

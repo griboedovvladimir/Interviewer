@@ -3656,8 +3656,8 @@ MaterialDataTable.prototype.Constant_ = {};
    * @private
    */
 MaterialDataTable.prototype.CssClasses_ = {
-    DATA_TABLE: 'mdl-data-table',
-    SELECTABLE: 'mdl-data-table--selectable',
+    DATA_TABLE: 'mdl-data-main-table',
+    SELECTABLE: 'mdl-data-main-table--selectable',
     SELECT_ELEMENT: 'mdl-data-table__select',
     IS_SELECTED: 'is-selected',
     IS_UPGRADED: 'is-upgraded'
@@ -3765,7 +3765,7 @@ MaterialDataTable.prototype.init = function () {
 componentHandler.register({
     constructor: MaterialDataTable,
     classAsString: 'MaterialDataTable',
-    cssClass: 'mdl-js-data-table'
+    cssClass: 'mdl-js-data-main-table'
 });
 /**
  * @license
