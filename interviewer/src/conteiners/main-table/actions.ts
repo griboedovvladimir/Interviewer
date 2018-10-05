@@ -6,3 +6,4 @@ export function getInterview(interviews: any) {
         interviews
     };
 }
+

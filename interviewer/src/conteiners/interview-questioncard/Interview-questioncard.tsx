@@ -5,22 +5,21 @@ import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../breadcrumbs/actions";
 import {connect} from "react-redux";
 
-class InterviewQuetioncard extends Component {
-
+class InterviewQuestioncard extends Component {
+public props:any;
 
     constructor(props: any) {
         super(props);
-
     }
 
     @bound
     public getNextQuestion() {
-
+this.props.updateData('next');
     }
 
     @bound
     public getPrevQuestion() {
-
+        this.props.updateData('prev');
     }
 
     public render() {
@@ -31,12 +30,10 @@ class InterviewQuetioncard extends Component {
                 </div>
                 <div>
                     <div className="mdl-card__title">
-                        <h2 className="mdl-card__title-text">Question 1</h2>
+                        <h2 className="mdl-card__title-text">{'Question ' + (this.props.question.currentQuestionNumber)}</h2>
                     </div>
                     <div className="mdl-card__supporting-text card-text">
-                        Why you would use a srcset attribute in an image tag? Explain the process
-                        the
-                        browser uses when evaluating the content of this attribute.
+                        {this.props.question.text}
                     </div>
                 </div>
                 <div onClick={this.getNextQuestion} className="material-icons card-arrow" aria-label="Add"><span
@@ -56,4 +53,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(InterviewQuetioncard);
+export default connect(mapStateToProps, mapDispatchToProps)(InterviewQuestioncard);

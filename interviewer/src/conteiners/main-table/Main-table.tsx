@@ -15,7 +15,7 @@ class MainTable extends Component {
         super(props);
         this.api = new APICallService();
         this.api.getInterview().then(res => {
-            this.props.action.getInterview(res.reverse());
+            this.props.action.getInterview(res);
         })
     }
 

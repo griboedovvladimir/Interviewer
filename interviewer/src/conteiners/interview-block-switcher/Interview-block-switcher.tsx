@@ -41,7 +41,6 @@ class InterviewBlockSwitcher extends Component {
             this.currentBlock = CONSTANTS.BLOCK_NAME_JS;
             this.activeBlock.js = CONSTANTS.BLOCK_ACTIVE_CLASS;
         }
-        this.setState({...this.state})
         this.props.updateData(this.currentBlock);
     }
 
@@ -53,7 +52,7 @@ class InterviewBlockSwitcher extends Component {
                         <div>{this.currentBlock}</div>
                     </div>
                     <div className="question-count">
-                        <div>question 1 from 999</div>
+                        <div>{'question '+this.props.questionNumber+' from '+this.props.total}</div>
                     </div>
                 </div>
                 <div className="block-switcher">

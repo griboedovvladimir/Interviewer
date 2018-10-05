@@ -9,7 +9,7 @@ import MainModal from "../modal/Main-modal";
 import {Redirect} from "react-router";
 import * as CONSTANTS from "../../constants";
 import {Route, Switch} from 'react-router-dom';
-import Interview from "../Interview/Interview";
+import Interview from "../interview/Interview";
 import Statistic from "../statistic/Statistic";
 
 

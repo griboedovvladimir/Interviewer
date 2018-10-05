@@ -38,7 +38,10 @@ class MainModal extends Component {
                 el.classList.remove(CONSTANTS.MODAL_ACTIVE);
                 el.classList.add(CONSTANTS.MODAL_HIDDEN);
             }
-        )
+        );
+        e.target.reset();
+        e.target.specialization.value ="";
+        e.target.level.value="";
     }
 
     public render() {

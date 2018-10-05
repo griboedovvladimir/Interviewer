@@ -1,0 +1,13 @@
+@media screen and (min-width: 600px) {
+  .question-card-wide {
+    width: 800px !important;
+  }
+}
+@media screen and (min-width: 600px) {
+  .card-text {
+    width: 480px !important;
+  }
+}
+.mdc-button {
+  margin: 5px auto;
+}

@@ -20,8 +20,9 @@ export class APICallService{
             body: JSON.stringify(interview)}).then(req => req.json());
     }
 
-    public getQuestions(blockName:string){
-        return  fetch(CONSTANTS.API_HOST + CONSTANTS.QUESTION_PATH + '/'+blockName,{
+    public getQuestions(blockName:string,question:number){
+        return  fetch(CONSTANTS.API_HOST + CONSTANTS.QUESTION_PATH + '?id='+blockName + '&question=' +question,{
+
             method:'GET'}).then(req => req.json());
     }
 
