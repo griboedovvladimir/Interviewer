@@ -5,7 +5,7 @@ import MainTable from "../main-table/Main-table";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../login/actions";
 import {connect} from "react-redux";
-import MainModal from "../modal/Main-modal";
+import MainModal from "../main-modal/Main-modal";
 import {Redirect} from "react-router";
 import * as CONSTANTS from "../../constants";
 import {Route, Switch} from 'react-router-dom';

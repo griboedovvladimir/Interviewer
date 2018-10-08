@@ -12,6 +12,7 @@ import * as CONSTANTS from "../../constants";
 import * as SWITCHER_CONSTANTS from "../interview-block-switcher/constants";
 import InterviewQuetioncard from "../interview-questioncard/Interview-questioncard";
 import bound from "../../decorators/bound";
+import InterviewEvaluate from "../interview- evaluate/Interview-evaluate";
 
 class Interview extends Component {
     public props: any;
@@ -19,6 +20,7 @@ class Interview extends Component {
     public currentQuestionBlock = SWITCHER_CONSTANTS.BLOCK_NAME_HTML;
     public currentQuestionNumber = 1;
     public currentQuestion = this.props.question;
+    public dirtyQuestion = '';
 
     constructor(props: any, private api: APICallService) {
         super(props);
@@ -33,11 +35,17 @@ class Interview extends Component {
     }
 
     public initQuestion(currentQuestionNumber: number) {
+        // this.dirtyQuestion = '';
         this.api.getQuestions(this.currentQuestionBlock.toLocaleLowerCase(), currentQuestionNumber - 1)
             .then(question => {
                 this.currentQuestion = {
                     ...this.currentQuestion, ...question
                 };
+                this.api.checkQuestionCard(this.currentQuestion.question_id, Number(this.props.match.params.id)).then(
+                    res=>{
+                        this.dirtyQuestion = res[0];
+                    }
+                );
                 this.currentQuestion.currentQuestionNumber = this.currentQuestionNumber;
                 this.props.action.getQuestion(this.currentQuestion);
             });
@@ -45,12 +53,19 @@ class Interview extends Component {
 
     @bound
     public switchQuestion(value: string) {
-        if (value === 'next' && this.currentQuestionNumber < this.currentQuestion.total) {
+        if (value === CONSTANTS.QUESTION_NEXT && this.currentQuestionNumber < this.currentQuestion.total) {
             this.currentQuestionNumber++;
             this.initQuestion(this.currentQuestionNumber);
         }
-        if (value === 'prev' && this.currentQuestionNumber > 1) {
+        else if (value === CONSTANTS.QUESTION_NEXT && this.currentQuestionNumber === this.currentQuestion.total) {
+            this.currentQuestionNumber = 1;
+            this.initQuestion(this.currentQuestionNumber);
+        }
+        if (value === CONSTANTS.QUESTION_PREV && this.currentQuestionNumber > 1) {
             this.currentQuestionNumber--;
+            this.initQuestion(this.currentQuestionNumber);
+        } else if (value === CONSTANTS.QUESTION_PREV && this.currentQuestionNumber === 1) {
+            this.currentQuestionNumber = this.currentQuestion.total;
             this.initQuestion(this.currentQuestionNumber);
         }
 
@@ -60,6 +75,7 @@ class Interview extends Component {
     public getCurrentQuestionBlock(value: string) {
         this.currentQuestionBlock = value;
         this.currentQuestionNumber = 1;
+        this.dirtyQuestion = '';
         this.initQuestion(this.currentQuestionNumber);
     }
 
@@ -79,29 +95,8 @@ class Interview extends Component {
                                 <InterviewQuetioncard updateData={this.switchQuestion} question={this.props.question}
                                                       interviewID={this.props.match.params.id}/>
                                 }
-                                <div className="mdl-card__actions mdl-card--border">
-                                    <div className="slider-titles">
-                                        <div>FAILED</div>
-                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO-SO</div>
-                                        <div>ANSWERED</div>
-                                    </div>
-                                    <div className="slider-marks">
-                                        <div className="slider-marks-circle"/>
-                                        <div className="slider-marks-circle"/>
-                                        <div className="slider-marks-circle"/>
-                                    </div>
-                                    <div className="slider-line">
-                                        <input className="mdl-slider mdl-js-slider" type="range"
-                                               min="0" max="100" tabIndex={0}/>
-                                    </div>
-                                    <textarea className="card-textarea" placeholder="Comment"/>
-                                    <div className="mdc-component mdc-component__buttons">
-                                        <div className="mdc-component__containers__primary">
-                                            <button type="button" className="mdc-button mdc-button">evaluate
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <InterviewEvaluate dirtyQuestion={this.dirtyQuestion}
+                                                       interviewID={this.props.match.params.id}/>
                             </div>
                         </div>
                     </div>

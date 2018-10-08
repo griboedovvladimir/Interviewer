@@ -4,6 +4,7 @@ import bound from "../../decorators/bound";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../breadcrumbs/actions";
 import {connect} from "react-redux";
+import * as CONSTANTS from "../../constants";
 
 class InterviewQuestioncard extends Component {
 public props:any;
@@ -14,12 +15,12 @@ public props:any;
 
     @bound
     public getNextQuestion() {
-this.props.updateData('next');
+this.props.updateData(CONSTANTS.QUESTION_NEXT);
     }
 
     @bound
     public getPrevQuestion() {
-        this.props.updateData('prev');
+        this.props.updateData(CONSTANTS.QUESTION_PREV);
     }
 
     public render() {

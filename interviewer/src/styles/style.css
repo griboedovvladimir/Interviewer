@@ -149,7 +149,7 @@ table {
 }
 
 .mdc-component__containers__secondary {
-    margin-left: 80px;
+    /*margin-left: 80px;*/
 }
 
 .mdc-component__containers__primary, .mdc-component__containers__secondary {

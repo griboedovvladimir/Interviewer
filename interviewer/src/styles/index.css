@@ -215,9 +215,6 @@ table {
 .mdc-component__containers__primary__only {
   margin-top: 40px;
 }
-.mdc-component__containers__secondary {
-  margin-left: 80px;
-}
 .mdc-component__containers__primary,
 .mdc-component__containers__secondary {
   flex-direction: column;

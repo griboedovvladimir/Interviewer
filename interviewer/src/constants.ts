@@ -5,6 +5,8 @@ export const LOGGED_API_PATH = '/authorization';
 export const LOGGED_API_RES = 'true';
 export const INTERVIE_PATH = '/interview';
 export const QUESTION_PATH = '/question';
+export const QUESTION_CARD = '/questioncard';
+export const QUESTION_CARD_CHECK = '/questioncardcheck';
 
 /*----------------- ROUTES -----------------------*/
 
@@ -15,8 +17,8 @@ export const MAIN_PAGE_STATISTIC = '/main/statistic/';
 
 /*---------------MODAL ACTIVATE-----------------*/
 
-export const MODAL_ACTIVE = 'modal-active';
-export const MODAL_HIDDEN = 'modal-hidden';
+export const MODAL_ACTIVE = 'main-modal-active';
+export const MODAL_HIDDEN = 'main-modal-hidden';
 export const MODAL_OVERLAY = 'overlay';
 
 /*-------------LOCAL STORAGE------------------*/
@@ -35,3 +37,8 @@ export const MENU_ITEM_STATISTIC = 'statistic';
 export const BREADCRUMBS_ACTIVE_CLASS = 'chips';
 export const BREADCRUMBS_PARENT_INTERVIEW = 'interview';
 export const BREADCRUMBS_PARENT_STATISTIC = 'statistic';
+
+/*-------------- QUESTION SWITCHER ----------*/
+
+export const QUESTION_NEXT = 'next';
+export const QUESTION_PREV = 'prev';
