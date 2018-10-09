@@ -45,7 +45,7 @@ class Interview extends Component {
                 };
                 this.api.checkQuestionCard(this.currentQuestion.question_id, Number(this.props.match.params.id)).then(
                     res => {
-                        this.dirtyQuestion = res[0];
+                        this.props.action.getDirtyQuestion(res[0]);
                         this.currentQuestion.currentQuestionNumber = this.currentQuestionNumber;
                         this.props.action.getQuestion(this.currentQuestion);
                     }
@@ -77,7 +77,7 @@ class Interview extends Component {
     public getCurrentQuestionBlock(value: string) {
         this.currentQuestionBlock = value;
         this.currentQuestionNumber = 1;
-        this.dirtyQuestion = '';
+        this.dirtyQuestion = this.props.dirtyQuestion;
         this.initQuestion(this.currentQuestionNumber);
     }
 
@@ -97,8 +97,7 @@ class Interview extends Component {
                                 <InterviewQuetioncard updateData={this.switchQuestion} question={this.props.question}
                                                       interviewID={this.props.match.params.id}/>
                                 }
-                                <InterviewEvaluate dirtyQuestion={this.dirtyQuestion}
-                                                   interviewID={this.props.match.params.id}/>
+                                <InterviewEvaluate interviewID={this.props.match.params.id}/>
                             </div>
                         </div>
                     </div>

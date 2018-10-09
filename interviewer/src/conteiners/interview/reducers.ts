@@ -15,3 +15,9 @@ export function question(state = {
     return state;
 }
 
+export function dirty(state={},action:any){
+    if (action.type === 'DIRTY') {
+        return  {...action.dirtyQuestion}
+    }
+    return state;
+}

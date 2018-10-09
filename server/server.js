@@ -77,12 +77,10 @@ app.get(PATHS_CONSTANTS.QUESTION, (req, res) => {
 });
 
 app.post(PATHS_CONSTANTS.QUESTION_CARD_CHECK, (req, res) => {
-    // console.log(req.body.interviewId, req.body.questionId);
     DBconnect('SELECT* from `question_card` WHERE  interview_id='
         + req.body.interviewId + ' AND question_id=' + req.body.questionId + '')
         .then(result => {
             res.end(JSON.stringify(result));
-            // console.log(JSON.stringify(result))
         }).catch(error => {
         res.end(JSON.stringify(''));
     })

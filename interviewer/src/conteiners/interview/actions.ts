@@ -13,3 +13,11 @@ export function getInterview(interviews: any) {
         interviews
     };
 }
+
+
+export function getDirtyQuestion(dirtyQuestion: any){
+    return {
+        type: 'DIRTY',
+        dirtyQuestion
+    };
+}
