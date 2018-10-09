@@ -21,6 +21,8 @@ class Interview extends Component {
     public currentQuestionNumber = 1;
     public currentQuestion = this.props.question;
     public dirtyQuestion = '';
+    public trigger = 0;
+
 
     constructor(props: any, private api: APICallService) {
         super(props);
@@ -34,25 +36,26 @@ class Interview extends Component {
         }
     }
 
+
     public initQuestion(currentQuestionNumber: number) {
-        // this.dirtyQuestion = '';
         this.api.getQuestions(this.currentQuestionBlock.toLocaleLowerCase(), currentQuestionNumber - 1)
             .then(question => {
                 this.currentQuestion = {
                     ...this.currentQuestion, ...question
                 };
                 this.api.checkQuestionCard(this.currentQuestion.question_id, Number(this.props.match.params.id)).then(
-                    res=>{
+                    res => {
                         this.dirtyQuestion = res[0];
+                        this.currentQuestion.currentQuestionNumber = this.currentQuestionNumber;
+                        this.props.action.getQuestion(this.currentQuestion);
                     }
                 );
-                this.currentQuestion.currentQuestionNumber = this.currentQuestionNumber;
-                this.props.action.getQuestion(this.currentQuestion);
             });
     }
 
     @bound
     public switchQuestion(value: string) {
+
         if (value === CONSTANTS.QUESTION_NEXT && this.currentQuestionNumber < this.currentQuestion.total) {
             this.currentQuestionNumber++;
             this.initQuestion(this.currentQuestionNumber);
@@ -68,7 +71,6 @@ class Interview extends Component {
             this.currentQuestionNumber = this.currentQuestion.total;
             this.initQuestion(this.currentQuestionNumber);
         }
-
     }
 
     @bound
@@ -95,8 +97,8 @@ class Interview extends Component {
                                 <InterviewQuetioncard updateData={this.switchQuestion} question={this.props.question}
                                                       interviewID={this.props.match.params.id}/>
                                 }
-                                    <InterviewEvaluate dirtyQuestion={this.dirtyQuestion}
-                                                       interviewID={this.props.match.params.id}/>
+                                <InterviewEvaluate dirtyQuestion={this.dirtyQuestion}
+                                                   interviewID={this.props.match.params.id}/>
                             </div>
                         </div>
                     </div>

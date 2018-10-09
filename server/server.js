@@ -5,6 +5,7 @@ const cors = require('cors');
 const sql = require("mysql");
 const DB_CONSTANTS = require("./constants/DB").obj;
 const PATHS_CONSTANTS = require("./constants/paths").obj;
+
 function DBconnect(DBrequest) {
     return new Promise((res, rej) => {
         let connection = sql.createConnection(DB_CONSTANTS.DB_CONFIG);
@@ -37,7 +38,7 @@ app.post(PATHS_CONSTANTS.AUTHORIZATION, (req, res) => {
 });
 
 app.get(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
-    DBconnect('select * from interview').then(results => {
+    DBconnect('select * from interview ORDER BY interview_id DESC').then(results => {
         res.end(JSON.stringify(results))
     })
 });
@@ -54,8 +55,37 @@ app.post(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
     });
 });
 
-app.get(PATHS_CONSTANTS.QUESTION+'/:id', (req, res) => {
+app.post(PATHS_CONSTANTS.QUESTION_CARD, (req, res) => {
+    DBconnect('INSERT INTO `question_card`(`question_card_id`, `interview_id`, `mark`, `comment`, `question_id`, `topic_name`) ' +
+        'VALUES (NULL,' + Number(req.body.interviewId) + ',"' + req.body.mark + '","' + req.body.comment + '",' + req.body.questionId + ',"' + req.body.topic + '")').then(result => {
+        res.end('ok')
+    })
 });
 
+app.put(PATHS_CONSTANTS.QUESTION_CARD, (req, res) => {
+    DBconnect('UPDATE `question_card` SET `mark`="' + req.body.mark + '",`comment`="' + req.body.comment + '" WHERE `question_card_id`=' + req.body.question_card_id + '')
+        .then();
+});
 
-app.listen(4040, () => console.log('InterviewerAPI listening on port 4040!'));
+app.get(PATHS_CONSTANTS.QUESTION, (req, res) => {
+    DBconnect('SELECT* from `question`, `subtopic`,`topic` ' +
+        'WHERE question.subtopic_id = subtopic.subtopic_id ' +
+        'AND topic.topic_id = subtopic.topic_id AND topic.name="' + req.query.id + '"').then(results => {
+        let data = {...results[req.query.question.toString()], total: results.length};
+        res.end(JSON.stringify(data));
+    });
+});
+
+app.post(PATHS_CONSTANTS.QUESTION_CARD_CHECK, (req, res) => {
+    // console.log(req.body.interviewId, req.body.questionId);
+    DBconnect('SELECT* from `question_card` WHERE  interview_id='
+        + req.body.interviewId + ' AND question_id=' + req.body.questionId + '')
+        .then(result => {
+            res.end(JSON.stringify(result));
+            // console.log(JSON.stringify(result))
+        }).catch(error => {
+        res.end(JSON.stringify(''));
+    })
+});
+
+app.listen(4000, () => console.log('InterviewerAPI listening on port 4040!'));

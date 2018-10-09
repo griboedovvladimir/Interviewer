@@ -12,7 +12,7 @@ export class ModalWindowComponent extends HTMLElement {
         this.shadow = this.attachShadow({mode: 'open'});
         fetch('style.css').then(resp => {resp.text().then(text => {
             this.shadow.innerHTML = this.shadow.innerHTML + `<style>${text}</style>`;
-            fetch('./layouts/modal-window.html').then(resp => {
+            fetch('./layouts/main-modal-window.html').then(resp => {
                 resp.text().then(text => {
                     this.shadow.innerHTML = this.shadow.innerHTML + text;
                     this.addEvents();
@@ -72,12 +72,12 @@ export class ModalWindowComponent extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (newValue === 'visible') {
-            this.shadow.querySelector('.modal').classList.remove('modal-hidden');
-            this.shadow.querySelector('.modal').classList.add('modal-active');
+            this.shadow.querySelector('.modal').classList.remove('main-modal-hidden');
+            this.shadow.querySelector('.modal').classList.add('main-modal-active');
         }
         else if (newValue === 'hidden' && this.shadow.querySelector('.modal')) {
-            this.shadow.querySelector('.modal').classList.remove('modal-active');
-            this.shadow.querySelector('.modal').classList.add('modal-hidden');
+            this.shadow.querySelector('.modal').classList.remove('main-modal-active');
+            this.shadow.querySelector('.modal').classList.add('main-modal-hidden');
         }
     }
 

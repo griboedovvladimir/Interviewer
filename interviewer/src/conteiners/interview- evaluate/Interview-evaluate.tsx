@@ -17,16 +17,31 @@ class InterviewEvaluate extends Component {
         this.api = new APICallService();
     }
 
+    public componentDidUpdate(){
+
+    }
+
     @bound
     public doEvaluate(e: any) {
         e.preventDefault();
-        this.api.createQuestionCard({
-            questionId: this.props.question.question_id,
-            interviewId: this.props.interviewID,
-            topic: this.props.question.name,
-            mark: e.target.slider.value,
-            comment: e.target.comment.value
-        })
+        // let interview = {
+        //     questionId: this.props.question.question_id,
+        //     interviewId: this.props.interviewID,
+        //     topic: this.props.question.name,
+        //     mark: e.target.slider.value,
+        //     comment: e.target.comment.value
+        // };
+
+        this.api.getInterview();
+        if (!this.props.dirtyQuestion) {
+            // this.api.createQuestionCard(interview);
+        }
+        else {
+            // this.api.editQuestionCard({
+            //     question_card_id: this.props.dirtyQuestion.question_card_id,
+            //     ...interview
+            // });
+        }
     }
 
     public render() {
@@ -38,6 +53,7 @@ class InterviewEvaluate extends Component {
             this.buttonText = 'evaluate';
             this.buttonClass = "mdc-component__containers__primary";
         }
+
         return (
             <form onSubmit={this.doEvaluate}>
                 <div className="mdl-card__actions mdl-card--border">
@@ -53,25 +69,26 @@ class InterviewEvaluate extends Component {
                     </div>
                     {this.props.dirtyQuestion &&
                     <div className="slider-line">
-                        <input name="slider" className="mdl-slider mdl-js-slider" type="range"
+                        <input id = "slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
                                min="0" max="100" defaultValue={this.props.dirtyQuestion.mark} tabIndex={0}/>
                     </div>
                     }
                     {!this.props.dirtyQuestion &&
                     <div className="slider-line">
-                        <input name="slider" className="mdl-slider mdl-js-slider" type="range"
+                        <input id = "slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
                                min="0" max="100" tabIndex={0}/>
                     </div>
                     }
                     {this.props.dirtyQuestion &&
-                    <textarea name="comment" className="card-textarea" value={this.props.dirtyQuestion.comment} placeholder="Comment"/>
+                    <textarea name="comment" className="card-textarea" defaultValue={this.props.dirtyQuestion.comment}
+                              placeholder="Comment"/>
                     }
                     {!this.props.dirtyQuestion &&
                     <textarea name="comment" className="card-textarea" placeholder="Comment"/>
                     }
                     <div className="mdc-component mdc-component__buttons">
                         <div className={this.buttonClass}>
-                            <button type="submit" className="mdc-button mdc-button">{this.buttonText}
+                            <button name="btn" type="submit" className="mdc-button mdc-button">{this.buttonText}
                             </button>
                         </div>
                     </div>
