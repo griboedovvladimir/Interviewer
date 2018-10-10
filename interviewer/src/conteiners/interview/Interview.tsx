@@ -55,7 +55,6 @@ class Interview extends Component {
 
     @bound
     public switchQuestion(value: string) {
-
         if (value === CONSTANTS.QUESTION_NEXT && this.currentQuestionNumber < this.currentQuestion.total) {
             this.currentQuestionNumber++;
             this.initQuestion(this.currentQuestionNumber);

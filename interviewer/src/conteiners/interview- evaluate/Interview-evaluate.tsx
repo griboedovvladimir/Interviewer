@@ -6,21 +6,24 @@ import {connect} from "react-redux";
 import bound from "../../decorators/bound";
 import {APICallService} from "../../services/APICall.service";
 import "./Interview-evalute.css";
+import * as CONSTANTS from './constants';
 
 
 class InterviewEvaluate extends Component {
     public props: any;
-    public buttonText = 'evaluate';
-    public buttonClass = "mdc-component__containers__secondary";
-    public snackbarClass = 'snackbar-hidden';
+    public state: any;
+    public buttonText = CONSTANTS.BUTTON_TEXT_EVALUTE;
+    public buttonClass = CONSTANTS.BUTTON_EDIT_CLASS;
+    public snackbarClass = CONSTANTS.SNACKBAR_CLASS_HIDDEN;
 
     constructor(props: any, private api: APICallService) {
         super(props);
         this.api = new APICallService();
     }
 
-    public componentDidUpdate(){
-
+    public componentDidUpdate() {
+        let form = document.getElementById(CONSTANTS.FORM_ID) as HTMLFormElement;
+        form.reset();
     }
 
     @bound
@@ -35,52 +38,39 @@ class InterviewEvaluate extends Component {
         };
         this.api.getInterview();
         if (!this.props.dirty.mark) {
-            // this.api.createQuestionCard(interview);
-            this.props.action.getDirtyQuestion({
-                ...interview
-            });
-            this.snackbarClass = 'snackbar-active';
-            setTimeout(()=>{
-                this.snackbarClass= 'snackbar-hidden';
-                this.props.action.getDirtyQuestion({
-                    ...interview
-                });
-            },2000)
+            this.api.createQuestionCard(interview);
         }
         else {
-            // this.api.editQuestionCard({
-            //     question_card_id: this.props.dirtyQuestion.question_card_id,
-            //     ...interview
-            // });
+            this.api.editQuestionCard({
+                question_card_id: this.props.dirty.question_card_id,
+                ...interview
+            });
+        }
+        this.props.action.getDirtyQuestion({
+            ...interview
+        });
+        this.snackbarClass = CONSTANTS.SNACKBAR_CLASS_ACTIVE;
+        setTimeout(() => {
+            this.snackbarClass = CONSTANTS.SNACKBAR_CLASS_HIDDEN;
             this.props.action.getDirtyQuestion({
                 ...interview
             });
-            this.snackbarClass = 'snackbar-active';
-            setTimeout(()=>{
-                this.snackbarClass= 'snackbar-hidden';
-                this.props.action.getDirtyQuestion({
-                    ...interview
-                });
-            },2000)
-        }
+        }, 2000)
     }
 
-    public hide(){
-        console.log("hide");
-    }
 
     public render() {
         if (this.props.dirty.mark) {
-            this.buttonText = 'edit';
-            this.buttonClass = "mdc-component__containers__secondary";
+            this.buttonText = CONSTANTS.BUTTON_TEXT_EDIT;
+            this.buttonClass = CONSTANTS.BUTTON_EDIT_CLASS;
         }
         if (!this.props.dirty.mark) {
-            this.buttonText = 'evaluate';
-            this.buttonClass = "mdc-component__containers__primary";
+            this.buttonText = CONSTANTS.BUTTON_TEXT_EVALUTE;
+            this.buttonClass = CONSTANTS.BUTTON_EVALUTE_CLASS;
         }
 
         return (
-            <form onSubmit={this.doEvaluate}>
+            <form id="evaluteForm" onSubmit={this.doEvaluate}>
                 <div className="mdl-card__actions mdl-card--border">
                     <div className="slider-titles">
                         <div>FAILED</div>
@@ -94,13 +84,13 @@ class InterviewEvaluate extends Component {
                     </div>
                     {this.props.dirty.mark &&
                     <div className="slider-line">
-                        <input id = "slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
+                        <input id="slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
                                min="0" max="100" defaultValue={this.props.dirty.mark} tabIndex={0}/>
                     </div>
                     }
                     {!this.props.dirty.mark &&
                     <div className="slider-line">
-                        <input id = "slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
+                        <input id="slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
                                min="0" max="100" tabIndex={0}/>
                     </div>
                     }
