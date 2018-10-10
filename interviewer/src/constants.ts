@@ -17,8 +17,8 @@ export const MAIN_PAGE_STATISTIC = '/main/statistic/';
 
 /*---------------MODAL ACTIVATE-----------------*/
 
-export const MODAL_ACTIVE = 'main-modal-active';
-export const MODAL_HIDDEN = 'main-modal-hidden';
+export const MODAL_ACTIVE = 'modal-active';
+export const MODAL_HIDDEN = 'modal-hidden';
 export const MODAL_OVERLAY = 'overlay';
 
 /*-------------LOCAL STORAGE------------------*/

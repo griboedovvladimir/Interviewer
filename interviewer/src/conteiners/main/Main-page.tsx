@@ -20,6 +20,7 @@ class MainPage extends Component {
         super(props);
     }
 
+
     public render() {
         if (this.props.logged) {
             return (
@@ -34,6 +35,7 @@ class MainPage extends Component {
                             </Switch>
                         </div>
                     </main>
+                    <div className='mdl-layout__obfuscator'/>
                     <MainModal/>
                 </div>
             )

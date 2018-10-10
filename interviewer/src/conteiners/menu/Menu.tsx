@@ -23,6 +23,45 @@ class Menu extends Component {
         this.activateMenuItem();
         this.authorizationService = new AuthorizationService();
     }
+
+    public componentDidMount(){
+        if (!document.getElementById('burger')) {
+            let leftButton = document.createElement('div');
+            leftButton.classList.add('mdl-layout__tab-bar-button');
+            leftButton.classList.add('mdl-layout__tab-bar-left-button');
+            let leftButtonIcon = document.createElement('i');
+            leftButtonIcon.classList.add('material-icons');
+            leftButtonIcon.id = 'burger';
+            leftButtonIcon.textContent = 'dehaze';
+            leftButton.appendChild(leftButtonIcon);
+            document.body.appendChild(leftButton);
+            leftButton.addEventListener('click', () => {
+                let menu = document.getElementsByClassName('mdl-layout__drawer')[0];
+                menu.classList.add('is-visible');
+                let overlay = document.getElementsByClassName('mdl-layout__obfuscator')[0];
+                overlay.classList.add('is-visible');
+                overlay.addEventListener('click', ()=>{
+                    overlay.classList.remove('is-visible');
+                    menu.classList.remove('is-visible');
+                })
+            });
+            window.addEventListener('resize', (event)=>{
+                if(window.innerWidth>1025 && !document.getElementById('is-visible')){
+                    let menu = document.getElementsByClassName('mdl-layout__drawer')[0];
+                  menu.classList.remove('is-visible');
+                    let overlay = document.getElementsByClassName('mdl-layout__obfuscator')[0];
+                    overlay.classList.remove('is-visible');
+                }
+            })
+        }
+    }
+
+    public componentWillUnmount(){
+        if (document.getElementById('burger')) {
+            document.getElementById('burger')!.remove();
+        }
+    }
+
     @bound
     public setRedirect() {
         this.setState({

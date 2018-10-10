@@ -15,7 +15,8 @@
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js",
       "server/server.js",
-      "src/material.js"
+      "src/material.js",
+      "public/material.js"
     ]
   }
 }
