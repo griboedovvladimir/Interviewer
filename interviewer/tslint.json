@@ -16,7 +16,8 @@
       "coverage/lcov-report/*.js",
       "server/server.js",
       "src/material.js",
-      "public/material.js"
+      "public/material.js",
+      "jest.config.js"
     ]
   }
 }

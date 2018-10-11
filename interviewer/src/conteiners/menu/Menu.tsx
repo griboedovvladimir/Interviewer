@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Component} from 'react';
-// import './Menu.css';
+import './Menu.css';
 import bound from "../../decorators/bound";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../login/actions";

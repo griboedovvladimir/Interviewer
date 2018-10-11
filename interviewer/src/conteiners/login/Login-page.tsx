@@ -8,6 +8,7 @@ import * as actions from './actions';
 import {APICallService} from "../../services/APICall.service";
 import {AuthorizationService} from "../../services/authorization.service";
 import bound from '../../decorators/bound'
+import './Login-page.css'
 
 class LoginPage extends Component {
     public props: any;
