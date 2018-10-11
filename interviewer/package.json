@@ -25,24 +25,26 @@
     "build": "run-s -n build-css build-js",
     "build-js": "react-scripts-ts build",
     "test": "run-s -n build-css test-js",
-    "test-js": "react-scripts-ts test --env=jsdom",
+    "test-js": "jest",
+    "clear_jest": "jest --clearCache",
     "build-css": "node-less-chokidar src",
     "watch-css": "node-less-chokidar src --watch",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.2",
+    "@types/jest": "^23.3.5",
     "@types/node": "^10.10.1",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
     "@types/react-redux": "^6.0.9",
+    "jest": "^23.6.0",
     "node-less-chokidar": "^0.3.1",
     "npm-run-all": "^4.1.3",
     "react": "^16.5.2",
     "redux-devtools": "^3.4.1",
     "redux-devtools-extension": "^2.13.5",
-    "ts-jest": "^23.10.1",
-    "typescript": "^3.0.3",
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.2",
     "typings-for-css-modules-loader": "^1.7.0"
   }
 }

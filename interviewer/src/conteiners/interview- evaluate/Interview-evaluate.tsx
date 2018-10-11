@@ -7,6 +7,8 @@ import bound from "../../decorators/bound";
 import {APICallService} from "../../services/APICall.service";
 import "./Interview-evalute.css";
 import * as CONSTANTS from './constants';
+import '../../material';
+
 
 
 class InterviewEvaluate extends Component {
@@ -15,10 +17,15 @@ class InterviewEvaluate extends Component {
     public buttonText = CONSTANTS.BUTTON_TEXT_EVALUTE;
     public buttonClass = CONSTANTS.BUTTON_EDIT_CLASS;
     public snackbarClass = CONSTANTS.SNACKBAR_CLASS_HIDDEN;
+    public material:any;
 
     constructor(props: any, private api: APICallService) {
         super(props);
         this.api = new APICallService();
+    }
+
+    public componentDidMount(){
+
     }
 
     public componentDidUpdate() {
@@ -71,6 +78,8 @@ class InterviewEvaluate extends Component {
 
         return (
             <form id="evaluteForm" onSubmit={this.doEvaluate}>
+                <div className="question-card-wide mdl-card mdl-shadow--2dp">
+
                 <div className="mdl-card__actions mdl-card--border">
                     <div className="slider-titles">
                         <div>FAILED</div>
@@ -110,6 +119,7 @@ class InterviewEvaluate extends Component {
                 </div>
                 <div className={this.snackbarClass}>
                     <div>Changes saved successfully</div>
+                </div>
                 </div>
             </form>
 

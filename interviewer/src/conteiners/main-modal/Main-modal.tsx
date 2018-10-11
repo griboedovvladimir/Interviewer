@@ -12,12 +12,13 @@ import * as CONSTANTS from '../../constants';
 class MainModal extends Component {
     public props: any;
 
-    constructor(props: any,  private api: APICallService) {
+    constructor(props: any, private api: APICallService) {
         super(props);
         this.api = new APICallService();
     }
 
-    @bound public handleSubmit(e: any) {
+    @bound
+    public handleSubmit(e: any) {
         e.preventDefault();
         let interview = {
             name: e.target.interviewName.value,
@@ -27,27 +28,28 @@ class MainModal extends Component {
             status: 'ok'
         };
         this.api.addInterview(interview).then(
-            (newId:any)=>{
+            (newId: any) => {
                 this.props.action.addInterview({
                     interview_id: newId,
                     ...interview
                 });
                 let el = document.getElementsByClassName(CONSTANTS.MODAL_ACTIVE)[0];
                 let overlay = document.getElementById(CONSTANTS.MODAL_OVERLAY);
-                if(overlay){overlay.remove();}
+                if (overlay) {
+                    overlay.remove();
+                }
                 el.classList.remove(CONSTANTS.MODAL_ACTIVE);
                 el.classList.add(CONSTANTS.MODAL_HIDDEN);
             }
         );
         e.target.reset();
-        e.target.specialization.value ="";
-        e.target.level.value="";
+        e.target.specialization.value = "";
+        e.target.level.value = "";
     }
 
     public render() {
         return (
-
-            <div className="modal modal-hidden">
+            <div className="modal modal-hidden" >
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     <div className="mdc-component mdc-component__textfield">
 

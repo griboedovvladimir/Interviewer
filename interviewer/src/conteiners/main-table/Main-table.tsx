@@ -20,20 +20,22 @@ class MainTable extends Component {
     }
 
     @bound
-    public modalActivate() {
-        let el = document.getElementsByClassName(CONSTANTS.MODAL_HIDDEN)[0];
-        let overlay = document.createElement('div');
-        overlay.id = CONSTANTS.MODAL_OVERLAY;
-        document.body.appendChild(overlay);
-        let removing = () => {
-            overlay.removeEventListener('click', removing);
-            overlay.remove();
-            el.classList.remove(CONSTANTS.MODAL_ACTIVE);
-            el.classList.add(CONSTANTS.MODAL_HIDDEN);
-        };
-        overlay.addEventListener('click', removing);
-        el.classList.remove(CONSTANTS.MODAL_HIDDEN);
-        el.classList.add(CONSTANTS.MODAL_ACTIVE);
+    public modalActivate(e:any) {
+        if(!document.getElementById(CONSTANTS.MODAL_OVERLAY)) {
+            let el = document.getElementsByClassName(CONSTANTS.MODAL_HIDDEN)[0];
+            let overlay = document.createElement('div');
+            overlay.id = CONSTANTS.MODAL_OVERLAY;
+            document.body.appendChild(overlay);
+            let removing = () => {
+                overlay.removeEventListener('click', removing);
+                overlay.remove();
+                el.classList.remove(CONSTANTS.MODAL_ACTIVE);
+                el.classList.add(CONSTANTS.MODAL_HIDDEN);
+            };
+            overlay.addEventListener('click', removing);
+            el.classList.remove(CONSTANTS.MODAL_HIDDEN);
+            el.classList.add(CONSTANTS.MODAL_ACTIVE);
+        }
     }
 
     public render() {

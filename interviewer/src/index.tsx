@@ -8,7 +8,6 @@ import {Provider} from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import * as reducers from './reducers';
 
-
 const reducer = combineReducers(reducers);
 const store = createStore(reducer, /* preloadedState, */ devToolsEnhancer({name:'interviewer'}));
 
