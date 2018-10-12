@@ -32,3 +32,34 @@
 .snackbar-hidden div {
   font-size: 30px;
 }
+.slider-titles {
+  display: flex;
+  justify-content: space-between;
+  color: #00857c;
+  font-size: 12px;
+}
+.slider-marks {
+  display: flex;
+  justify-content: space-between;
+  color: #00857c;
+  padding: 3px 24px;
+}
+.slider-marks-mark {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.slider-marks-circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #00857c;
+  align-self: center;
+}
+.card-textarea {
+  width: 100%;
+  outline-color: #b2dfdb;
+  margin-top: 10px;
+  padding: 5px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}

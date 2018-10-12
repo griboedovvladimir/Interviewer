@@ -1,4 +1,4 @@
-export let chart = function() {
+export const chart = ()=> {
     let script = document.createElement('script');
     script.setAttribute("defer", "defer");
     script.innerHTML = ` Highcharts.chart('container', {

@@ -13,7 +13,7 @@ import Interview from "../interview/Interview";
 import Statistic from "../statistic/Statistic";
 
 
-class MainPage extends Component {
+export class MainPage extends Component {
     public props: any;
 
     constructor(props: any) {

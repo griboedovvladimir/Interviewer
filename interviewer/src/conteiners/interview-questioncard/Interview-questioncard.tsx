@@ -2,9 +2,10 @@ import * as React from "react";
 import {Component} from 'react';
 import bound from "../../decorators/bound";
 import {bindActionCreators, Dispatch} from "redux";
-import * as actions from "../breadcrumbs/actions";
+import * as actions from "../main/actions";
 import {connect} from "react-redux";
 import * as CONSTANTS from "../../constants";
+import './Interview-questiomcard.css'
 
 class InterviewQuestioncard extends Component {
 public props:any;

@@ -15,9 +15,9 @@ export function getInterview(interviews: any) {
 }
 
 
-export function getDirtyQuestion(dirtyQuestion: any){
+export function getDirtyQuestion(dirtyQuestion: any) {
     return {
-        type: 'DIRTY',
+        type: CONSTANTS.ACTION_GET_DIRTY_QUESTION,
         dirtyQuestion
     };
 }

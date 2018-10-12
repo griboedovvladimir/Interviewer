@@ -1,0 +1,11 @@
+.person-actions {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #424242;
+  transform: scale(1);
+  transition: transform 0.1s 0.1s ease-in-out;
+}
+.person-actions:hover {
+  transform: scale(1.2);
+  transition: transform 0.1s 0.1s ease-in-out;
+}

@@ -8,6 +8,7 @@ import {APICallService} from "../../services/APICall.service";
 import bound from '../../decorators/bound'
 import * as CONSTANTS from "../../constants";
 import {Redirect} from 'react-router-dom'
+import './Main-table-row.css'
 
 class MainTableRow extends Component {
     public props: any;

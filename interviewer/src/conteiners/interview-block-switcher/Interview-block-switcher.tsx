@@ -5,6 +5,7 @@ import * as CONSTANTS from './constants';
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../main-table/actions";
 import {connect} from "react-redux";
+import "./Interview-block-switcher.css"
 
 
 class InterviewBlockSwitcher extends Component {

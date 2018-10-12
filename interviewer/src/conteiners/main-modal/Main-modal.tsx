@@ -7,6 +7,7 @@ import {APICallService} from "../../services/APICall.service";
 import {getDateByString} from "../../helpers/getDateByString";
 import bound from '../../decorators/bound'
 import * as CONSTANTS from '../../constants';
+import './Main-moadal.css';
 
 
 class MainModal extends Component {

@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
 import bound from '../../decorators/bound'
 import * as CONSTANTS from '../../constants';
+import './Main-table.css'
 
 class MainTable extends Component {
     public props: any;

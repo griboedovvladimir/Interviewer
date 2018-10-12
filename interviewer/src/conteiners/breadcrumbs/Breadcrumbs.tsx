@@ -2,11 +2,12 @@ import * as React from "react";
 import {Component} from 'react';
 import {bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
-import * as actions from './actions';
+import * as actions from '../main/actions';
 import {InterviewInterface} from "../../interfaces/interview.interface";
 import bound from "../../decorators/bound";
 import {Redirect} from "react-router";
 import * as CONSTANTS from "../../constants";
+import "./Breadcrumbs.css"
 
 class Breadcrumbs extends Component {
     public props: any;
@@ -60,7 +61,7 @@ class Breadcrumbs extends Component {
 
     public renderRedirectToInterview(): any {
         if (this.state.redirectToInterview && this.props.parent === CONSTANTS.BREADCRUMBS_PARENT_STATISTIC) {
-            return <Redirect to={CONSTANTS.MAIN_PAGE_INTERVIEW  + this.props.interviewID}/>
+            return <Redirect to={CONSTANTS.MAIN_PAGE_INTERVIEW + this.props.interviewID}/>
         }
     };
 
@@ -70,11 +71,11 @@ class Breadcrumbs extends Component {
             <div className="breadcrumbs">
                 {this.renderRedirectToStatistic()}
                 {this.renderRedirectToInterview()}
-<span className="mdl-chip" onClick={this.setRedirectToInterview}>
-    <span className={'mdl-chip__text '+ this.refClassInterview}>Interview</span>
+                <span className="mdl-chip" onClick={this.setRedirectToInterview}>
+    <span className={'mdl-chip__text ' + this.refClassInterview}>Interview</span>
 </span>
                 <span className="mdl-chip" onClick={this.setRedirectToStatistic}>
-                        <span className={'mdl-chip__text '+ this.refClassName}>{this.interview.name}</span>
+                        <span className={'mdl-chip__text ' + this.refClassName}>{this.interview.name}</span>
 </span>
                 <span className="mdl-chip">
                         <span className="mdl-chip__text">{'D' + this.interview.level}</span>

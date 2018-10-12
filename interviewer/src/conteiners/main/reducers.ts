@@ -2,7 +2,7 @@ import * as CONSTANTS from './constants';
 import {InterviewInterface} from "../../interfaces/interview.interface";
 
 
-export function interview(state = [], action: any) {
+export function interview(state = [] as InterviewInterface[], action: any) {
     if (action.type === CONSTANTS.ACTION_ADD_INTERVIEW) {
         return [
             {
