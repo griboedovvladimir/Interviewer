@@ -9,7 +9,7 @@ import {Redirect} from "react-router";
 import * as CONSTANTS from "../../constants";
 import "./Breadcrumbs.css"
 
-class Breadcrumbs extends Component {
+export class Breadcrumbs extends Component {
     public props: any;
     public interview: InterviewInterface;
     public refClassInterview = '';

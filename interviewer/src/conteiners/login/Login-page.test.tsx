@@ -1,5 +1,5 @@
-// import React from 'react'
-// import Enzyme, { mount } from 'enzyme'
+import * as React from 'react';
+import { shallow } from 'enzyme';
 // import Adapter from 'enzyme-adapter-react-16'
 // import Main from './Main-page'
 import * as actions from './actions';
@@ -29,6 +29,13 @@ describe('login reducers', () => {
 
         expect(
             login({logged: false}, {
+                type: CONSTANTS.ACTION_LOGIN,
+                logged: true
+            })
+        ).toEqual({logged: true});
+
+        expect(
+            login(undefined, {
                 type: CONSTANTS.ACTION_LOGIN,
                 logged: true
             })
@@ -69,3 +76,13 @@ describe('login reducers', () => {
 
 });
 /*----------------------- Components tests----------------------------*/
+import {LoginPage} from './Login-page';
+
+
+describe("<LoginPage />  UI Component", ()=>{
+    it("render default login-page", ()=>{
+        shallow(<LoginPage/>)
+            .find('div.form-wrapper')
+            .length
+    });
+});

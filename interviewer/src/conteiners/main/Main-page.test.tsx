@@ -41,6 +41,13 @@ describe('main reducers', () => {
                 ...interviewObj
             })
         ).toEqual([interviewObj, interviewObj])
+
+        expect(
+            interview(undefined, {
+                type: CONSTANTS.ACTION_ADD_INTERVIEW,
+                ...interviewObj
+            })
+        ).toEqual([interviewObj])
     });
 
     it('should handle ACTION_REMOVE_INTERVIEW', () => {
@@ -52,6 +59,7 @@ describe('main reducers', () => {
             })
         ).toEqual([])
     });
+
     it('should handle ACTION_GET_INTERVIEW', () => {
         let interviews = [interviewObj, interviewObj];
         expect(
@@ -59,7 +67,13 @@ describe('main reducers', () => {
                 type: CONSTANTS.ACTION_GET_INTERVIEW,
                 interviews
             })
-        ).toEqual([interviewObj, interviewObj])
+        ).toEqual([interviewObj, interviewObj]);
+        expect(
+            interview([], {
+                type: "",
+                interviews
+            })
+        ).toEqual([])
     });
 
 });

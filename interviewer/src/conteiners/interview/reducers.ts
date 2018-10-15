@@ -3,7 +3,7 @@ import * as CONSTANTS from './constants';
 
 export function question(state = {
     currentQuestionNumber: 1,
-    raiting: '',
+    ratting: '',
     text: '',
     source: '',
     question_id: 0,

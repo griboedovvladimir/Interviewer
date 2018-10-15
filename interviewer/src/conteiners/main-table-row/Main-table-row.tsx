@@ -10,7 +10,7 @@ import * as CONSTANTS from "../../constants";
 import {Redirect} from 'react-router-dom'
 import './Main-table-row.css'
 
-class MainTableRow extends Component {
+export class MainTableRow extends Component {
     public props: any;
     public rowData: InterviewInterface;
     public state = {

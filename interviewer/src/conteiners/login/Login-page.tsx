@@ -10,7 +10,7 @@ import {AuthorizationService} from "../../services/authorization.service";
 import bound from '../../decorators/bound'
 import './Login-page.css'
 
-class LoginPage extends Component {
+export class LoginPage extends Component {
     public props: any;
     public authorization:AuthorizationService;
 
