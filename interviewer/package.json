@@ -15,9 +15,12 @@
     "react-router-dom": "^4.3.1",
     "react-router-native": "^4.3.0",
     "react-scripts-ts": "2.17.0",
-    "redux": "^4.0.0",
+    "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rxjs": "^6.3.3",
+    "tsdux": "^2.2.1",
+    "tsdux-observable": "^3.0.0"
   },
   "scripts": {
     "start": "npm run build-css && run-p -ncr watch-css start-js",

@@ -1,13 +1,10 @@
-// import React from 'react'
-// import Enzyme, { mount } from 'enzyme'
-// import Adapter from 'enzyme-adapter-react-16'
-// import Main from './Main-page'
 import * as actions from './actions';
 import * as CONSTANTS from './constants';
 import {interview} from "../main/reducers";
 import {dirty} from "./reducers";
 import * as reducers from "./reducers";
 import {IQuestionInterface} from "../../interfaces/question.interface";
+
 
 const questionReducer = reducers.question;
 

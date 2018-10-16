@@ -14,7 +14,7 @@ import InterviewQuetioncard from "../interview-questioncard/Interview-questionca
 import bound from "../../decorators/bound";
 import InterviewEvaluate from "../interview- evaluate/Interview-evaluate";
 
-class Interview extends Component {
+export class Interview extends Component {
     public props: any;
     public authorization: AuthorizationService;
     public currentQuestionBlock = SWITCHER_CONSTANTS.BLOCK_NAME_HTML;

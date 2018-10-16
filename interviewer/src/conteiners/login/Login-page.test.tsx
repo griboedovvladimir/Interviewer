@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-// import Adapter from 'enzyme-adapter-react-16'
-// import Main from './Main-page'
 import * as actions from './actions';
 import * as CONSTANTS from './constants';
 import {login} from "./reducers";
@@ -86,3 +84,42 @@ describe("<LoginPage />  UI Component", ()=>{
             .length
     });
 });
+
+    it('should render LoginPage in preview mode', () => {
+        const wrapper = shallow(
+            <LoginPage/>
+        );
+
+        expect(wrapper).toMatchSnapshot();
+
+        wrapper.find('[name="login-btn"]').simulate('click');
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+
+    describe('when submiting the form', () => {
+        const wrapper = shallow(
+            <LoginPage/>
+        );
+        expect(wrapper).toMatchSnapshot();
+        beforeEach(() => {
+            wrapper.find('form').simulate('submit', {
+                preventDefault: () => {}, // не забываем передать в event объект с preventDefault заглушкой
+            })
+        });
+    });
+
+    describe('when clicking the form', () => {
+        const wrapper = shallow(
+            <LoginPage/>
+        );
+        expect(wrapper).toMatchSnapshot();
+        beforeEach(() => {
+            wrapper.find('form').simulate('click', {
+                preventDefault: () => {},
+            })
+        });
+    });
+
+

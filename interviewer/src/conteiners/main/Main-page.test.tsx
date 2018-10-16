@@ -5,6 +5,13 @@
 import * as actions from './actions';
 import * as CONSTANTS from './constants';
 import {interview} from './reducers';
+import {mount} from "enzyme";
+import ConnectedMainPage from "./Main-page";
+import * as React from "react";
+import configureStore from "redux-mock-store";
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
+import ConnectedMenu from "../menu/Menu";
 
 const interviewObj = {
     interview_id: "15",
@@ -77,4 +84,37 @@ describe('main reducers', () => {
     });
 
 });
+
 /*----------------------- Components tests----------------------------*/
+
+describe('>>>Main component logged===true', () => {
+    let store: any, wrapper: any;
+    let initialState ={login:{logged:true}};
+
+    const mockStore = configureStore();
+    beforeEach(() => {
+        store = mockStore(initialState);
+        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedMainPage/></BrowserRouter></Provider>)
+    });
+
+    it('render the connected(SMART) Main-page component', () => {
+        expect(wrapper.find(ConnectedMenu).length).toEqual(1)
+    });
+
+});
+
+describe('>>>Main component logged===false', () => {
+    let store: any, wrapper: any;
+    let initialState ={login:{logged:false}};
+
+    const mockStore = configureStore();
+    beforeEach(() => {
+        store = mockStore(initialState);
+        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedMainPage/></BrowserRouter></Provider>)
+    });
+
+    it('render the connected(SMART) Main-page component', () => {
+        expect(wrapper.find(ConnectedMenu).length).toEqual(0)
+    });
+
+});

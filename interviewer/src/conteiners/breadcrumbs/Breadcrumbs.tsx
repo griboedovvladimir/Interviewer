@@ -71,10 +71,10 @@ export class Breadcrumbs extends Component {
             <div className="breadcrumbs">
                 {this.renderRedirectToStatistic()}
                 {this.renderRedirectToInterview()}
-                <span className="mdl-chip" onClick={this.setRedirectToInterview}>
+                <span id="toInterview" className="mdl-chip" onClick={this.setRedirectToInterview}>
     <span className={'mdl-chip__text ' + this.refClassInterview}>Interview</span>
 </span>
-                <span className="mdl-chip" onClick={this.setRedirectToStatistic}>
+                <span id="toStatistic" className="mdl-chip" onClick={this.setRedirectToStatistic}>
                         <span className={'mdl-chip__text ' + this.refClassName}>{this.interview.name}</span>
 </span>
                 <span className="mdl-chip">

@@ -1,0 +1,861 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[` 2`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[` 3`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[` 4`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<LoginPage />  UI Component should render LoginPage in preview mode 1`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<LoginPage />  UI Component should render LoginPage in preview mode 2`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<LoginPage />  UI Component should render Markdown in preview mode 1`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<LoginPage />  UI Component should render Markdown in preview mode 2`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`should render LoginPage in preview mode 1`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`should render LoginPage in preview mode 2`] = `
+<div
+  className="form-wrapper"
+>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="mdc-component mdc-component__textfield"
+    >
+      <div
+        className="mdc-component__containers"
+        dir-horizontal=""
+      >
+        <div
+          className="mdc-component__section mdc-component__section--size-narrow"
+        >
+          <div
+            className="mdc-component__containers__primary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginName"
+                minLength={3}
+                name="loginName"
+                pattern="[A-z.]+"
+                placeholder="Your name"
+                required={true}
+                type="text"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginName"
+              >
+                Name
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component__containers__secondary mdc-textfield--theme-primary"
+          >
+            <div
+              className="mdc-textfield"
+            >
+              <input
+                className="mdc-textfield__input"
+                id="loginPassword"
+                name="loginPassword"
+                placeholder="Your password"
+                required={true}
+                type="password"
+              />
+              <label
+                className="mdc-textfield__label mdc-textfield__label--float-above"
+                htmlFor="loginPassword"
+              >
+                Passsword
+              </label>
+            </div>
+          </div>
+          <div
+            className="mdc-component mdc-component__buttons"
+          >
+            <div
+              className="mdc-component__containers__primary"
+            >
+              <button
+                className="mdc-button mdc-button--raised"
+                name="login-btn"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

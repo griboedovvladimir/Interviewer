@@ -70,9 +70,9 @@ export class MainTableRow extends Component {
                 <td>{this.rowData.date}</td>
                 <td>{this.rowData.status}</td>
                 <td>
-                    <a onClick={this.setRedirectToStatistic}><i className="material-icons person-actions">visibility</i></a>
-                    <a onClick={this.setRedirectToInterview}><i className="material-icons person-actions">create</i></a>
-                    <i className="material-icons person-actions" onClick={this.removeRow}>delete</i>
+                    <a id="visibility" onClick={this.setRedirectToStatistic}><i className="material-icons person-actions">visibility</i></a>
+                    <a id="create" onClick={this.setRedirectToInterview}><i className="material-icons person-actions">create</i></a>
+                    <i id="delete" className="material-icons person-actions" onClick={this.removeRow}>delete</i>
                 </td>
             </tr>
         )

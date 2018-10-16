@@ -66,7 +66,7 @@ export class LoginPage extends Component {
                                     </div>
                                     <div className="mdc-component mdc-component__buttons">
                                         <div className="mdc-component__containers__primary">
-                                            <button type="submit" className="mdc-button mdc-button--raised">Submit
+                                            <button type="submit" name="login-btn" className="mdc-button mdc-button--raised">Submit
                                             </button>
                                         </div>
                                     </div>

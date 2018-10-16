@@ -76,7 +76,7 @@ class Menu extends Component {
                 {this.renderRedirect()}
                 <span className="mdl-layout-title menu-title">Interviewer</span>
                 <nav className="mdl-navigation">
-                    <a onClick={this.setRedirect} className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
+                    <a id="main_item" onClick={this.setRedirect} className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
                     <a className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
                     <a className={"mdl-navigation__link " + this.activateStatisticItem}>Statistic</a>
                     <a className={"mdl-navigation__link "} onClick={this.logout}>Logout</a>
