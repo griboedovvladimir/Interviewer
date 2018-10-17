@@ -95,7 +95,7 @@ class MainModal extends Component {
 
                             <div className="mdc-component mdc-component__buttons add-button">
                                 <div className="mdc-component__containers__primary">
-                                    <button type="submit" className="mdc-button mdc-button--raised">ADD</button>
+                                    <button type="submit" name="AddInterview"  className="mdc-button mdc-button--raised">ADD</button>
                                 </div>
                             </div>
                         </div>

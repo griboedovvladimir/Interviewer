@@ -10,7 +10,7 @@ import {Redirect} from 'react-router-dom';
 import {AuthorizationService} from "../../services/authorization.service";
 import  {MenuActivator} from "./menu-activator";
 
-class Menu extends Component {
+export class Menu extends Component {
     public props: any;
     public activateMainItem = '';
     public activateInterviewItem = '';
@@ -26,7 +26,6 @@ class Menu extends Component {
         this.activateMenuItem();
         this.authorizationService = new AuthorizationService();
         this.menuActivator = new MenuActivator();
-
     }
 
     public componentDidMount(){
@@ -79,7 +78,7 @@ class Menu extends Component {
                     <a id="main_item" onClick={this.setRedirect} className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
                     <a className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
                     <a className={"mdl-navigation__link " + this.activateStatisticItem}>Statistic</a>
-                    <a className={"mdl-navigation__link "} onClick={this.logout}>Logout</a>
+                    <a id="logout_item" className={"mdl-navigation__link "} onClick={this.logout}>Logout</a>
                 </nav>
             </div>
         );

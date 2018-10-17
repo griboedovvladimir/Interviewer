@@ -105,7 +105,7 @@ describe("<LoginPage />  UI Component", ()=>{
         expect(wrapper).toMatchSnapshot();
         beforeEach(() => {
             wrapper.find('form').simulate('submit', {
-                preventDefault: () => {}, // не забываем передать в event объект с preventDefault заглушкой
+                preventDefault: () => {},
             })
         });
     });
@@ -116,7 +116,7 @@ describe("<LoginPage />  UI Component", ()=>{
         );
         expect(wrapper).toMatchSnapshot();
         beforeEach(() => {
-            wrapper.find('form').simulate('click', {
+            wrapper.find('[name="login-btn"]').simulate('click', {
                 preventDefault: () => {},
             })
         });

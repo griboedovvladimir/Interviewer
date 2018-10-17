@@ -1,6 +1,7 @@
 export const chart = ()=> {
     let script = document.createElement('script');
     script.setAttribute("defer", "defer");
+    script.id = 'chartScript';
     script.innerHTML = ` Highcharts.chart('container', {
         chart: {
             type: 'column'

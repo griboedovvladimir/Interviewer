@@ -4,7 +4,12 @@ import {interview} from "../main/reducers";
 import {dirty} from "./reducers";
 import * as reducers from "./reducers";
 import {IQuestionInterface} from "../../interfaces/question.interface";
-
+import configureStore from "redux-mock-store";
+import {mount} from "enzyme";
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
+import ConnectedInterview from "./Interview";
+import * as React from "react";
 
 const questionReducer = reducers.question;
 
@@ -139,3 +144,37 @@ describe('interview actions', () => {
 });
 
 /*----------------------- Components tests----------------------------*/
+let initialState = {
+    interview: [{
+        interview_id: "15",
+        name: "Some name",
+        level: "2",
+        specialization: "Front end",
+        date: "16.06.12",
+        status: "ok",
+    }],
+    match:{params:{id: "15"}},
+    question:{
+
+    }
+};
+let store: any, wrapper: any;
+const mockStore = configureStore();
+describe('>>>Interview component', () => {
+    beforeEach(() => {
+        store = mockStore(initialState);
+        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedInterview /></BrowserRouter></Provider>)
+    });
+    console.log(wrapper)
+
+    // it('render the connected(SMART) Interview  component', () => {
+    //     expect(wrapper.find(ConnectedInterview).length).toEqual(1)
+    // });
+    //
+    // // it('when clicking the main-item', () => {
+    // //     wrapper.find('#main_item').simulate('click', {
+    // //         preventDefault: () => {
+    // //         },
+    // //     })
+    // // });
+});

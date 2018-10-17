@@ -1,7 +1,3 @@
-// import React from 'react'
-// import Enzyme, { mount } from 'enzyme'
-// import Adapter from 'enzyme-adapter-react-16'
-// import Main from './Main-page'
 import * as actions from './actions';
 import * as CONSTANTS from './constants';
 import {interview} from './reducers';
