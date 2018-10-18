@@ -22,7 +22,9 @@ export class LoginPage extends Component {
 
     @bound public handleSubmit(e: any) {
         e.preventDefault();
-        this.service.checkUser(e.target.loginName.value, e.target.loginPassword.value)
+        this.service.checkUser(
+            e.target.loginName.value,
+            e.target.loginPassword.value)
             .then(res => res.json().then(check => {
                 if (check.authorization === CONSTANTS.LOGGED_API_RES) {
                     this.props.action.login(true);

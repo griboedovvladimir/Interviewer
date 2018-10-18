@@ -10,6 +10,7 @@ import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 import ConnectedInterview from "./Interview";
 import * as React from "react";
+import "isomorphic-fetch";
 
 const questionReducer = reducers.question;
 
@@ -153,28 +154,36 @@ let initialState = {
         date: "16.06.12",
         status: "ok",
     }],
-    match:{params:{id: "15"}},
-    question:{
-
+    match: {params: {id: "15"}},
+    question: {
+        ...questionObj
     }
 };
+
 let store: any, wrapper: any;
-const mockStore = configureStore();
+let mockStore = configureStore();
 describe('>>>Interview component', () => {
     beforeEach(() => {
         store = mockStore(initialState);
-        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedInterview /></BrowserRouter></Provider>)
+        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedInterview/></BrowserRouter></Provider>)
     });
-    console.log(wrapper)
 
-    // it('render the connected(SMART) Interview  component', () => {
-    //     expect(wrapper.find(ConnectedInterview).length).toEqual(1)
-    // });
-    //
-    // // it('when clicking the main-item', () => {
-    // //     wrapper.find('#main_item').simulate('click', {
-    // //         preventDefault: () => {
-    // //         },
-    // //     })
-    // // });
+    it('render the connected(SMART) Interview  component', () => {
+        expect(wrapper.find(ConnectedInterview).length).toEqual(1)
+    });
+
+});
+
+initialState.interview = [];
+mockStore = configureStore();
+describe('>>>Interview component with interview state === []', () => {
+    beforeEach(() => {
+        store = mockStore(initialState);
+        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedInterview/></BrowserRouter></Provider>)
+    });
+
+    it('render the connected(SMART) Interview  component', () => {
+        expect(wrapper.find(ConnectedInterview).length).toEqual(1)
+    });
+
 });

@@ -1,11 +1,10 @@
-import {mount, shallow} from "enzyme";
+import {mount} from "enzyme";
 import configureStore from 'redux-mock-store'
 import {Provider} from "react-redux";
-import ConnectedMenu,{Menu} from "./Menu";
+import ConnectedMenu from "./Menu";
 import * as React from "react";
 import {BrowserRouter} from "react-router-dom";
 import * as CONSTANTS from '../../constants'
-import {AuthorizationService} from "../../services/authorization.service";
 
 let initialState = {};
 let store: any, wrapper: any;
@@ -60,32 +59,17 @@ describe('>>>Menu component with parent===statistic', () => {
 
 describe('>>>Menu component -> test componentWillUnmount', () => {
 
-    it('lifecycle method should have been called', () => {
-        const componentDidMount = jest.fn();
-        const componentWillUnmount = jest.fn();
-
-        class Foo extends Menu {
-            constructor(props:any) {
-                // @ts-ignore
-                super(props, AuthorizationService);
-                this.componentDidMount = componentDidMount;
-                this.componentWillUnmount = componentWillUnmount
-            }
-
-            render() {
-                return (<Menu  />)
-            }
-        }
-
-        const wrapper = shallow(<Foo />);
-
-        expect(componentDidMount.mock.calls.length).toBe(1);
-        expect(componentWillUnmount.mock.calls.length).toBe(0);
+    it('calls componentWillUnmount',() => {
+        const spy = jest.spyOn(ConnectedMenu.prototype, 'componentWillUnmount');
+        beforeEach(() => {
+            store = mockStore(initialState);
+            wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedMenu parent={CONSTANTS.MENU_ITEM_STATISTIC}/></BrowserRouter></Provider>)
+        });
 
         wrapper.unmount();
-
-        expect(componentDidMount.mock.calls.length).toBe(1);
-        expect(componentWillUnmount.mock.calls.length).toBe(1)
+        expect(spy).toHaveBeenCalled();
+        spy.mockReset();
+        spy.mockRestore();
     });
 
 });

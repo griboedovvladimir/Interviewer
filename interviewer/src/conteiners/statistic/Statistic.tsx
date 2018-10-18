@@ -6,26 +6,46 @@ import * as actions from './../main-table/actions';
 import './Statistic.css'
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 import {APICallService} from "../../services/APICall.service";
-import * as CONSTANTS from'../../constants'
+import * as CONSTANTS from '../../constants'
 import {chart} from './chart';
 
 class Statistic extends Component {
     public props: any;
-    public state:any;
+    public state: any;
+    public cssCards: any;
 
-    constructor(props: any, private api:APICallService) {
+    constructor(props: any, private api: APICallService) {
         super(props);
         this.api = new APICallService();
 
-        if(!this.props.interview[0]) {
+        if (!this.props.interview[0]) {
             this.api.getInterview().then(res => {
                 this.props.action.getInterview(res.reverse());
             });
         }
+        this.api.getQuestionCards(this.props.match.params.id).then(res => {
+           this.cssCards = res.filter((el: any): boolean => {
+                let returned = false;
+                if (el.topic_name === 'css') {
+                    returned = true;
+                }
+                return returned
+            });
+
+            console.log(this.cssCards)
+        })
     }
 
-    public componentDidMount(){
-        setTimeout(chart,0);
+    public chartInit() {
+        let script = document.createElement('script');
+        script.setAttribute("defer", "defer");
+        script.id = 'chartScript';
+        script.innerHTML = chart;
+        document.body.appendChild(script);
+    }
+
+    public componentDidMount() {
+        setTimeout(this.chartInit, 0);
     }
 
     public render() {
@@ -71,15 +91,17 @@ class Statistic extends Component {
                     </div>
                 </div>
             )
-        }else{
+        } else {
             return (<h2>...loading</h2>)
         }
     }
+
+
 }
 
 
-const mapStateToProps = (state: any, OwnProps:any) => ({
-    ...state,...OwnProps
+const mapStateToProps = (state: any, OwnProps: any) => ({
+    ...state, ...OwnProps
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

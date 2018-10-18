@@ -38,7 +38,7 @@ class InterviewBlockSwitcher extends Component {
             this.currentBlock = CONSTANTS.BLOCK_NAME_HTML;
             this.activeBlock.html = CONSTANTS.BLOCK_ACTIVE_CLASS;
         }
-        else if ((e.target.id || e.target.parentNode.id) === CONSTANTS.BLOCK_ID_JS) {
+        else {
             this.currentBlock = CONSTANTS.BLOCK_NAME_JS;
             this.activeBlock.js = CONSTANTS.BLOCK_ACTIVE_CLASS;
         }

@@ -9,7 +9,7 @@ import bound from '../../decorators/bound'
 import * as CONSTANTS from '../../constants';
 import './Main-table.css'
 
-class MainTable extends Component {
+export class MainTable extends Component {
     public props: any;
 
     constructor(props: any, private api: APICallService) {
@@ -21,7 +21,7 @@ class MainTable extends Component {
     }
 
     @bound
-    public modalActivate(e:any) {
+    public modalActivate() {
         if(!document.getElementById(CONSTANTS.MODAL_OVERLAY)) {
             let el = document.getElementsByClassName(CONSTANTS.MODAL_HIDDEN)[0];
             let overlay = document.createElement('div');

@@ -19,4 +19,20 @@ describe('>>>MainModal component', () => {
     it('render the connected(SMART) MainModal component', () => {
         expect(wrapper.find(MainModal).length).toEqual(1)
     });
+
+    it('when clicking AddInterview-button', () => {
+        afterEach(() => {
+            wrapper.find('[name="AddInterview"]').simulate('click', {
+                preventDefault: () => {},
+            })
+        });
+    });
+
+    it('when clicking submitting', () => {
+        afterEach(() => {
+            wrapper.find('form').simulate('submit', {
+                preventDefault: () => {},
+            })
+        });
+    });
 });

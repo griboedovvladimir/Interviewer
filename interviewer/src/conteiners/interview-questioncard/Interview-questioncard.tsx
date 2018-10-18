@@ -27,7 +27,7 @@ this.props.updateData(CONSTANTS.QUESTION_NEXT);
     public render() {
         return (
             <div className="card-content">
-                <div onClick={this.getPrevQuestion} className="material-icons card-arrow" aria-label="Add"><span
+                <div id="left-arrow" onClick={this.getPrevQuestion} className="material-icons card-arrow" aria-label="Add"><span
                     className="mdc-fab__icon">keyboard_arrow_left</span>
                 </div>
                 <div>
@@ -38,7 +38,7 @@ this.props.updateData(CONSTANTS.QUESTION_NEXT);
                         {this.props.question.text}
                     </div>
                 </div>
-                <div onClick={this.getNextQuestion} className="material-icons card-arrow" aria-label="Add"><span
+                <div id="right-arrow" onClick={this.getNextQuestion} className="material-icons card-arrow" aria-label="Add"><span
                     className="mdc-fab__icon">keyboard_arrow_right</span>
                 </div>
             </div>

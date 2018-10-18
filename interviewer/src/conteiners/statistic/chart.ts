@@ -1,8 +1,4 @@
-export const chart = ()=> {
-    let script = document.createElement('script');
-    script.setAttribute("defer", "defer");
-    script.id = 'chartScript';
-    script.innerHTML = ` Highcharts.chart('container', {
+export const chart = ` Highcharts.chart('container', {
         chart: {
             type: 'column'
         },
@@ -179,6 +175,3 @@ export const chart = ()=> {
             }
         }]
     });`;
-    document.body.appendChild(script);
-};
-

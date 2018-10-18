@@ -37,8 +37,6 @@ export class MenuActivator {
     }
 
     public deactivate() {
-        if (document.getElementById('burger')) {
             document.getElementById('burger')!.remove();
-        }
     }
 }

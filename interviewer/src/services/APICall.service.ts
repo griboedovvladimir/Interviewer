@@ -59,6 +59,12 @@ export class APICallService {
         });
     }
 
+    public getQuestionCards(interviewId:number) {
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.QUESTION_CARDS + '/' + interviewId, {
+            method: 'GET'
+        }).then(req => req.json());
+    }
+
     public checkQuestionCard(questionId: number, interviewId: number) {
         let body = {questionId, interviewId};
         return fetch(CONSTANTS.API_HOST + CONSTANTS.QUESTION_CARD_CHECK, {

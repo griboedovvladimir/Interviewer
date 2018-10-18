@@ -57,11 +57,11 @@ describe('>>>InterviewEvaluate component without props', () => {
         });
     });
 
-    // it('when clicking evaluate-button', () => {
-    //     beforeEach(() => {
-    //         wrapper.find('[name="btn"]').simulate('click', {
-    //             preventDefault: () => {}
-    //         })
-    //     });
-    // });
+    it('when clicking evaluate-button', () => {
+        afterEach(() => {
+            wrapper.find('[name="btn"]').simulate('click', {
+                preventDefault: () => {},
+            })
+        });
+    });
 });

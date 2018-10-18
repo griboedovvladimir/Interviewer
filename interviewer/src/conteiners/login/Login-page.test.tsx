@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import {mount} from 'enzyme';
 import * as actions from './actions';
 import * as CONSTANTS from './constants';
 import {login} from "./reducers";
+import "isomorphic-fetch";
 
 const logged = true;
 /*-------------------------- Redux tests -------------------------------*/
@@ -74,52 +75,82 @@ describe('login reducers', () => {
 
 });
 /*----------------------- Components tests----------------------------*/
-import {LoginPage} from './Login-page';
+import ConnectedLoginPage from './Login-page';
+import configureStore from "redux-mock-store";
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
 
+let store: any, wrapper: any;
+let initialState = {login: {logged: true}};
+let mockStore = configureStore();
 
-describe("<LoginPage />  UI Component", ()=>{
-    it("render default login-page", ()=>{
-        shallow(<LoginPage/>)
-            .find('div.form-wrapper')
-            .length
+describe("<LoginPage />  UI Component", () => {
+    beforeEach(() => {
+        store = mockStore(initialState);
+        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedLoginPage/></BrowserRouter></Provider>)
+    });
+
+    it("render default login-page", () => {
+        expect(wrapper.find(ConnectedLoginPage).length).toEqual(1)
+    });
+
+});
+
+initialState = {login: {logged: false}};
+mockStore = configureStore();
+describe("<LoginPage />  UI Component", () => {
+    beforeEach(() => {
+        store = mockStore(initialState);
+        wrapper = mount(<Provider store={store}><BrowserRouter><ConnectedLoginPage/></BrowserRouter></Provider>)
+    });
+
+    it("render default login-page wit logged === false", () => {
+        expect(wrapper.find(ConnectedLoginPage).length).toEqual(1)
+    });
+
+    it("when clicking the login-btn", () => {
+        beforeEach(() => {
+            wrapper.find('[name="login-btn"]').simulate('click', {
+                preventDefault: () => {
+                },
+            })
+        });
+    });
+
+    it("when submitting the form", () => {
+        beforeEach(() => {
+            wrapper.find('form').simulate('submit', {
+                preventDefault: () => {
+                },
+            })
+        });
     });
 });
 
-    it('should render LoginPage in preview mode', () => {
-        const wrapper = shallow(
-            <LoginPage/>
-        );
 
-        expect(wrapper).toMatchSnapshot();
+// it('should render LoginPage in preview mode', () => {
+//     const wrapper = mount(
+//         <LoginPage/>
+//     );
+//     expect(wrapper).toMatchSnapshot();
+//
+//     wrapper.find('[name="login-btn"]').simulate('click');
+//
+//     expect(wrapper).toMatchSnapshot();
+// });
 
-        wrapper.find('[name="login-btn"]').simulate('click');
 
-        expect(wrapper).toMatchSnapshot();
-    });
+// describe('when submiting the form', () => {
+//     const wrapper = mount(
+//         <LoginPage/>
+//     );
+//     expect(wrapper).toMatchSnapshot();
+//     beforeEach(() => {
+//         wrapper.find('form').simulate('submit', {
+//             preventDefault: () => {},
+//         })
+//     });
+// });
 
-
-    describe('when submiting the form', () => {
-        const wrapper = shallow(
-            <LoginPage/>
-        );
-        expect(wrapper).toMatchSnapshot();
-        beforeEach(() => {
-            wrapper.find('form').simulate('submit', {
-                preventDefault: () => {},
-            })
-        });
-    });
-
-    describe('when clicking the form', () => {
-        const wrapper = shallow(
-            <LoginPage/>
-        );
-        expect(wrapper).toMatchSnapshot();
-        beforeEach(() => {
-            wrapper.find('[name="login-btn"]').simulate('click', {
-                preventDefault: () => {},
-            })
-        });
-    });
 
 

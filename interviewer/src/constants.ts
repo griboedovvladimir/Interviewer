@@ -6,6 +6,7 @@ export const LOGGED_API_RES = 'true';
 export const INTERVIE_PATH = '/interview';
 export const QUESTION_PATH = '/question';
 export const QUESTION_CARD = '/questioncard';
+export const QUESTION_CARDS = '/questioncards';
 export const QUESTION_CARD_CHECK = '/questioncardcheck';
 
 /*----------------- ROUTES -----------------------*/
