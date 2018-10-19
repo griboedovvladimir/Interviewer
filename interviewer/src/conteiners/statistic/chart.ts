@@ -1,4 +1,4 @@
-export const chart = ` Highcharts.chart('container', {
+export const chart = ` Highcharts.chart('CSScontainer', {
         chart: {
             type: 'column'
         },
@@ -57,7 +57,7 @@ export const chart = ` Highcharts.chart('container', {
             }
         }]
     });
-    Highcharts.chart('container2', {
+    Highcharts.chart('HTMLcontainer', {
         chart: {
             type: 'column'
         },
@@ -116,7 +116,7 @@ export const chart = ` Highcharts.chart('container', {
             }
         }]
     });
-    Highcharts.chart('container3', {
+    Highcharts.chart('JScontainer', {
         chart: {
             type: 'column'
         },

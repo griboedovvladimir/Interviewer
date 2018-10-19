@@ -7,15 +7,16 @@ import './Statistic.css'
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 import {APICallService} from "../../services/APICall.service";
 import * as CONSTANTS from '../../constants'
-import {chart} from './chart';
+import {StatisticChart} from "../statistic-chart/Statistic-chart";
 
 class Statistic extends Component {
     public props: any;
     public state = {
-        cssCards: {cards: [], percentage: undefined},
-        htmlCards: {cards: [], percentage: undefined},
-        jsCards: {cards: [], percentage: undefined},
-        cards: []
+        cssCards: {cards: [], percentage: undefined, topic: ""},
+        htmlCards: {cards: [], percentage: undefined, topic: ""},
+        jsCards: {cards: [], percentage: undefined, topic: ""},
+        cards: [],
+        charts: []
     };
 
     constructor(props: any, private api: APICallService) {
@@ -41,88 +42,37 @@ class Statistic extends Component {
                     return prev + Number(el.mark);
                 }, 0) / cards.length) : undefined;
 
-                return {cards, percentage}
+                return {cards, percentage, topic}
             }
+
+            Array.from(new Set(res.map((el: any) => {
+                return el.topic_name
+            })));
 
             this.setState({
                 cssCards: {...getCardsByTopic('js')},
                 htmlCards: {...getCardsByTopic('html')},
                 jsCards: {...getCardsByTopic('css')},
-                cards: res
+                cards: res,
+                charts: Array.from(new Set(res.map((el: any) => {
+                    return el.topic_name
+                })))
             })
         })
     }
 
-    public chartInit() {
-        let script = document.createElement('script');
-        script.setAttribute("defer", "defer");
-        script.id = 'chartScript';
-        script.innerHTML = chart;
-        document.body.appendChild(script);
-    }
-
-    public componentDidMount() {
-        setTimeout(this.chartInit, 0);
-    }
-
     public render() {
+        let charts = this.state.charts.map((el: any, i: any) => {
+            return <StatisticChart key={el} chartdata={this.state[el + 'Cards']}/>;
+        });
         if (this.props.interview[0]) {
             return (
                 <div className="page-content">
                     <Breadcrumbs interviewID={this.props.match.params.id}
                                  parent={CONSTANTS.BREADCRUMBS_PARENT_STATISTIC}/>
                     {!!this.state.cards.length ?
-
                         <div className="charts">
-                            <div className="html-chart chart">
-                                <div className="chart-header">
-                                    <div>HTML</div>
-                                </div>
-                                <div className="percentage"
-                                     style={{
-                                         background: `linear-gradient(to top, #82ada9 ${this.state.htmlCards.percentage}%, #fff
-                                     ${(this.state.htmlCards.percentage || 1) + 10 }%)`
-                                     }}>
-                                    <div>{this.state.htmlCards.percentage + '%'}</div>
-                                </div>
-                                <div>
-                                    <div id="container" className='charts'/>
-                                </div>
-                            </div>
-                            {this.state.cssCards.percentage &&
-                            <div className="css-chart chart">
-                                <div className="chart-header">
-                                    <div>CSS</div>
-                                </div>
-                                <div className="percentage"
-                                     style={{
-                                         background: `linear-gradient(to top, #82ada9 ${this.state.cssCards.percentage}%, #fff
-                                     ${(this.state.cssCards.percentage || 1) + 10 }%)`
-                                     }}>
-                                    <div>{this.state.cssCards.percentage + '%'}</div>
-                                </div>
-                                <div>
-                                    <div id="container2" className='charts'/>
-                                </div>
-                            </div>
-                            }
-                            {this.state.jsCards.percentage &&
-                            <div className="js-chart chart">
-                                <div className="chart-header">
-                                    <div>JS</div>
-                                </div>
-                                <div className="percentage"
-                                     style={{
-                                         background: `linear-gradient(to top, #82ada9 ${this.state.jsCards.percentage}%, #fff
-                                     ${(this.state.jsCards.percentage || 1) + 10 }%)`
-                                     }}>
-                                    <div>{this.state.jsCards.percentage + '%'}</div>
-                                </div>
-                                <div>
-                                    <div id="container3" className='charts'/>
-                                </div>
-                            </div>
-                            }
+                            {charts}
                         </div> :
                         <div className="interview-placeholder">Interview is empty</div>
                     }
@@ -132,12 +82,7 @@ class Statistic extends Component {
             return (<h2>...loading</h2>)
         }
     }
-
-    public chartScriptMaker() {
-
-    }
 }
-
 
 const mapStateToProps = (state: any, OwnProps: any) => ({
     ...state, ...OwnProps
