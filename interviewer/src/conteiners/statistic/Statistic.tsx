@@ -15,7 +15,7 @@ class Statistic extends Component {
         cssCards: {cards: [], percentage: undefined},
         htmlCards: {cards: [], percentage: undefined},
         jsCards: {cards: [], percentage: undefined},
-        cards:[]
+        cards: []
     };
 
     constructor(props: any, private api: APICallService) {
@@ -71,13 +71,18 @@ class Statistic extends Component {
                 <div className="page-content">
                     <Breadcrumbs interviewID={this.props.match.params.id}
                                  parent={CONSTANTS.BREADCRUMBS_PARENT_STATISTIC}/>
-                    {!!this.state.cards.length &&
+                    {!!this.state.cards.length ?
+
                         <div className="charts">
                             <div className="html-chart chart">
                                 <div className="chart-header">
                                     <div>HTML</div>
                                 </div>
-                                <div className="percentage per-html">
+                                <div className="percentage"
+                                     style={{
+                                         background: `linear-gradient(to top, #82ada9 ${this.state.htmlCards.percentage}%, #fff
+                                     ${(this.state.htmlCards.percentage || 1) + 10 }%)`
+                                     }}>
                                     <div>{this.state.htmlCards.percentage + '%'}</div>
                                 </div>
                                 <div>
@@ -89,7 +94,11 @@ class Statistic extends Component {
                                 <div className="chart-header">
                                     <div>CSS</div>
                                 </div>
-                                <div className="percentage per-css">
+                                <div className="percentage"
+                                     style={{
+                                         background: `linear-gradient(to top, #82ada9 ${this.state.cssCards.percentage}%, #fff
+                                     ${(this.state.cssCards.percentage || 1) + 10 }%)`
+                                     }}>
                                     <div>{this.state.cssCards.percentage + '%'}</div>
                                 </div>
                                 <div>
@@ -102,7 +111,11 @@ class Statistic extends Component {
                                 <div className="chart-header">
                                     <div>JS</div>
                                 </div>
-                                <div className="percentage per-js">
+                                <div className="percentage"
+                                     style={{
+                                         background: `linear-gradient(to top, #82ada9 ${this.state.jsCards.percentage}%, #fff
+                                     ${(this.state.jsCards.percentage || 1) + 10 }%)`
+                                     }}>
                                     <div>{this.state.jsCards.percentage + '%'}</div>
                                 </div>
                                 <div>
@@ -110,7 +123,8 @@ class Statistic extends Component {
                                 </div>
                             </div>
                             }
-                        </div>
+                        </div> :
+                        <div className="interview-placeholder">Interview is empty</div>
                     }
                 </div>
             )
@@ -119,7 +133,9 @@ class Statistic extends Component {
         }
     }
 
+    public chartScriptMaker() {
 
+    }
 }
 
 
