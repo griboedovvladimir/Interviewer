@@ -92,6 +92,7 @@ describe("<LoginPage />  UI Component", () => {
 
     it("render default login-page", () => {
         expect(wrapper.find(ConnectedLoginPage).length).toEqual(1)
+        expect(wrapper).toMatchSnapshot();
     });
 
 });
@@ -106,18 +107,22 @@ describe("<LoginPage />  UI Component", () => {
 
     it("render default login-page wit logged === false", () => {
         expect(wrapper.find(ConnectedLoginPage).length).toEqual(1)
+        expect(wrapper).toMatchSnapshot();
     });
 
     it("when clicking the login-btn", () => {
+        expect(wrapper).toMatchSnapshot();
         beforeEach(() => {
             wrapper.find('[name="login-btn"]').simulate('click', {
                 preventDefault: () => {
                 },
             })
         });
+        expect(wrapper).toMatchSnapshot();
     });
 
     it("when submitting the form", () => {
+        expect(wrapper).toMatchSnapshot();
         beforeEach(() => {
             wrapper.find('form').simulate('submit', {
                 preventDefault: () => {
@@ -125,32 +130,9 @@ describe("<LoginPage />  UI Component", () => {
             })
         });
     });
+    expect(wrapper).toMatchSnapshot();
 });
 
-
-// it('should render LoginPage in preview mode', () => {
-//     const wrapper = mount(
-//         <LoginPage/>
-//     );
-//     expect(wrapper).toMatchSnapshot();
-//
-//     wrapper.find('[name="login-btn"]').simulate('click');
-//
-//     expect(wrapper).toMatchSnapshot();
-// });
-
-
-// describe('when submiting the form', () => {
-//     const wrapper = mount(
-//         <LoginPage/>
-//     );
-//     expect(wrapper).toMatchSnapshot();
-//     beforeEach(() => {
-//         wrapper.find('form').simulate('submit', {
-//             preventDefault: () => {},
-//         })
-//     });
-// });
 
 
 

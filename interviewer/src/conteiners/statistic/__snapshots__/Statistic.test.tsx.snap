@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Statistic component initialState===[] render the connected(SMART) Statistic component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Statistic)>
+        <Statistic
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          interview={Array []}
+          match={
+            Object {
+              "params": Object {
+                "id": "15",
+              },
+            }
+          }
+        >
+          <h2>
+            ...loading
+          </h2>
+        </Statistic>
+      </Connect(Statistic)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>Statistic component render the connected(SMART) Statistic component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Statistic)>
+        <Statistic
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          interview={Array []}
+          match={
+            Object {
+              "params": Object {
+                "id": "15",
+              },
+            }
+          }
+        >
+          <h2>
+            ...loading
+          </h2>
+        </Statistic>
+      </Connect(Statistic)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>Statistic component render the connected(SMART) Statistic component and init charts 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Statistic)>
+        <Statistic
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          interview={Array []}
+          match={
+            Object {
+              "params": Object {
+                "id": "15",
+              },
+            }
+          }
+        >
+          <h2>
+            ...loading
+          </h2>
+        </Statistic>
+      </Connect(Statistic)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

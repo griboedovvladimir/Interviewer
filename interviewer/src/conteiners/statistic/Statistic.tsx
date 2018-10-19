@@ -11,8 +11,12 @@ import {chart} from './chart';
 
 class Statistic extends Component {
     public props: any;
-    public state: any;
-    public cssCards: any;
+    public state = {
+        cssCards: {cards: [], percentage: undefined},
+        htmlCards: {cards: [], percentage: undefined},
+        jsCards: {cards: [], percentage: undefined},
+        cards:[]
+    };
 
     constructor(props: any, private api: APICallService) {
         super(props);
@@ -24,15 +28,28 @@ class Statistic extends Component {
             });
         }
         this.api.getQuestionCards(this.props.match.params.id).then(res => {
-           this.cssCards = res.filter((el: any): boolean => {
-                let returned = false;
-                if (el.topic_name === 'css') {
-                    returned = true;
-                }
-                return returned
-            });
+            function getCardsByTopic(topic: string) {
+                let cards = res.filter((el: any): boolean => {
+                    let returned = false;
+                    if (el.topic_name === topic) {
+                        returned = true;
+                    }
+                    return returned
+                });
 
-            console.log(this.cssCards)
+                let percentage = cards.length ? Math.round(cards.reduce((prev: any, el: any) => {
+                    return prev + Number(el.mark);
+                }, 0) / cards.length) : undefined;
+
+                return {cards, percentage}
+            }
+
+            this.setState({
+                cssCards: {...getCardsByTopic('js')},
+                htmlCards: {...getCardsByTopic('html')},
+                jsCards: {...getCardsByTopic('css')},
+                cards: res
+            })
         })
     }
 
@@ -54,41 +71,47 @@ class Statistic extends Component {
                 <div className="page-content">
                     <Breadcrumbs interviewID={this.props.match.params.id}
                                  parent={CONSTANTS.BREADCRUMBS_PARENT_STATISTIC}/>
-                    <div className="charts">
-                        <div className="html-chart chart">
-                            <div className="chart-header">
-                                <div>HTML</div>
+                    {!!this.state.cards.length &&
+                        <div className="charts">
+                            <div className="html-chart chart">
+                                <div className="chart-header">
+                                    <div>HTML</div>
+                                </div>
+                                <div className="percentage per-html">
+                                    <div>{this.state.htmlCards.percentage + '%'}</div>
+                                </div>
+                                <div>
+                                    <div id="container" className='charts'/>
+                                </div>
                             </div>
-                            <div className="percentage per-html">
-                                <div>92%</div>
+                            {this.state.cssCards.percentage &&
+                            <div className="css-chart chart">
+                                <div className="chart-header">
+                                    <div>CSS</div>
+                                </div>
+                                <div className="percentage per-css">
+                                    <div>{this.state.cssCards.percentage + '%'}</div>
+                                </div>
+                                <div>
+                                    <div id="container2" className='charts'/>
+                                </div>
                             </div>
-                            <div>
-                                <div id="container" className='charts'/>
+                            }
+                            {this.state.jsCards.percentage &&
+                            <div className="js-chart chart">
+                                <div className="chart-header">
+                                    <div>JS</div>
+                                </div>
+                                <div className="percentage per-js">
+                                    <div>{this.state.jsCards.percentage + '%'}</div>
+                                </div>
+                                <div>
+                                    <div id="container3" className='charts'/>
+                                </div>
                             </div>
+                            }
                         </div>
-                        <div className="css-chart chart">
-                            <div className="chart-header">
-                                <div>CSS</div>
-                            </div>
-                            <div className="percentage per-css">
-                                <div>73%</div>
-                            </div>
-                            <div>
-                                <div id="container2" className='charts'/>
-                            </div>
-                        </div>
-                        <div className="js-chart chart">
-                            <div className="chart-header">
-                                <div>JS</div>
-                            </div>
-                            <div className="percentage per-js">
-                                <div>86%</div>
-                            </div>
-                            <div>
-                                <div id="container3" className='charts'/>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             )
         } else {

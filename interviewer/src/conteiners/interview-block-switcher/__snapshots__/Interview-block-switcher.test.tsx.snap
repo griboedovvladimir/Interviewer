@@ -1,0 +1,966 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>InterviewBlockSwitcher component render the connected(SMART) InterviewBlockSwitcher component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewBlockSwitcher)
+        questionNumber="15"
+        total="16"
+        updateData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "HTML",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
+        <InterviewBlockSwitcher
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          questionNumber="15"
+          total="16"
+          updateData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  "HTML",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+        >
+          <div>
+            <div
+              className="current-question"
+            >
+              <div
+                className="question-block"
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="question-count"
+              >
+                <div>
+                  question 15 from 16
+                </div>
+              </div>
+            </div>
+            <div
+              className="block-switcher"
+            >
+              <div
+                className="block-switcher-items "
+                id="CSSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  CSS
+                </div>
+              </div>
+              <div
+                className="block-switcher-items question-block-active"
+                id="HTMLSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="block-switcher-items "
+                id="JSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  JS
+                </div>
+              </div>
+            </div>
+          </div>
+        </InterviewBlockSwitcher>
+      </Connect(InterviewBlockSwitcher)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewBlockSwitcher component when clicking the CSSSwitcherBlock button 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewBlockSwitcher)
+        questionNumber="15"
+        total="16"
+        updateData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "CSS",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
+        <InterviewBlockSwitcher
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          questionNumber="15"
+          total="16"
+          updateData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "CSS",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+        >
+          <div>
+            <div
+              className="current-question"
+            >
+              <div
+                className="question-block"
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="question-count"
+              >
+                <div>
+                  question 15 from 16
+                </div>
+              </div>
+            </div>
+            <div
+              className="block-switcher"
+            >
+              <div
+                className="block-switcher-items "
+                id="CSSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  CSS
+                </div>
+              </div>
+              <div
+                className="block-switcher-items question-block-active"
+                id="HTMLSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="block-switcher-items "
+                id="JSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  JS
+                </div>
+              </div>
+            </div>
+          </div>
+        </InterviewBlockSwitcher>
+      </Connect(InterviewBlockSwitcher)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewBlockSwitcher component when clicking the HTMLSwitcherBlock button 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewBlockSwitcher)
+        questionNumber="15"
+        total="16"
+        updateData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "CSS",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
+        <InterviewBlockSwitcher
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          questionNumber="15"
+          total="16"
+          updateData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "CSS",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+        >
+          <div>
+            <div
+              className="current-question"
+            >
+              <div
+                className="question-block"
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="question-count"
+              >
+                <div>
+                  question 15 from 16
+                </div>
+              </div>
+            </div>
+            <div
+              className="block-switcher"
+            >
+              <div
+                className="block-switcher-items "
+                id="CSSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  CSS
+                </div>
+              </div>
+              <div
+                className="block-switcher-items question-block-active"
+                id="HTMLSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="block-switcher-items "
+                id="JSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  JS
+                </div>
+              </div>
+            </div>
+          </div>
+        </InterviewBlockSwitcher>
+      </Connect(InterviewBlockSwitcher)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewBlockSwitcher component when clicking the JSSwitcherBlock button 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewBlockSwitcher)
+        questionNumber="15"
+        total="16"
+        updateData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "CSS",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "JS",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
+        <InterviewBlockSwitcher
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          questionNumber="15"
+          total="16"
+          updateData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "CSS",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "JS",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+        >
+          <div>
+            <div
+              className="current-question"
+            >
+              <div
+                className="question-block"
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="question-count"
+              >
+                <div>
+                  question 15 from 16
+                </div>
+              </div>
+            </div>
+            <div
+              className="block-switcher"
+            >
+              <div
+                className="block-switcher-items "
+                id="CSSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  CSS
+                </div>
+              </div>
+              <div
+                className="block-switcher-items question-block-active"
+                id="HTMLSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="block-switcher-items "
+                id="JSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  JS
+                </div>
+              </div>
+            </div>
+          </div>
+        </InterviewBlockSwitcher>
+      </Connect(InterviewBlockSwitcher)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewBlockSwitcher component when clicking the JSSwitcherBlock button 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewBlockSwitcher)
+        questionNumber="15"
+        total="16"
+        updateData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "CSS",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "JS",
+              ],
+              Array [
+                "HTML",
+              ],
+              Array [
+                "JS",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
+        <InterviewBlockSwitcher
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          questionNumber="15"
+          total="16"
+          updateData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "CSS",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "JS",
+                ],
+                Array [
+                  "HTML",
+                ],
+                Array [
+                  "JS",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+        >
+          <div>
+            <div
+              className="current-question"
+            >
+              <div
+                className="question-block"
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="question-count"
+              >
+                <div>
+                  question 15 from 16
+                </div>
+              </div>
+            </div>
+            <div
+              className="block-switcher"
+            >
+              <div
+                className="block-switcher-items "
+                id="CSSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  CSS
+                </div>
+              </div>
+              <div
+                className="block-switcher-items question-block-active"
+                id="HTMLSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  HTML
+                </div>
+              </div>
+              <div
+                className="block-switcher-items "
+                id="JSSwitcherBlock"
+                onClick={[Function]}
+              >
+                <div>
+                  JS
+                </div>
+              </div>
+            </div>
+          </div>
+        </InterviewBlockSwitcher>
+      </Connect(InterviewBlockSwitcher)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Menu component with parent===main render the connected(SMART) Menu component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Menu)
+        parent="main"
+      >
+        <Menu
+          action={
+            Object {
+              "login": [Function],
+            }
+          }
+          parent="main"
+        >
+          <div
+            className="mdl-layout__drawer"
+          >
+            <span
+              className="mdl-layout-title menu-title"
+            >
+              Interviewer
+            </span>
+            <nav
+              className="mdl-navigation"
+            >
+              <a
+                className="mdl-navigation__link primary-dark"
+                id="main_item"
+                onClick={[Function]}
+              >
+                Main
+              </a>
+              <a
+                className="mdl-navigation__link "
+              >
+                Interview
+              </a>
+              <a
+                className="mdl-navigation__link "
+              >
+                Statistic
+              </a>
+              <a
+                className="mdl-navigation__link "
+                id="logout_item"
+                onClick={[Function]}
+              >
+                Logout
+              </a>
+            </nav>
+          </div>
+        </Menu>
+      </Connect(Menu)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

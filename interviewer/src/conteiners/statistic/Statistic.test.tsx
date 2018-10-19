@@ -27,11 +27,13 @@ describe('>>>Statistic component', () => {
     });
 
     it('render the connected(SMART) Statistic component', () => {
-        expect(wrapper.find(ConnectedStatistic).length).toEqual(1)
+        expect(wrapper.find(ConnectedStatistic).length).toEqual(1);
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('render the connected(SMART) Statistic component and init charts', () => {
         expect(wrapper.find('#chartScript').length)
+        expect(wrapper).toMatchSnapshot();
     });
 });
 
@@ -43,6 +45,7 @@ describe('>>>Statistic component initialState===[]', () => {
     });
 
     it('render the connected(SMART) Statistic component', () => {
-        expect(wrapper.find(ConnectedStatistic).length).toEqual(1)
+        expect(wrapper.find(ConnectedStatistic).length).toEqual(1);
+        expect(wrapper).toMatchSnapshot();
     });
 });

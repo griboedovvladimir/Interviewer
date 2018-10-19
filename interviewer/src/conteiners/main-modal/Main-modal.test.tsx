@@ -17,7 +17,8 @@ describe('>>>MainModal component', () => {
     });
 
     it('render the connected(SMART) MainModal component', () => {
-        expect(wrapper.find(MainModal).length).toEqual(1)
+        expect(wrapper.find(MainModal).length).toEqual(1);
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking AddInterview-button', () => {
@@ -26,6 +27,7 @@ describe('>>>MainModal component', () => {
                 preventDefault: () => {},
             })
         });
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking submitting', () => {
@@ -34,5 +36,6 @@ describe('>>>MainModal component', () => {
                 preventDefault: () => {},
             })
         });
+        expect(wrapper).toMatchSnapshot();
     });
 });

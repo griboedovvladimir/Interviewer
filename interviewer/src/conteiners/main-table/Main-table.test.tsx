@@ -42,6 +42,7 @@ describe('>>>MainTable component', () => {
 
     it('render the connected(SMART) MainTable component', () => {
         expect(wrapper.find(ConnectedMainTable).length).toEqual(1)
+        expect(wrapper).toMatchSnapshot();
     });
 
     it("when clicking the add-btn", () => {
@@ -53,6 +54,7 @@ describe('>>>MainTable component', () => {
             });
             expect(spy).toHaveBeenCalled();
             expect(wrapper.find('#overlay').length);
+            expect(wrapper).toMatchSnapshot();
         });
     });
 

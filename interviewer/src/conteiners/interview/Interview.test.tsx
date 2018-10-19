@@ -170,6 +170,7 @@ describe('>>>Interview component', () => {
 
     it('render the connected(SMART) Interview  component', () => {
         expect(wrapper.find(ConnectedInterview).length).toEqual(1)
+        expect(wrapper).toMatchSnapshot();
     });
 
 });
@@ -184,6 +185,7 @@ describe('>>>Interview component with interview state === []', () => {
 
     it('render the connected(SMART) Interview  component', () => {
         expect(wrapper.find(ConnectedInterview).length).toEqual(1)
+        expect(wrapper).toMatchSnapshot();
     });
 
 });

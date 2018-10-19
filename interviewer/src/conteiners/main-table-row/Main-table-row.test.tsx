@@ -43,7 +43,7 @@ describe('>>>Main-table-row component', () => {
     });
 
     it('render the connected(SMART) MainTableRow component', () => {
-        expect(wrapper.find(ConnectedMainTableRow).length).toEqual(1)
+        expect(wrapper.find(ConnectedMainTableRow).length).toEqual(1);
     });
 
     it('when clicking the create icon', () => {

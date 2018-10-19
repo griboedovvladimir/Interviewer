@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>InterviewQuestionCard component render the connected(SMART) InterviewQuestionCard component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewQuestioncard)
+        interviewID="15"
+        question={
+          Object {
+            "question_id": "15",
+            "ratting": "7",
+            "source": "text",
+            "subtopic_id": "2",
+            "text": "text",
+          }
+        }
+        updateData={[MockFunction]}
+      >
+        <InterviewQuestioncard
+          action={
+            Object {
+              "addInterview": [Function],
+            }
+          }
+          interviewID="15"
+          question={
+            Object {
+              "question_id": "15",
+              "ratting": "7",
+              "source": "text",
+              "subtopic_id": "2",
+              "text": "text",
+            }
+          }
+          updateData={[MockFunction]}
+        >
+          <div
+            className="card-content"
+          >
+            <div
+              aria-label="Add"
+              className="material-icons card-arrow"
+              id="left-arrow"
+              onClick={[Function]}
+            >
+              <span
+                className="mdc-fab__icon"
+              >
+                keyboard_arrow_left
+              </span>
+            </div>
+            <div>
+              <div
+                className="mdl-card__title"
+              >
+                <h2
+                  className="mdl-card__title-text"
+                >
+                  Question undefined
+                </h2>
+              </div>
+              <div
+                className="mdl-card__supporting-text card-text"
+              >
+                text
+              </div>
+            </div>
+            <div
+              aria-label="Add"
+              className="material-icons card-arrow"
+              id="right-arrow"
+              onClick={[Function]}
+            >
+              <span
+                className="mdc-fab__icon"
+              >
+                keyboard_arrow_right
+              </span>
+            </div>
+          </div>
+        </InterviewQuestioncard>
+      </Connect(InterviewQuestioncard)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewQuestionCard component when clicking the visibility icon 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewQuestioncard)
+        interviewID="15"
+        question={
+          Object {
+            "question_id": "15",
+            "ratting": "7",
+            "source": "text",
+            "subtopic_id": "2",
+            "text": "text",
+          }
+        }
+        updateData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "prev",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
+        <InterviewQuestioncard
+          action={
+            Object {
+              "addInterview": [Function],
+            }
+          }
+          interviewID="15"
+          question={
+            Object {
+              "question_id": "15",
+              "ratting": "7",
+              "source": "text",
+              "subtopic_id": "2",
+              "text": "text",
+            }
+          }
+          updateData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  "prev",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+        >
+          <div
+            className="card-content"
+          >
+            <div
+              aria-label="Add"
+              className="material-icons card-arrow"
+              id="left-arrow"
+              onClick={[Function]}
+            >
+              <span
+                className="mdc-fab__icon"
+              >
+                keyboard_arrow_left
+              </span>
+            </div>
+            <div>
+              <div
+                className="mdl-card__title"
+              >
+                <h2
+                  className="mdl-card__title-text"
+                >
+                  Question undefined
+                </h2>
+              </div>
+              <div
+                className="mdl-card__supporting-text card-text"
+              >
+                text
+              </div>
+            </div>
+            <div
+              aria-label="Add"
+              className="material-icons card-arrow"
+              id="right-arrow"
+              onClick={[Function]}
+            >
+              <span
+                className="mdc-fab__icon"
+              >
+                keyboard_arrow_right
+              </span>
+            </div>
+          </div>
+        </InterviewQuestioncard>
+      </Connect(InterviewQuestioncard)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewQuestionCard component when clicking the visibility icon 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewQuestioncard)
+        interviewID="15"
+        question={
+          Object {
+            "question_id": "15",
+            "ratting": "7",
+            "source": "text",
+            "subtopic_id": "2",
+            "text": "text",
+          }
+        }
+        updateData={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "prev",
+              ],
+              Array [
+                "next",
+              ],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+      >
+        <InterviewQuestioncard
+          action={
+            Object {
+              "addInterview": [Function],
+            }
+          }
+          interviewID="15"
+          question={
+            Object {
+              "question_id": "15",
+              "ratting": "7",
+              "source": "text",
+              "subtopic_id": "2",
+              "text": "text",
+            }
+          }
+          updateData={
+            [MockFunction] {
+              "calls": Array [
+                Array [
+                  "prev",
+                ],
+                Array [
+                  "next",
+                ],
+              ],
+              "results": Array [
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+                Object {
+                  "isThrow": false,
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+        >
+          <div
+            className="card-content"
+          >
+            <div
+              aria-label="Add"
+              className="material-icons card-arrow"
+              id="left-arrow"
+              onClick={[Function]}
+            >
+              <span
+                className="mdc-fab__icon"
+              >
+                keyboard_arrow_left
+              </span>
+            </div>
+            <div>
+              <div
+                className="mdl-card__title"
+              >
+                <h2
+                  className="mdl-card__title-text"
+                >
+                  Question undefined
+                </h2>
+              </div>
+              <div
+                className="mdl-card__supporting-text card-text"
+              >
+                text
+              </div>
+            </div>
+            <div
+              aria-label="Add"
+              className="material-icons card-arrow"
+              id="right-arrow"
+              onClick={[Function]}
+            >
+              <span
+                className="mdc-fab__icon"
+              >
+                keyboard_arrow_right
+              </span>
+            </div>
+          </div>
+        </InterviewQuestioncard>
+      </Connect(InterviewQuestioncard)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

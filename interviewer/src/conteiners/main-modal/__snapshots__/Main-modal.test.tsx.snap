@@ -1,0 +1,574 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>MainModal component render the connected(SMART) MainModal component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(MainModal)>
+        <MainModal
+          action={
+            Object {
+              "addInterview": [Function],
+            }
+          }
+        >
+          <div
+            className="modal modal-hidden"
+          >
+            <form
+              className="login-form"
+              onSubmit={[Function]}
+            >
+              <div
+                className="mdc-component mdc-component__textfield"
+              >
+                <div
+                  className="mdc-component__section mdc-component__section--size-narrow"
+                >
+                  <div
+                    className="mdc-component__containers__primary mdc-textfield--theme-primary"
+                  >
+                    <div
+                      className="mdc-textfield"
+                    >
+                      <input
+                        className="mdc-textfield__input"
+                        id="interviewName"
+                        minLength={3}
+                        name="interviewName"
+                        pattern="[^\\\\s][A-zА-я. ]+[\\\\s]?"
+                        placeholder="Interviewee name"
+                        required={true}
+                        type="text"
+                      />
+                      <label
+                        className="mdc-textfield__label mdc-textfield__label--float-above"
+                        htmlFor="interviewName"
+                      >
+                        Candidate name
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="select"
+                  >
+                    <select
+                      className="select-text"
+                      id="specialization"
+                      name="specialization"
+                      required={true}
+                    >
+                      <option
+                        disabled={true}
+                        selected={true}
+                        value=""
+                      />
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                    </select>
+                    <span
+                      className="select-highlight"
+                    />
+                    <span
+                      className="select-bar"
+                    />
+                    <label
+                      className="select-label"
+                    >
+                      Select specialization*
+                    </label>
+                  </div>
+                  <div
+                    className="select"
+                  >
+                    <select
+                      className="select-text"
+                      id="level"
+                      name="level"
+                      required={true}
+                    >
+                      <option
+                        disabled={true}
+                        selected={true}
+                        value=""
+                      />
+                      <option
+                        value="1"
+                      >
+                        1
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        2
+                      </option>
+                      <option
+                        value="3"
+                      >
+                        3
+                      </option>
+                    </select>
+                    <span
+                      className="select-highlight"
+                    />
+                    <span
+                      className="select-bar"
+                    />
+                    <label
+                      className="select-label"
+                    >
+                      Select level*
+                    </label>
+                  </div>
+                  <div
+                    className="mdc-component mdc-component__buttons add-button"
+                  >
+                    <div
+                      className="mdc-component__containers__primary"
+                    >
+                      <button
+                        className="mdc-button mdc-button--raised"
+                        name="AddInterview"
+                        type="submit"
+                      >
+                        ADD
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </MainModal>
+      </Connect(MainModal)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>MainModal component when clicking AddInterview-button 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(MainModal)>
+        <MainModal
+          action={
+            Object {
+              "addInterview": [Function],
+            }
+          }
+        >
+          <div
+            className="modal modal-hidden"
+          >
+            <form
+              className="login-form"
+              onSubmit={[Function]}
+            >
+              <div
+                className="mdc-component mdc-component__textfield"
+              >
+                <div
+                  className="mdc-component__section mdc-component__section--size-narrow"
+                >
+                  <div
+                    className="mdc-component__containers__primary mdc-textfield--theme-primary"
+                  >
+                    <div
+                      className="mdc-textfield"
+                    >
+                      <input
+                        className="mdc-textfield__input"
+                        id="interviewName"
+                        minLength={3}
+                        name="interviewName"
+                        pattern="[^\\\\s][A-zА-я. ]+[\\\\s]?"
+                        placeholder="Interviewee name"
+                        required={true}
+                        type="text"
+                      />
+                      <label
+                        className="mdc-textfield__label mdc-textfield__label--float-above"
+                        htmlFor="interviewName"
+                      >
+                        Candidate name
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="select"
+                  >
+                    <select
+                      className="select-text"
+                      id="specialization"
+                      name="specialization"
+                      required={true}
+                    >
+                      <option
+                        disabled={true}
+                        selected={true}
+                        value=""
+                      />
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                    </select>
+                    <span
+                      className="select-highlight"
+                    />
+                    <span
+                      className="select-bar"
+                    />
+                    <label
+                      className="select-label"
+                    >
+                      Select specialization*
+                    </label>
+                  </div>
+                  <div
+                    className="select"
+                  >
+                    <select
+                      className="select-text"
+                      id="level"
+                      name="level"
+                      required={true}
+                    >
+                      <option
+                        disabled={true}
+                        selected={true}
+                        value=""
+                      />
+                      <option
+                        value="1"
+                      >
+                        1
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        2
+                      </option>
+                      <option
+                        value="3"
+                      >
+                        3
+                      </option>
+                    </select>
+                    <span
+                      className="select-highlight"
+                    />
+                    <span
+                      className="select-bar"
+                    />
+                    <label
+                      className="select-label"
+                    >
+                      Select level*
+                    </label>
+                  </div>
+                  <div
+                    className="mdc-component mdc-component__buttons add-button"
+                  >
+                    <div
+                      className="mdc-component__containers__primary"
+                    >
+                      <button
+                        className="mdc-button mdc-button--raised"
+                        name="AddInterview"
+                        type="submit"
+                      >
+                        ADD
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </MainModal>
+      </Connect(MainModal)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>MainModal component when clicking submitting 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(MainModal)>
+        <MainModal
+          action={
+            Object {
+              "addInterview": [Function],
+            }
+          }
+        >
+          <div
+            className="modal modal-hidden"
+          >
+            <form
+              className="login-form"
+              onSubmit={[Function]}
+            >
+              <div
+                className="mdc-component mdc-component__textfield"
+              >
+                <div
+                  className="mdc-component__section mdc-component__section--size-narrow"
+                >
+                  <div
+                    className="mdc-component__containers__primary mdc-textfield--theme-primary"
+                  >
+                    <div
+                      className="mdc-textfield"
+                    >
+                      <input
+                        className="mdc-textfield__input"
+                        id="interviewName"
+                        minLength={3}
+                        name="interviewName"
+                        pattern="[^\\\\s][A-zА-я. ]+[\\\\s]?"
+                        placeholder="Interviewee name"
+                        required={true}
+                        type="text"
+                      />
+                      <label
+                        className="mdc-textfield__label mdc-textfield__label--float-above"
+                        htmlFor="interviewName"
+                      >
+                        Candidate name
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="select"
+                  >
+                    <select
+                      className="select-text"
+                      id="specialization"
+                      name="specialization"
+                      required={true}
+                    >
+                      <option
+                        disabled={true}
+                        selected={true}
+                        value=""
+                      />
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                      <option
+                        value="Frontend developer"
+                      >
+                        Frontend developer
+                      </option>
+                    </select>
+                    <span
+                      className="select-highlight"
+                    />
+                    <span
+                      className="select-bar"
+                    />
+                    <label
+                      className="select-label"
+                    >
+                      Select specialization*
+                    </label>
+                  </div>
+                  <div
+                    className="select"
+                  >
+                    <select
+                      className="select-text"
+                      id="level"
+                      name="level"
+                      required={true}
+                    >
+                      <option
+                        disabled={true}
+                        selected={true}
+                        value=""
+                      />
+                      <option
+                        value="1"
+                      >
+                        1
+                      </option>
+                      <option
+                        value="2"
+                      >
+                        2
+                      </option>
+                      <option
+                        value="3"
+                      >
+                        3
+                      </option>
+                    </select>
+                    <span
+                      className="select-highlight"
+                    />
+                    <span
+                      className="select-bar"
+                    />
+                    <label
+                      className="select-label"
+                    >
+                      Select level*
+                    </label>
+                  </div>
+                  <div
+                    className="mdc-component mdc-component__buttons add-button"
+                  >
+                    <div
+                      className="mdc-component__containers__primary"
+                    >
+                      <button
+                        className="mdc-button mdc-button--raised"
+                        name="AddInterview"
+                        type="submit"
+                      >
+                        ADD
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </MainModal>
+      </Connect(MainModal)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

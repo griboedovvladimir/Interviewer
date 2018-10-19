@@ -94,7 +94,7 @@ describe('>>>Main component logged===true', () => {
     });
 
     it('render the connected(SMART) Main-page component', () => {
-        expect(wrapper.find(ConnectedMenu).length).toEqual(1)
+        expect(wrapper.find(ConnectedMenu).length).toEqual(1);
     });
 
 });
@@ -110,7 +110,7 @@ describe('>>>Main component logged===false', () => {
     });
 
     it('render the connected(SMART) Main-page component', () => {
-        expect(wrapper.find(ConnectedMenu).length).toEqual(0)
+        expect(wrapper.find(ConnectedMenu).length).toEqual(0);
     });
 
 });

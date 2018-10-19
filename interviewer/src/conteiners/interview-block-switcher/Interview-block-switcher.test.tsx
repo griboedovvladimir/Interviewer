@@ -24,6 +24,7 @@ describe('>>>InterviewBlockSwitcher component', () => {
 
     it('render the connected(SMART) InterviewBlockSwitcher component', () => {
         expect(wrapper.find(ConnectedInterviewBlockSwitcher).length).toEqual(1)
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking the CSSSwitcherBlock button', () => {
@@ -31,6 +32,7 @@ describe('>>>InterviewBlockSwitcher component', () => {
             preventDefault: () => {
             },
         });
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking the HTMLSwitcherBlock button', () => {
@@ -39,6 +41,7 @@ describe('>>>InterviewBlockSwitcher component', () => {
             },
         });
         expect(getCurrentQuestionBlock).toHaveBeenCalled()
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking the JSSwitcherBlock button', () => {
@@ -47,6 +50,7 @@ describe('>>>InterviewBlockSwitcher component', () => {
             },
         });
         expect(getCurrentQuestionBlock).toHaveBeenCalled()
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking the JSSwitcherBlock button', () => {
@@ -55,5 +59,6 @@ describe('>>>InterviewBlockSwitcher component', () => {
             },
         });
         expect(getCurrentQuestionBlock).toHaveBeenCalled()
+        expect(wrapper).toMatchSnapshot();
     });
 });

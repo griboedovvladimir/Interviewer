@@ -31,7 +31,8 @@ describe('>>>InterviewEvaluate component', () => {
     });
 
     it('render the connected(SMART) Interviewevaluate component', () => {
-        expect(wrapper.find(InterviewEvaluate).length).toEqual(1)
+        expect(wrapper.find(InterviewEvaluate).length).toEqual(1);
+        expect(wrapper).toMatchSnapshot();
     });
 
 });
@@ -46,7 +47,8 @@ describe('>>>InterviewEvaluate component without props', () => {
     });
 
     it('render the connected(SMART) Interviewevaluate component  without props', () => {
-        expect(wrapper.find(InterviewEvaluate).length).toEqual(1)
+        expect(wrapper.find(InterviewEvaluate).length).toEqual(1);
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when submitting evaluate', () => {
@@ -55,13 +57,15 @@ describe('>>>InterviewEvaluate component without props', () => {
                 preventDefault: () => {},
             })
         });
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking evaluate-button', () => {
         afterEach(() => {
             wrapper.find('[name="btn"]').simulate('click', {
                 preventDefault: () => {},
-            })
+            });
+            expect(wrapper).toMatchSnapshot();
         });
     });
 });

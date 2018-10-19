@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>MainTable component render the connected(SMART) MainTable component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(MainTable)>
+        <MainTable
+          action={
+            Object {
+              "getInterview": [Function],
+            }
+          }
+          interview={
+            Array [
+              Object {
+                "date": "16.06.12",
+                "interview_id": "15",
+                "level": "2",
+                "name": "Some name",
+                "specialization": "Front end",
+                "status": "ok",
+              },
+            ]
+          }
+        >
+          <div
+            className="table-wrapper"
+          >
+            <div
+              className="table-content"
+            >
+              <table
+                className="mdl-data-table mdl-js-data-table persons-table"
+              >
+                <thead>
+                  <tr>
+                    <th
+                      className="mdl-data-table__cell--non-numeric"
+                    >
+                      Name
+                    </th>
+                    <th>
+                      Specialization
+                    </th>
+                    <th>
+                      Level
+                    </th>
+                    <th>
+                      Date
+                    </th>
+                    <th>
+                      Status
+                    </th>
+                    <th>
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <Connect(MainTableRow)
+                    key="15"
+                    rowData={
+                      Object {
+                        "date": "16.06.12",
+                        "interview_id": "15",
+                        "level": "2",
+                        "name": "Some name",
+                        "specialization": "Front end",
+                        "status": "ok",
+                      }
+                    }
+                  >
+                    <MainTableRow
+                      action={
+                        Object {
+                          "removeInterview": [Function],
+                        }
+                      }
+                      rowData={
+                        Object {
+                          "date": "16.06.12",
+                          "interview_id": "15",
+                          "level": "2",
+                          "name": "Some name",
+                          "specialization": "Front end",
+                          "status": "ok",
+                        }
+                      }
+                    >
+                      <tr>
+                        <td
+                          className="mdl-data-table__cell--non-numeric"
+                        >
+                          Some name
+                        </td>
+                        <td>
+                          Front end
+                        </td>
+                        <td>
+                          2
+                        </td>
+                        <td>
+                          16.06.12
+                        </td>
+                        <td>
+                          ok
+                        </td>
+                        <td>
+                          <a
+                            id="visibility"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="material-icons person-actions"
+                            >
+                              visibility
+                            </i>
+                          </a>
+                          <a
+                            id="create"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="material-icons person-actions"
+                            >
+                              create
+                            </i>
+                          </a>
+                          <i
+                            className="material-icons person-actions"
+                            id="delete"
+                            onClick={[Function]}
+                          >
+                            delete
+                          </i>
+                        </td>
+                      </tr>
+                    </MainTableRow>
+                  </Connect(MainTableRow)>
+                </tbody>
+              </table>
+              <div
+                className="mdc-component mdc-component__buttons"
+              >
+                <div
+                  className="mdc-component__containers__primary add-button"
+                >
+                  <button
+                    className="mdc-button mdc-button--raised"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Add new
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </MainTable>
+      </Connect(MainTable)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

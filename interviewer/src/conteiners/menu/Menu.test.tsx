@@ -16,7 +16,8 @@ describe('>>>Menu component with parent===main', () => {
     });
 
     it('render the connected(SMART) Menu component', () => {
-        expect(wrapper.find(ConnectedMenu).length).toEqual(1)
+        expect(wrapper.find(ConnectedMenu).length).toEqual(1);
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking the main-item', () => {
@@ -30,7 +31,7 @@ describe('>>>Menu component with parent===main', () => {
         wrapper.find('#logout_item').simulate('click', {
             preventDefault: () => {
             },
-        })
+        });
     })
 
 });
@@ -42,7 +43,7 @@ describe('>>>Menu component with parent===interview', () => {
     });
 
     it('render the connected(SMART) Menu component', () => {
-        expect(wrapper.find(ConnectedMenu).length).toEqual(1)
+        expect(wrapper.find(ConnectedMenu).length).toEqual(1);
     });
 });
 

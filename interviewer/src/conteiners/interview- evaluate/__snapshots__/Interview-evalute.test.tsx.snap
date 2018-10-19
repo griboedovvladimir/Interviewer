@@ -1,0 +1,460 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>InterviewEvaluate component render the connected(SMART) Interviewevaluate component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewEvaluate)
+        interviewID="15"
+      >
+        <InterviewEvaluate
+          action={
+            Object {
+              "getDirtyQuestion": [Function],
+              "getInterview": [Function],
+              "getQuestion": [Function],
+            }
+          }
+          dirty={
+            Object {
+              "comment": "text",
+              "interviewId": "15",
+              "mark": "",
+              "questionId": 16,
+              "topic": "css",
+            }
+          }
+          interviewID="15"
+          question={
+            Object {
+              "question_id": "15",
+              "ratting": "7",
+              "source": "text",
+              "subtopic_id": "2",
+              "text": "text",
+            }
+          }
+        >
+          <form
+            id="evaluteForm"
+            onSubmit={[Function]}
+          >
+            <div
+              className="question-card-wide mdl-card mdl-shadow--2dp"
+            >
+              <div
+                className="mdl-card__actions mdl-card--border"
+              >
+                <div
+                  className="slider-titles"
+                >
+                  <div>
+                    FAILED
+                  </div>
+                  <div>
+                             SO-SO
+                  </div>
+                  <div>
+                    ANSWERED
+                  </div>
+                </div>
+                <div
+                  className="slider-marks"
+                >
+                  <div
+                    className="slider-marks-circle"
+                  />
+                  <div
+                    className="slider-marks-circle"
+                  />
+                  <div
+                    className="slider-marks-circle"
+                  />
+                </div>
+                <div
+                  className="slider-line"
+                >
+                  <input
+                    className="mdl-slider mdl-js-slider"
+                    id="slider"
+                    max="100"
+                    min="0"
+                    name="slider"
+                    tabIndex={0}
+                    type="range"
+                  />
+                </div>
+                <textarea
+                  className="card-textarea"
+                  name="comment"
+                  placeholder="Comment"
+                />
+                <div
+                  className="mdc-component mdc-component__buttons"
+                >
+                  <div
+                    className="mdc-component__containers__primary"
+                  >
+                    <button
+                      className="mdc-button mdc-button"
+                      name="btn"
+                      type="submit"
+                    >
+                      evalute
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="snackbar-hidden"
+              >
+                <div>
+                  Changes saved successfully
+                </div>
+              </div>
+            </div>
+          </form>
+        </InterviewEvaluate>
+      </Connect(InterviewEvaluate)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewEvaluate component without props render the connected(SMART) Interviewevaluate component  without props 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewEvaluate)
+        interviewID="15"
+      >
+        <InterviewEvaluate
+          action={
+            Object {
+              "getDirtyQuestion": [Function],
+              "getInterview": [Function],
+              "getQuestion": [Function],
+            }
+          }
+          dirty={
+            Object {
+              "comment": "text",
+              "interviewId": "15",
+              "mark": "",
+              "questionId": 16,
+              "topic": "css",
+            }
+          }
+          interviewID="15"
+          question={
+            Object {
+              "question_id": "15",
+              "ratting": "7",
+              "source": "text",
+              "subtopic_id": "2",
+              "text": "text",
+            }
+          }
+        >
+          <form
+            id="evaluteForm"
+            onSubmit={[Function]}
+          >
+            <div
+              className="question-card-wide mdl-card mdl-shadow--2dp"
+            >
+              <div
+                className="mdl-card__actions mdl-card--border"
+              >
+                <div
+                  className="slider-titles"
+                >
+                  <div>
+                    FAILED
+                  </div>
+                  <div>
+                             SO-SO
+                  </div>
+                  <div>
+                    ANSWERED
+                  </div>
+                </div>
+                <div
+                  className="slider-marks"
+                >
+                  <div
+                    className="slider-marks-circle"
+                  />
+                  <div
+                    className="slider-marks-circle"
+                  />
+                  <div
+                    className="slider-marks-circle"
+                  />
+                </div>
+                <div
+                  className="slider-line"
+                >
+                  <input
+                    className="mdl-slider mdl-js-slider"
+                    id="slider"
+                    max="100"
+                    min="0"
+                    name="slider"
+                    tabIndex={0}
+                    type="range"
+                  />
+                </div>
+                <textarea
+                  className="card-textarea"
+                  name="comment"
+                  placeholder="Comment"
+                />
+                <div
+                  className="mdc-component mdc-component__buttons"
+                >
+                  <div
+                    className="mdc-component__containers__primary"
+                  >
+                    <button
+                      className="mdc-button mdc-button"
+                      name="btn"
+                      type="submit"
+                    >
+                      evalute
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="snackbar-hidden"
+              >
+                <div>
+                  Changes saved successfully
+                </div>
+              </div>
+            </div>
+          </form>
+        </InterviewEvaluate>
+      </Connect(InterviewEvaluate)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`>>>InterviewEvaluate component without props when submitting evaluate 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(InterviewEvaluate)
+        interviewID="15"
+      >
+        <InterviewEvaluate
+          action={
+            Object {
+              "getDirtyQuestion": [Function],
+              "getInterview": [Function],
+              "getQuestion": [Function],
+            }
+          }
+          dirty={
+            Object {
+              "comment": "text",
+              "interviewId": "15",
+              "mark": "",
+              "questionId": 16,
+              "topic": "css",
+            }
+          }
+          interviewID="15"
+          question={
+            Object {
+              "question_id": "15",
+              "ratting": "7",
+              "source": "text",
+              "subtopic_id": "2",
+              "text": "text",
+            }
+          }
+        >
+          <form
+            id="evaluteForm"
+            onSubmit={[Function]}
+          >
+            <div
+              className="question-card-wide mdl-card mdl-shadow--2dp"
+            >
+              <div
+                className="mdl-card__actions mdl-card--border"
+              >
+                <div
+                  className="slider-titles"
+                >
+                  <div>
+                    FAILED
+                  </div>
+                  <div>
+                             SO-SO
+                  </div>
+                  <div>
+                    ANSWERED
+                  </div>
+                </div>
+                <div
+                  className="slider-marks"
+                >
+                  <div
+                    className="slider-marks-circle"
+                  />
+                  <div
+                    className="slider-marks-circle"
+                  />
+                  <div
+                    className="slider-marks-circle"
+                  />
+                </div>
+                <div
+                  className="slider-line"
+                >
+                  <input
+                    className="mdl-slider mdl-js-slider"
+                    id="slider"
+                    max="100"
+                    min="0"
+                    name="slider"
+                    tabIndex={0}
+                    type="range"
+                  />
+                </div>
+                <textarea
+                  className="card-textarea"
+                  name="comment"
+                  placeholder="Comment"
+                />
+                <div
+                  className="mdc-component mdc-component__buttons"
+                >
+                  <div
+                    className="mdc-component__containers__primary"
+                  >
+                    <button
+                      className="mdc-button mdc-button"
+                      name="btn"
+                      type="submit"
+                    >
+                      evalute
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="snackbar-hidden"
+              >
+                <div>
+                  Changes saved successfully
+                </div>
+              </div>
+            </div>
+          </form>
+        </InterviewEvaluate>
+      </Connect(InterviewEvaluate)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

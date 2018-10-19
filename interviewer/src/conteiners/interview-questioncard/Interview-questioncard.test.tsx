@@ -27,6 +27,7 @@ describe('>>>InterviewQuestionCard component', () => {
 
     it('render the connected(SMART) InterviewQuestionCard component', () => {
         expect(wrapper.find(ConnectedInterviewQuestionCard).length).toEqual(1)
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking the visibility icon', () => {
@@ -35,7 +36,7 @@ describe('>>>InterviewQuestionCard component', () => {
             },
         });
         expect(switchQuestion.mock.calls.length).toBe(1);
-
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('when clicking the visibility icon', () => {
@@ -44,6 +45,7 @@ describe('>>>InterviewQuestionCard component', () => {
             },
         });
         expect(switchQuestion.mock.calls.length).toBe(2);
+        expect(wrapper).toMatchSnapshot();
     });
 
 });
