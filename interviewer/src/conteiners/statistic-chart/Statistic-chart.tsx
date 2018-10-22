@@ -4,21 +4,51 @@ import {bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from './../main-table/actions';
 import bound from "../../decorators/bound";
+import * as CONSTANTS from "../../constants";
+import {Redirect} from "react-router";
 
-export class StatisticChart extends Component{
-    public props:any;
-    public state:any;
-    constructor(props:any) {
+export class StatisticChart extends Component {
+    public props: any;
+    public state = {
+        redirectToInterview: false,
+    };
+
+    constructor(props: any) {
         super(props);
     }
 
-    public componentDidMount() {
-        setTimeout(this.chartScriptMaker, 0);
+    @bound
+    public eventHandler(e:any){
+        if (e.target.tagName === 'tspan') {
+            let text = e.target.innerHTML.split(' ');
+            if (text[0] === 'question') {
+                console.log(this.props.chartdata.cards[(text[1] - 1)]);
+                this.setRedirectToInterview();
+            }
+        }
     }
 
     @bound
-    public chartScriptMaker(){
-        let chart =`Highcharts.chart('${this.props.chartdata.topic.toLocaleUpperCase()+"container"}', {
+    public componentWillUnmount(){
+        document.getElementById('chart' + this.props.chartdata.topic)!
+            .removeEventListener('click', this.eventHandler)
+    }
+
+    @bound
+    public componentDidMount() {
+        setTimeout(this.chartScriptMaker, 0);
+        document.getElementById('chart' + this.props.chartdata.topic)!
+            .addEventListener('click', this.eventHandler)
+    }
+
+    @bound
+    public chartScriptMaker() {
+        console.log(this.props.chartdata.cards);
+        let columns = this.props.chartdata.cards.reduce((cnt: string, el: any, i: any) => {
+            return cnt + `['<a href=\\'\\'>${'question ' + (i + 1)}</a>', ${el.mark}],`
+        }, '');
+
+        let chart = `Highcharts.chart('${this.props.chartdata.topic.toLocaleUpperCase() + "container"}', {
         chart: {
             type: 'column'
         },
@@ -48,20 +78,12 @@ export class StatisticChart extends Component{
             enabled: false
         },
         tooltip: {
-            pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+            pointFormat: 'Mark: <b>{point.y:.1f} % from 100</b>'
         },
         series: [{
             name: 'Population',
             data: [
-                ['<a href=\\'https://tut.by\\'>question1</a>', 20],
-                ['<a href=\\'https://tut.by\\'>question2</a>', 50],
-                ['<a href=\\'https://tut.by\\'>question3</a>', 10],
-                ['<a href=\\'https://tut.by\\'>question4</a>', 13.7],
-                ['<a href=\\'https://tut.by\\'>question5</a>', 13.1],
-                ['<a href=\\'https://tut.by\\'>question6</a>', 12.7],
-                ['<a href=\\'https://tut.by\\'>question7</a>', 12.4],
-                ['<a href=\\'https://tut.by\\'>question8</a>', 12.2],
-                ['<a href=\\'https://tut.by\\'>question9</a>', 12.0],
+            ${columns}
             ],
             dataLabels: {
                 enabled: false,
@@ -85,9 +107,24 @@ export class StatisticChart extends Component{
         document.body.appendChild(script);
     }
 
-    public render(){
-        return(
-            <div className="html-chart chart">
+    @bound
+    public setRedirectToInterview() {
+        this.setState({
+            redirectToInterview: true,
+        })
+    };
+
+    public renderRedirectToInterview(): any {
+        if (this.state.redirectToInterview) {
+            return <Redirect to={CONSTANTS.MAIN_PAGE_INTERVIEW + this.props.interviewID}/>
+        }
+    };
+
+
+    public render() {
+        return (
+            <div className="html-chart chart" id={'chart' + this.props.chartdata.topic}>
+                {this.renderRedirectToInterview()}
                 <div className="chart-header">
                     <div>{this.props.chartdata.topic.toLocaleUpperCase()}</div>
                 </div>
@@ -99,7 +136,7 @@ export class StatisticChart extends Component{
                     <div>{this.props.chartdata.percentage + '%'}</div>
                 </div>
                 <div>
-                    <div id={this.props.chartdata.topic.toLocaleUpperCase()+"container"} className='charts'/>
+                    <div id={this.props.chartdata.topic.toLocaleUpperCase() + "container"} className='charts'/>
                 </div>
             </div>
         )

@@ -48,9 +48,9 @@ app.delete(PATHS_CONSTANTS.INTERVIEW + '/:id', (req, res) => {
 });
 
 app.post(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
-    DBconnect('INSERT INTO `interview`(`interview_id`, `name`, `level`, `specialization`, `date`, `status`) ' +
+    DBconnect('INSERT INTO `interview`(`interview_id`, `name`, `level`, `specialization`, `date`, `status`, `interviewee_id`) ' +
         'VALUES (NULL,"' + req.body.name + '","' + req.body.level + '","' + req.body.specialization + '","' +
-        '' + req.body.date + '","' + req.body.status + '")').then(results => {
+        '' + req.body.date + '","' + req.body.status + '", 0)').then(results => {
         res.end(JSON.stringify(results.insertId))
     });
 });
@@ -65,6 +65,12 @@ app.post(PATHS_CONSTANTS.QUESTION_CARD, (req, res) => {
 app.put(PATHS_CONSTANTS.QUESTION_CARD, (req, res) => {
     DBconnect('UPDATE `question_card` SET `mark`="' + req.body.mark + '",`comment`="' + req.body.comment + '" WHERE `question_card_id`=' + req.body.question_card_id + '')
         .then();
+});
+
+app.get(PATHS_CONSTANTS.QUESTION_CARDS + '/:id', (req, res) => {
+    DBconnect('SELECT* from `question_card` WHERE `interview_id`='+ req.params.id+'').then(results => {
+        res.end(JSON.stringify(results));
+    });
 });
 
 app.get(PATHS_CONSTANTS.QUESTION, (req, res) => {

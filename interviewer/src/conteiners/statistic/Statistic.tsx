@@ -63,7 +63,8 @@ class Statistic extends Component {
 
     public render() {
         let charts = this.state.charts.map((el: any, i: any) => {
-            return <StatisticChart key={el} chartdata={this.state[el + 'Cards']}/>;
+            return <StatisticChart key={el} interviewID={this.props.match.params.id}
+                                   chartdata={this.state[el + 'Cards']}/>;
         });
         if (this.props.interview[0]) {
             return (
