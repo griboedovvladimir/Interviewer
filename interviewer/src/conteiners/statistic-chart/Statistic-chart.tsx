@@ -2,19 +2,23 @@ import * as React from "react";
 import {Component} from 'react';
 import {bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
-import * as actions from './../main-table/actions';
+import * as actions from './actions';
 import bound from "../../decorators/bound";
-import * as CONSTANTS from "../../constants";
-import {Redirect} from "react-router";
+import {StatisticModal} from "../../components/statistic-modal/Statistic-modal";
+import './Statistic-hart.css';
+import {APICallService} from "../../services/APICall.service";
+
 
 export class StatisticChart extends Component {
     public props: any;
     public state = {
         redirectToInterview: false,
+        particularQuestion:{}
     };
 
-    constructor(props: any) {
+    constructor(props: any, public api:APICallService) {
         super(props);
+        this.api = new APICallService();
     }
 
     @bound
@@ -22,9 +26,13 @@ export class StatisticChart extends Component {
         if (e.target.tagName === 'tspan') {
             let text = e.target.innerHTML.split(' ');
             if (text[0] === 'question') {
-                console.log(this.props.chartdata.cards[(text[1] - 1)]);
-                this.setRedirectToInterview();
+                this.api.getQuestionById(this.props.chartdata.cards[(text[1] - 1)].question_id).then(res=>{
+                    this.setState({...this.state, particularQuestion: res})
+                })
             }
+        }
+        if(e.target.id === 'remove-modal'){
+            this.setState({...this.state, particularQuestion: {}})
         }
     }
 
@@ -43,7 +51,6 @@ export class StatisticChart extends Component {
 
     @bound
     public chartScriptMaker() {
-        console.log(this.props.chartdata.cards);
         let columns = this.props.chartdata.cards.reduce((cnt: string, el: any, i: any) => {
             return cnt + `['<a href=\\'\\'>${'question ' + (i + 1)}</a>', ${el.mark}],`
         }, '');
@@ -107,24 +114,9 @@ export class StatisticChart extends Component {
         document.body.appendChild(script);
     }
 
-    @bound
-    public setRedirectToInterview() {
-        this.setState({
-            redirectToInterview: true,
-        })
-    };
-
-    public renderRedirectToInterview(): any {
-        if (this.state.redirectToInterview) {
-            return <Redirect to={CONSTANTS.MAIN_PAGE_INTERVIEW + this.props.interviewID}/>
-        }
-    };
-
-
     public render() {
         return (
             <div className="html-chart chart" id={'chart' + this.props.chartdata.topic}>
-                {this.renderRedirectToInterview()}
                 <div className="chart-header">
                     <div>{this.props.chartdata.topic.toLocaleUpperCase()}</div>
                 </div>
@@ -135,7 +127,11 @@ export class StatisticChart extends Component {
                      }}>
                     <div>{this.props.chartdata.percentage + '%'}</div>
                 </div>
-                <div>
+                <div>{this.state.particularQuestion[0] &&
+                <div className="statistic-question">
+                    <StatisticModal particularQuestion={this.state.particularQuestion}/>
+                </div>
+                }
                     <div id={this.props.chartdata.topic.toLocaleUpperCase() + "container"} className='charts'/>
                 </div>
             </div>

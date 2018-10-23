@@ -32,8 +32,8 @@ export class Interview extends Component {
             this.api.getInterview().then(res => {
                 this.props.action.getInterview(res);
             });
-            this.initQuestion(this.currentQuestionNumber);
         }
+        console.log(this.props.particularQuestion);
     }
 
 

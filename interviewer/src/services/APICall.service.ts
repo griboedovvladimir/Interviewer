@@ -45,6 +45,12 @@ export class APICallService {
         }).then(req => req.json());
     }
 
+    public getQuestionById(questionId: number) {
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.QUESTION_BY_ID_PATH + '/'+ questionId, {
+            method: 'GET'
+        }).then(req => req.json());
+    }
+
     public createQuestionCard(questionCard: IQuestionCard) {
         return fetch(CONSTANTS.API_HOST + CONSTANTS.QUESTION_CARD, {
             ...POST_CONFIG,

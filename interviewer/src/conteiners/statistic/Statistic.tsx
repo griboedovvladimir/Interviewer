@@ -7,7 +7,7 @@ import './Statistic.css'
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
 import {APICallService} from "../../services/APICall.service";
 import * as CONSTANTS from '../../constants'
-import {StatisticChart} from "../statistic-chart/Statistic-chart";
+import StatisticChart from "../statistic-chart/Statistic-chart";
 
 class Statistic extends Component {
     public props: any;

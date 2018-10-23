@@ -73,6 +73,12 @@ app.get(PATHS_CONSTANTS.QUESTION_CARDS + '/:id', (req, res) => {
     });
 });
 
+app.get(PATHS_CONSTANTS.QUESTION_BY_ID + '/:id', (req, res) => {
+    DBconnect('SELECT* from `question` WHERE `question_id`='+ req.params.id+'').then(results => {
+        res.end(JSON.stringify(results));
+    });
+});
+
 app.get(PATHS_CONSTANTS.QUESTION, (req, res) => {
     DBconnect('SELECT* from `question`, `subtopic`,`topic` ' +
         'WHERE question.subtopic_id = subtopic.subtopic_id ' +
