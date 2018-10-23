@@ -33,7 +33,6 @@ export class Interview extends Component {
                 this.props.action.getInterview(res);
             });
         }
-        console.log(this.props.particularQuestion);
     }
 
 

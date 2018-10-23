@@ -7,7 +7,6 @@ import bound from "../../decorators/bound";
 import {APICallService} from "../../services/APICall.service";
 import "./Interview-evalute.css";
 import * as CONSTANTS from './constants';
-// import '../../material';
 
 
 class InterviewEvaluate extends Component {
@@ -78,7 +77,6 @@ class InterviewEvaluate extends Component {
         return (
             <form id="evaluteForm" onSubmit={this.doEvaluate}>
                 <div className="question-card-wide mdl-card mdl-shadow--2dp">
-
                     <div className="mdl-card__actions mdl-card--border">
                         <div className="slider-titles">
                             <div>FAILED</div>

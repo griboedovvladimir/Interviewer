@@ -40,6 +40,7 @@ export class LoginPage extends Component {
         }
     };
 
+
     public render() {
             return (
                 <div className="form-wrapper">

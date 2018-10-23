@@ -8,15 +8,16 @@ import {connect} from "react-redux";
 import * as CONSTANTS from "../../constants";
 import {Redirect} from 'react-router-dom';
 import {AuthorizationService} from "../../services/authorization.service";
-import  {MenuActivator} from "./menu-activator";
+import {MenuActivator} from "./menu-activator";
 
 export class Menu extends Component {
     public props: any;
     public activateMainItem = '';
     public activateInterviewItem = '';
     public activateStatisticItem = '';
+    public activateAdministration = '';
     public state = {
-        redirect: false
+        redirect: ''
     };
     public menuActivator: MenuActivator;
 
@@ -28,24 +29,29 @@ export class Menu extends Component {
         this.menuActivator = new MenuActivator();
     }
 
-    public componentDidMount(){
+    public componentDidMount() {
         this.menuActivator.activate()
     }
 
-    public componentWillUnmount(){
+    public componentWillUnmount() {
         this.menuActivator.deactivate()
     }
 
     @bound
-    public setRedirect() {
+    public setRedirect(e: any) {
         this.setState({
-            redirect: true
+            redirect: e.target.id
         })
     }
 
     public renderRedirect(): any {
-        if (this.state.redirect) {
-            return <Redirect to='/'/>
+        switch (this.state.redirect) {
+            case "main_item":
+                return <Redirect to='/'/>;
+            break;
+            case "administration_item":
+                return <Redirect to='/administration/'/>;
+            break;
         }
     }
 
@@ -75,9 +81,12 @@ export class Menu extends Component {
                 {this.renderRedirect()}
                 <span className="mdl-layout-title menu-title">Interviewer</span>
                 <nav className="mdl-navigation">
-                    <a id="main_item" onClick={this.setRedirect} className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
+                    <a id="main_item" onClick={this.setRedirect}
+                       className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
                     <a className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
                     <a className={"mdl-navigation__link " + this.activateStatisticItem}>Statistic</a>
+                    <a id="administration_item" onClick={this.setRedirect}
+                       className={"mdl-navigation__link " + this.activateAdministration}>Administration</a>
                     <a id="logout_item" className={"mdl-navigation__link "} onClick={this.logout}>Logout</a>
                 </nav>
             </div>

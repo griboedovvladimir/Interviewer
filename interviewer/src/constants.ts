@@ -14,6 +14,7 @@ export const QUESTION_CARD_CHECK = '/questioncardcheck';
 
 export const LOGIN_PAGE = '/login/';
 export const MAIN_PAGE = '/main/';
+export const ADMINISTRATION_PAGE = '/administration/';
 export const MAIN_PAGE_INTERVIEW = '/main/interview/';
 export const MAIN_PAGE_STATISTIC = '/main/statistic/';
 

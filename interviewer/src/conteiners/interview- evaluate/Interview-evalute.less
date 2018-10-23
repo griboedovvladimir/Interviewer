@@ -71,3 +71,33 @@
   padding: 5px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
+
+input[type=range]{
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 3px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background:  #00857c;
+  margin-top: -5px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #b2dfdb;
+}

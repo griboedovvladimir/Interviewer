@@ -2,7 +2,7 @@ import * as React from "react";
 import {Component} from 'react';
 import {bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
-import * as actions from './actions';
+import * as actions from '../main/actions';
 import bound from "../../decorators/bound";
 import {StatisticModal} from "../../components/statistic-modal/Statistic-modal";
 import './Statistic-hart.css';
@@ -45,8 +45,10 @@ export class StatisticChart extends Component {
     @bound
     public componentDidMount() {
         setTimeout(this.chartScriptMaker, 0);
-        document.getElementById('chart' + this.props.chartdata.topic)!
+        if(document.getElementById('chart' + this.props.chartdata.topic)){
+            document.getElementById('chart' + this.props.chartdata.topic)!
             .addEventListener('click', this.eventHandler)
+            }
     }
 
     @bound
