@@ -27,8 +27,8 @@ export class LoginPage extends Component {
             e.target.loginPassword.value)
             .then(res => res.json().then(check => {
                 if (check.authorization === CONSTANTS.LOGGED_API_RES) {
-                    this.props.action.login(true);
                     this.authorization.authorizate(check.token);
+                    this.props.action.login(true);
                     this.renderRedirectToMain();
                 }
             }));

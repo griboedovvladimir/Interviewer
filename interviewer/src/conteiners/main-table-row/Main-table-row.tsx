@@ -59,6 +59,25 @@ export class MainTableRow extends Component {
         this.api.removeInterview(this.rowData.interview_id);
     }
 
+    @bound
+    public modalActivate() {
+        if(!document.getElementById(CONSTANTS.MODAL_OVERLAY)) {
+            let el = document.getElementsByClassName(CONSTANTS.MODAL_SAVE_HIDDEN)[0];
+            let overlay = document.createElement('div');
+            overlay.id = CONSTANTS.MODAL_OVERLAY;
+            document.body.appendChild(overlay);
+            let removing = () => {
+                overlay.removeEventListener('click', removing);
+                overlay.remove();
+                el.classList.remove(CONSTANTS.MODAL_ACTIVE);
+                el.classList.add(CONSTANTS.MODAL_SAVE_HIDDEN);
+            };
+            overlay.addEventListener('click', removing);
+            el.classList.remove(CONSTANTS.MODAL_SAVE_HIDDEN);
+            el.classList.add(CONSTANTS.MODAL_ACTIVE);
+        }
+    }
+
     public render() {
         return (
             <tr>
@@ -72,13 +91,13 @@ export class MainTableRow extends Component {
                 <td>
                     <a id="visibility" onClick={this.setRedirectToStatistic}><i className="material-icons person-actions">visibility</i></a>
                     <a id="create" onClick={this.setRedirectToInterview}><i className="material-icons person-actions">create</i></a>
-                    <i id="delete" className="material-icons person-actions" onClick={this.removeRow}>delete</i>
+                    <a id="save" onClick={this.modalActivate}><i className="material-icons person-actions">save_alt</i></a>
+                    <a id="delete"  onClick={this.removeRow}><i className="material-icons person-actions">delete</i></a>
                 </td>
             </tr>
         )
     }
 }
-
 
 const mapStateToProps = (state: any, ownProps: any) => ownProps;
 

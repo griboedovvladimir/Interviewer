@@ -53,7 +53,6 @@ class MainModal extends Component {
             <div className="modal modal-hidden" >
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     <div className="mdc-component mdc-component__textfield">
-
                         <div className="mdc-component__section mdc-component__section--size-narrow">
                             <div className="mdc-component__containers__primary mdc-textfield--theme-primary">
                                 <div className="mdc-textfield">

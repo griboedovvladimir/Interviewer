@@ -9,17 +9,20 @@ import * as CONSTANTS from "../../constants";
 import {Redirect} from 'react-router-dom';
 import {AuthorizationService} from "../../services/authorization.service";
 import {MenuActivator} from "./menu-activator";
+import {APICallService} from "../../services/APICall.service";
 
 export class Menu extends Component {
     public props: any;
     public activateMainItem = '';
     public activateInterviewItem = '';
     public activateStatisticItem = '';
-    public activateAdministration = '';
+    public activateAdministrationItem = '';
     public state = {
-        redirect: ''
+        redirect: '',
+        isAdmin: false
     };
     public menuActivator: MenuActivator;
+    public api:APICallService;
 
     constructor(props: any,
                 private authorizationService: AuthorizationService) {
@@ -27,10 +30,12 @@ export class Menu extends Component {
         this.activateMenuItem();
         this.authorizationService = new AuthorizationService();
         this.menuActivator = new MenuActivator();
+        this.api = new APICallService();
     }
 
     public componentDidMount() {
-        this.menuActivator.activate()
+        this.menuActivator.activate();
+        this.checkRights();
     }
 
     public componentWillUnmount() {
@@ -66,7 +71,17 @@ export class Menu extends Component {
             case CONSTANTS.MENU_ITEM_STATISTIC:
                 this.activateStatisticItem = CONSTANTS.MENU_ACTIVE_ITEM_CLASS;
                 break;
+            case CONSTANTS.MENU_ITEM_ADMINISTRATION:
+                this.activateAdministrationItem = CONSTANTS.MENU_ACTIVE_ITEM_CLASS;
+                break;
         }
+    }
+
+    @bound
+    public checkRights(){
+        this.api.checkRights(localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY_AUTH_KEY)).then(res=>{
+                this.setState({...this.state, isAdmin: res});
+        });
     }
 
     @bound
@@ -83,16 +98,17 @@ export class Menu extends Component {
                 <nav className="mdl-navigation">
                     <a id="main_item" onClick={this.setRedirect}
                        className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
-                    <a className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
+                    <a onClick={this.checkRights} className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
                     <a className={"mdl-navigation__link " + this.activateStatisticItem}>Statistic</a>
-                    <a id="administration_item" onClick={this.setRedirect}
-                       className={"mdl-navigation__link " + this.activateAdministration}>Administration</a>
+                    {this.state.isAdmin &&
+                        <a id="administration_item" onClick={this.setRedirect}
+                           className={"mdl-navigation__link " + this.activateAdministrationItem}>Administration</a>
+                    }
                     <a id="logout_item" className={"mdl-navigation__link "} onClick={this.logout}>Logout</a>
                 </nav>
             </div>
         );
     }
-
 }
 
 const mapStateToProps = (state: any, OwnProps: any) => ({

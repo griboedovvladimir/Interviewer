@@ -43,7 +43,7 @@ describe('main reducers', () => {
                 type: CONSTANTS.ACTION_ADD_INTERVIEW,
                 ...interviewObj
             })
-        ).toEqual([interviewObj, interviewObj])
+        ).toEqual([interviewObj, interviewObj]);
 
         expect(
             interview(undefined, {

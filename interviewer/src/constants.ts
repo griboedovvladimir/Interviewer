@@ -9,6 +9,7 @@ export const QUESTION_BY_ID_PATH = '/questionbyid';
 export const QUESTION_CARD = '/questioncard';
 export const QUESTION_CARDS = '/questioncards';
 export const QUESTION_CARD_CHECK = '/questioncardcheck';
+export const RIGHTS_CHECK = '/rightscheck';
 
 /*----------------- ROUTES -----------------------*/
 
@@ -22,6 +23,7 @@ export const MAIN_PAGE_STATISTIC = '/main/statistic/';
 
 export const MODAL_ACTIVE = 'modal-active';
 export const MODAL_HIDDEN = 'modal-hidden';
+export const MODAL_SAVE_HIDDEN = 'modal-save-hidden';
 export const MODAL_OVERLAY = 'overlay';
 
 /*-------------LOCAL STORAGE------------------*/
@@ -32,6 +34,7 @@ export const LOCAL_STORAGE_KEY_AUTH_KEY = 'INTERVIEWER_AUTH_KEY';
 
 export const MENU_ACTIVE_ITEM_CLASS = 'primary-dark';
 export const MENU_ITEM_MAIN = 'main';
+export const MENU_ITEM_ADMINISTRATION = 'administretion';
 export const MENU_ITEM_INTERVIEW = 'interview';
 export const MENU_ITEM_STATISTIC = 'statistic';
 

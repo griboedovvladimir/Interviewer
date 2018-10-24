@@ -86,4 +86,11 @@ export class APICallService {
             body: JSON.stringify(body)
         })
     }
+
+    public checkRights(token:any){
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.RIGHTS_CHECK, {
+            ...POST_CONFIG,
+            body: JSON.stringify({"token":token})
+        }).then(req => req.json());
+    }
 }

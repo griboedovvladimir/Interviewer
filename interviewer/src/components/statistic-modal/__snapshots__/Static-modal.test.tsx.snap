@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>StatisticModal component render simple StatisticModal component 1`] = `
+<div>
+  <div
+    className="remove"
+  >
+    <i
+      className="material-icons"
+      id="remove-modal"
+    >
+      close
+    </i>
+  </div>
+  <div>
+    text
+  </div>
+</div>
+`;
