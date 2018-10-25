@@ -88,6 +88,10 @@ export class Menu extends Component {
     public logout() {
         this.authorizationService.logout();
         this.props.action.login(false);
+        this.setState({
+            redirect: "main_item"
+        });
+        this.renderRedirect();
     }
 
     public render() {
