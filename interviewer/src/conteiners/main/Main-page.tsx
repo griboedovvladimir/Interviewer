@@ -11,7 +11,7 @@ import * as CONSTANTS from "../../constants";
 import {Route, Switch} from 'react-router-dom';
 import Interview from "../interview/Interview";
 import Statistic from "../statistic/Statistic";
-import {MainSaveModal} from "../../components/main-save-modal/Main-save-modal";
+import MainSaveModal from "../../components/main-save-modal/Main-save-modal";
 
 
 export class MainPage extends Component {

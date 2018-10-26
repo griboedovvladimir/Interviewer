@@ -6,9 +6,11 @@ import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../login/actions";
 import {connect} from "react-redux";
 import {Redirect} from "react-router";
+import {AdministrationTable} from "../administration-table/Administration-table";
 
 export class AdministrationPage extends Component {
-    public props:any;
+    public props: any;
+
     constructor(props: any) {
         super(props);
     }
@@ -18,6 +20,11 @@ export class AdministrationPage extends Component {
             return (
                 <div className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
                     <Menu parent={CONSTANTS.MENU_ITEM_ADMINISTRATION}/>
+                    <main className="mdl-layout__content">
+                        <div className="page-content">
+                    <AdministrationTable/>
+                        </div>
+                    </main>
                     <div className='mdl-layout__obfuscator'/>
                 </div>
             )

@@ -93,4 +93,17 @@ export class APICallService {
             body: JSON.stringify({"token":token})
         }).then(req => req.json());
     }
+
+    public getExcel(interviewId:any) {
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.GET_EXCEL_PATH, {
+            ...POST_CONFIG,
+            body: JSON.stringify({"interviewId":interviewId})
+        }).then(req => req.blob());
+    }
+
+    public sendByEmail(interviewId:any){
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.SEND_EMAIL_PATH + '/' + interviewId, {
+            method: 'GET'
+        }).then(req => req.json());
+    }
 }

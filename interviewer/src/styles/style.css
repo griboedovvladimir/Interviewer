@@ -762,6 +762,9 @@ border-color: #d50000 !important;
 .chips{
     cursor: pointer;
 }
-
+ a{
+     text-decoration: none;
+     color: #00857c;
+ }
 
 

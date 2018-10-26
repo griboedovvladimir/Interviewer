@@ -10,7 +10,6 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <section>
-                    <div id ="app" >Button</div>
                     <Switch>
                         <Route path={CONSTANTS.MAIN_PAGE} component={MainPage}/>
                         <Route path={CONSTANTS.LOGIN_PAGE} component={LoginPage}/>

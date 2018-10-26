@@ -61,6 +61,7 @@ export class MainTableRow extends Component {
 
     @bound
     public modalActivate() {
+        this.props.action.activateRow(this.rowData);
         if(!document.getElementById(CONSTANTS.MODAL_OVERLAY)) {
             let el = document.getElementsByClassName(CONSTANTS.MODAL_SAVE_HIDDEN)[0];
             let overlay = document.createElement('div');

@@ -6,3 +6,10 @@ export function removeInterview(id: string) {
         id
     };
 }
+
+export function activateRow(rowData: any) {
+    return {
+        type: CONSTANTS.ACTION_ACTIVATE_ROW,
+        rowData
+    };
+}

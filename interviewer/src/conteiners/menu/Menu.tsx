@@ -19,7 +19,7 @@ export class Menu extends Component {
     public activateAdministrationItem = '';
     public state = {
         redirect: '',
-        isAdmin: false
+        isAdmin: false,
     };
     public menuActivator: MenuActivator;
     public api:APICallService;
@@ -31,11 +31,11 @@ export class Menu extends Component {
         this.authorizationService = new AuthorizationService();
         this.menuActivator = new MenuActivator();
         this.api = new APICallService();
+        this.checkRights();
     }
 
     public componentDidMount() {
         this.menuActivator.activate();
-        this.checkRights();
     }
 
     public componentWillUnmount() {
@@ -55,7 +55,9 @@ export class Menu extends Component {
                 return <Redirect to='/'/>;
             break;
             case "administration_item":
-                return <Redirect to='/administration/'/>;
+               if(window.location.pathname !== '/administration/') {
+                   return <Redirect to='/administration/'/>;
+               }
             break;
         }
     }
@@ -102,7 +104,7 @@ export class Menu extends Component {
                 <nav className="mdl-navigation">
                     <a id="main_item" onClick={this.setRedirect}
                        className={"mdl-navigation__link " + this.activateMainItem}>Main</a>
-                    <a onClick={this.checkRights} className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
+                    <a className={"mdl-navigation__link " + this.activateInterviewItem}>Interview</a>
                     <a className={"mdl-navigation__link " + this.activateStatisticItem}>Statistic</a>
                     {this.state.isAdmin &&
                         <a id="administration_item" onClick={this.setRedirect}
