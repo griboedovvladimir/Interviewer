@@ -127,19 +127,131 @@ app.post(PATHS_CONSTANTS.GET_EXCEL_PATH, (req, res) => {
     console.log(req.body.interviewId);
 // You can define styles as json object
     const styles = {
-        headerDark: {
+        header: {
             fill: {
                 fgColor: {
-                    rgb: 'FF000000'
+                    rgb: 'FFFFFFFF'
                 }
             },
             font: {
                 color: {
-                    rgb: 'FFFFFFFF'
+                    rgb: '0000000'
                 },
                 sz: 14,
                 bold: true,
-                underline: true
+            },
+            alignment: {
+                horizontal: 'center'
+            }
+        },
+        table_header: {
+            fill: {
+                fgColor: {
+                    rgb: 'FFFFFFFF'
+                }
+            },
+            font: {
+                color: {
+                    rgb: '0000000'
+                },
+                sz: 14,
+                bold: true,
+            },
+            alignment: {
+                horizontal: 'center'
+            },
+            border: {
+                top: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                bottom: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                left: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                right: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                }
+            }
+        },
+        text_center: {
+            alignment: {
+                horizontal: 'center'
+            },
+            border: {
+                top: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                bottom: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                left: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                right: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                }
+            }
+        },
+        cellBordering:{
+            border: {
+                top: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                bottom: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                left: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                right: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                }
+            }
+        },
+        cellFontBold: {
+            font: {
+                color: {
+                    rgb: '0000000'
+                },
+                bold: true,
             }
         },
         cellPink: {
@@ -160,38 +272,55 @@ app.post(PATHS_CONSTANTS.GET_EXCEL_PATH, (req, res) => {
 
 //Array of objects representing heading rows (very top)
     const heading = [
-        [{value: 'a1', style: styles.headerDark}, {value: 'b1', style: styles.headerDark}, {
-            value: 'c1',
-            style: styles.headerDark
-        }],
-        ['a2', 'b2', 'c2'] // <-- It can be only values
+        [' ', {value: 'Interview № 15', style: styles.header}],
+        [' ', {value: 'Date of interview:', style: styles.cellFontBold}, '', '16.09.2018'],
+        [' ', {value: 'Interviewee:', style: styles.cellFontBold}, '', 'John Doe'], // <-- It can be only values
+        [' ', {value: 'Specialization:', style: styles.cellFontBold}, '', 'Frontend developer'],
+        [' ', {value: 'Qualification:', style: styles.cellFontBold}, '', 'D2'],
+        []
     ];
 
 //Here you specify the export structure
     const specification = {
-        customer_name: { // <- the key should match the actual data key
-            displayName: 'Customer', // <- Here you specify the column header
-            headerStyle: styles.headerDark, // <- Header style
-            cellStyle: function (value, row) { // <- style renderer function
-                // if the status is 1 then color in green else color in red
-                // Notice how we use another cell value to style the current one
-                return (row.status_id === 1) ? styles.cellGreen : {fill: {fgColor: {rgb: 'FFFF0000'}}}; // <- Inline cell style is possible
-            },
-            width: 120 // <- width in pixels
+        margin_left: {
+            displayName: ' ',
+            headerStyle: styles.cellFontBold,
+            cellStyle: styles.cellFontBold, // <- Cell style
+            width: 20
         },
-        status_id: {
-            displayName: 'Status',
-            headerStyle: styles.headerDark,
-            cellFormat: function (value, row) { // <- Renderer function, you can access also any row.property
-                return (value === 1) ? 'Active' : 'Inactive';
-            },
-            width: '10' // <- width in chars (when the number is passed as string)
+
+        question_number: { // <- the key should match the actual data key
+            displayName: '№', // <- Here you specify the column header
+            headerStyle: styles.table_header, // <- Header style
+            cellStyle: {...styles.cellBordering, font:{bold: true}},
+            width: 25 // <- width in pixels
         },
-        note: {
-            displayName: 'Description',
-            headerStyle: styles.headerDark,
-            cellStyle: styles.cellPink, // <- Cell style
-            width: 220 // <- width in pixels
+        question_text: {
+            displayName: 'Question',
+            headerStyle: styles.table_header,
+            // cellFormat: function (value, row) { // <- Renderer function, you can access also any row.property
+            //     return (value === 1) ? 'Active' : 'Inactive';
+            // },
+            cellStyle: styles.cellBordering,
+            width: 250 // <- width in chars (when the number is passed as string)
+        },
+        mark: {
+            displayName: 'Mark,%',
+            headerStyle: styles.table_header,
+            cellStyle: styles.text_center,
+            width: 60 // <- width in pixels
+        },
+        comment: {
+            displayName: 'Comment',
+            headerStyle: styles.table_header,
+            cellStyle: styles.cellBordering,
+            width: 250 // <- width in pixels
+        },
+        advise: {
+            displayName: 'Advise to exhaust',
+            headerStyle: styles.table_header,
+            cellStyle: styles.cellBordering,
+            width: 250 // <- width in pixels
         }
     };
 
@@ -201,18 +330,99 @@ app.post(PATHS_CONSTANTS.GET_EXCEL_PATH, (req, res) => {
 // specification provided above. But you should have all the fields
 // that are listed in the report specification
     const dataset = [
-        {customer_name: 'IBM', status_id: 1, note: 'some note', misc: 'not shown'},
-        {customer_name: 'HP', status_id: 0, note: 'some note'},
-        {customer_name: 'MS', status_id: 0, note: 'some note', misc: 'not shown'}
+        {
+            margin_left: "",
+            question_number: 'CSS question block',
+            question_text: '',
+            mark: '',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: '1',
+            question_text: 'What are the CSS frameworks?',
+            mark: '45',
+            comment: 'Some comment',
+            advise: 'Read more books'
+        },
+        {
+            margin_left: "",
+            question_number: '2',
+            question_text: 'What are the CSS frameworks?',
+            mark: '70',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: '3',
+            question_text: 'What are the CSS frameworks?',
+            mark: '80',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: 'HTML question block',
+            question_text: '',
+            mark: '',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: '3',
+            question_text: 'What are the HTML?',
+            mark: '80',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: '',
+            question_text: '',
+            mark: '',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: 'Total questions: 3',
+            question_text: '',
+            mark: '',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: 'Average mark(%): 65',
+            question_text: '',
+            mark: '',
+            comment: '',
+            advise: ''
+        },
     ];
 
 // Define an array of merges. 1-1 = A:1
 // The merges are independent of the data.
 // A merge will overwrite all data _not_ in the top-left cell.
     const merges = [
-        {start: {row: 1, column: 1}, end: {row: 1, column: 10}},
-        {start: {row: 2, column: 1}, end: {row: 2, column: 5}},
-        {start: {row: 2, column: 6}, end: {row: 2, column: 10}}
+        {start: {row: 1, column: 2}, end: {row: 1, column: 8}},
+        {start: {row: 2, column: 2}, end: {row: 2, column: 3}},
+        {start: {row: 2, column: 4}, end: {row: 2, column: 8}},
+        {start: {row: 3, column: 2}, end: {row: 3, column: 3}},
+        {start: {row: 3, column: 4}, end: {row: 3, column: 8}},
+        {start: {row: 4, column: 2}, end: {row: 4, column: 3}},
+        {start: {row: 4, column: 4}, end: {row: 4, column: 8}},
+        {start: {row: 5, column: 2}, end: {row: 5, column: 3}},
+        {start: {row: 5, column: 4}, end: {row: 5, column: 8}},
+        {start: {row: 6, column: 1}, end: {row: 6, column: 8}},
+        {start: {row: 8, column: 2}, end: {row: 8, column: 6}},
+        {start: {row: 12, column: 2}, end: {row: 12, column: 6}},
+        {start: {row: 14, column: 2}, end: {row: 14, column: 6}},
+        {start: {row: 15, column: 2}, end: {row: 15, column: 3}},
+        {start: {row: 16, column: 2}, end: {row: 16, column: 3}},
     ];
 
 // Create the excel report.
@@ -220,11 +430,11 @@ app.post(PATHS_CONSTANTS.GET_EXCEL_PATH, (req, res) => {
     const report = excel.buildExport(
         [ // <- Notice that this is an array. Pass multiple sheets to create multi sheet report
             {
-                name: 'Report', // <- Specify sheet name (optional)
+                name: 'Interview', // <- Specify sheet name (optional)
                 heading: heading, // <- Raw heading array (optional)
                 merges: merges, // <- Merge cell ranges
                 specification: specification, // <- Report specification
-                data: dataset // <-- Report data
+                data: dataset, // <-- Report data
             }
         ]
     );
@@ -233,7 +443,6 @@ app.post(PATHS_CONSTANTS.GET_EXCEL_PATH, (req, res) => {
     res.attachment('report.xlsx'); // This is sails.js specific (in general you need to set headers)
     res.responseType = "blob";
     return res.send(report);
-
 // OR you can save this buffer to the disk by creating a file.
 
 });
