@@ -1,0 +1,680 @@
+const sql = require("mysql");
+const excel = require('node-excel-export');
+const DB_CONSTANTS = require("./constants/DB").obj;
+
+function DBconnect(DBrequest) {
+    return new Promise((res, rej) => {
+        let connection = sql.createConnection(DB_CONSTANTS.DB_CONFIG);
+        connection.connect();
+        connection.query(DBrequest, (error, results) => {
+            res(results);
+            rej(error)
+        });
+        connection.end();
+    })
+}
+
+async function reportGenerator(interviewID) {
+    let interview = await DBconnect('SELECT* FROM `interview` WHERE `interview_id`=' + interviewID);
+    let cards = await DBconnect('SELECT* from `question_card` WHERE `interview_id`=' + interviewID);
+
+    function getQuestions(cardsArr) {
+        return Promise.all(cardsArr.map(card => {
+            return DBconnect('SELECT* FROM `question` WHERE `question_id`=' + card.question_id)
+        }))
+    }
+
+    let questions = await getQuestions(cards);
+
+    const styles = {
+        header: {
+            fill: {
+                fgColor: {
+                    rgb: 'FFFFFFFF'
+                }
+            },
+            font: {
+                color: {
+                    rgb: '0000000'
+                },
+                sz: 14,
+                bold: true,
+            },
+            alignment: {
+                horizontal: 'center'
+            }
+        },
+        table_header: {
+            fill: {
+                fgColor: {
+                    rgb: 'FFFFFFFF'
+                }
+            },
+            font: {
+                color: {
+                    rgb: '0000000'
+                },
+                sz: 14,
+                bold: true,
+            },
+            alignment: {
+                horizontal: 'center'
+            },
+            border: {
+                top: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                bottom: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                left: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                right: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                }
+            }
+        },
+        text_center: {
+            alignment: {
+                horizontal: 'center'
+            },
+            border: {
+                top: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                bottom: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                left: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                right: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                }
+            }
+        },
+        cellBordering: {
+            border: {
+                top: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                bottom: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                left: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                },
+                right: {
+                    style: 'thin',
+                    color: {
+                        rgb: '0000000'
+                    }
+                }
+            }
+        },
+        cellFontBold: {
+            font: {
+                color: {
+                    rgb: '0000000'
+                },
+                bold: true,
+            }
+        },
+        cellPink: {
+            fill: {
+                fgColor: {
+                    rgb: 'FFFFCCFF'
+                }
+            }
+        },
+        cellGreen: {
+            fill: {
+                fgColor: {
+                    rgb: 'FF00FF00'
+                }
+            }
+        }
+    };
+
+//Array of objects representing heading rows (very top)
+    const heading = [
+        [' ', {value: `Interview № ${interview[0].interview_id}`, style: styles.header}],
+        [' ', {value: 'Date of interview:', style: styles.cellFontBold}, '', interview[0].date],
+        [' ', {value: 'Interviewee:', style: styles.cellFontBold}, '', interview[0].name], // <-- It can be only values
+        [' ', {value: 'Specialization:', style: styles.cellFontBold}, '', interview[0].specialization],
+        [' ', {value: 'Qualification:', style: styles.cellFontBold}, '', 'D' + interview[0].level],
+        []
+    ];
+
+//Here you specify the export structure
+    const specification = {
+        margin_left: {
+            displayName: ' ',
+            headerStyle: styles.cellFontBold,
+            cellStyle: styles.cellFontBold, // <- Cell style
+            width: 20
+        },
+
+        question_number: { // <- the key should match the actual data key
+            displayName: '№', // <- Here you specify the column header
+            headerStyle: styles.table_header, // <- Header style
+            cellStyle: {...styles.cellBordering, font: {bold: true}},
+            width: 25 // <- width in pixels
+        },
+        question_text: {
+            displayName: 'Question',
+            headerStyle: styles.table_header,
+            // cellFormat: function (value, row) { // <- Renderer function, you can access also any row.property
+            //     return (value === 1) ? 'Active' : 'Inactive';
+            // },
+            cellStyle: styles.cellBordering,
+            width: 250 // <- width in chars (when the number is passed as string)
+        },
+        mark: {
+            displayName: 'Mark,%',
+            headerStyle: styles.table_header,
+            cellStyle: styles.text_center,
+            width: 60 // <- width in pixels
+        },
+        comment: {
+            displayName: 'Comment',
+            headerStyle: styles.table_header,
+            cellStyle: styles.cellBordering,
+            width: 250 // <- width in pixels
+        },
+        advise: {
+            displayName: 'Advise to exhaust',
+            headerStyle: styles.table_header,
+            cellStyle: styles.cellBordering,
+            width: 250 // <- width in pixels
+        }
+    };
+
+// The data set should have the following shape (Array of Objects)
+// The order of the keys is irrelevant, it is also irrelevant if the
+// dataset contains more fields as the report is build based on the
+// specification provided above. But you should have all the fields
+// that are listed in the report specification
+
+    let averageMark = Math.round(cards.reduce((cnt, el) => {
+        return cnt + Number(el.mark);
+    }, 0) / cards.length);
+
+    let dataset = [], cssBlock = [], htmlBlock = [], jsBlock = [];
+
+    cards.forEach(el => {
+        if (el.topic_name === 'css') {
+            cssBlock.push(el);
+        }
+        else if (el.topic_name === 'html') {
+            htmlBlock.push(el)
+        }
+        else if (el.topic_name === 'js') {
+            jsBlock.push(el)
+        }
+    });
+
+    function datasetFill(arr) {
+        if (arr.length) {
+            arr = arr.map((el, i) => {
+                let question = questions.find(quest => {
+                    if (quest[0].question_id === el.question_id) {
+                        return true;
+                    }
+                });
+                return {
+                    margin_left: "",
+                    mark: el.mark,
+                    comment: el.comment,
+                    topic_name: el.topic_name,
+                    question_number: (i + 1).toString(),
+                    question_text: question[0].text,
+                    advise: question[0].source
+                }
+            });
+            dataset.push({
+                margin_left: "",
+                question_number: arr[0].topic_name.toUpperCase() + ' question block',
+                question_text: '',
+                mark: '',
+                comment: '',
+                advise: ''
+            });
+            dataset = [...dataset, ...arr]
+        }
+    }
+
+    datasetFill(cssBlock);
+    datasetFill(htmlBlock);
+    datasetFill(jsBlock);
+    dataset = [
+        ...dataset,
+        {
+            margin_left: "",
+            question_number: 'Total questions: ' + cards.length,
+            question_text: '',
+            mark: '',
+            comment: '',
+            advise: ''
+        },
+        {
+            margin_left: "",
+            question_number: 'Average mark(%): ' + averageMark,
+            question_text: '',
+            mark: '',
+            comment: '',
+            advise: ''
+        },
+    ];
+
+// Define an array of merges. 1-1 = A:1
+// The merges are independent of the data.
+// A merge will overwrite all data _not_ in the top-left cell.
+    const merges = [
+        {start: {row: 1, column: 2}, end: {row: 1, column: 6}},
+        {start: {row: 2, column: 2}, end: {row: 2, column: 3}},
+        {start: {row: 2, column: 4}, end: {row: 2, column: 6}},
+        {start: {row: 3, column: 2}, end: {row: 3, column: 3}},
+        {start: {row: 3, column: 4}, end: {row: 3, column: 6}},
+        {start: {row: 4, column: 2}, end: {row: 4, column: 3}},
+        {start: {row: 4, column: 4}, end: {row: 4, column: 6}},
+        {start: {row: 5, column: 2}, end: {row: 5, column: 3}},
+        {start: {row: 5, column: 4}, end: {row: 5, column: 6}},
+        {start: {row: 6, column: 1}, end: {row: 6, column: 6}},
+        {start: {row: 8, column: 2}, end: {row: 8, column: 6}},
+        {start: {row: cssBlock.length + 9, column: 2}, end: {row: cssBlock.length + 9, column: 6}},
+        {
+            start: {row: cssBlock.length + htmlBlock.length + 10, column: 2},
+            end: {row: cssBlock.length + htmlBlock.length + 10, column: 6}
+        },
+        {start: {row: dataset.length + 6, column: 2}, end: {row: dataset.length + 6, column: 3}},
+        {start: {row: dataset.length + 7, column: 2}, end: {row: dataset.length + 7, column: 3}},
+    ];
+
+// Create the excel report.
+// This function will return Buffer
+    return excel.buildExport(
+        [ // <- Notice that this is an array. Pass multiple sheets to create multi sheet report
+            {
+                name: 'Interview', // <- Specify sheet name (optional)
+                heading: heading, // <- Raw heading array (optional)
+                merges: merges, // <- Merge cell ranges
+                specification: specification, // <- Report specification
+                data: dataset, // <-- Report data
+            }
+        ]
+    );
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+async function printReportGenerator(interviewID) {
+
+    let interview = await DBconnect('SELECT* FROM `interview` WHERE `interview_id`=' + interviewID);
+    let cards = await DBconnect('SELECT* from `question_card` WHERE `interview_id`=' + interviewID);
+
+    function getQuestions(cardsArr) {
+        return Promise.all(cardsArr.map(card => {
+            return DBconnect('SELECT* FROM `question` WHERE `question_id`=' + card.question_id)
+        }))
+    }
+
+    let averageMark = Math.round(cards.reduce((cnt, el) => {
+        return cnt + Number(el.mark);
+    }, 0) / cards.length);
+
+    let cssBlock = [], htmlBlock = [], jsBlock = [];
+
+    cards.forEach(el => {
+        if (el.topic_name === 'css') {
+            cssBlock.push(el);
+        }
+        else if (el.topic_name === 'html') {
+            htmlBlock.push(el)
+        }
+        else if (el.topic_name === 'js') {
+            jsBlock.push(el)
+        }
+    });
+
+    let questions = await getQuestions(cards);
+
+    function rowsRender(arr) {
+        if (arr.length) {
+            arr = arr.map((el, i) => {
+                let question = questions.find(quest => {
+                    if (quest[0].question_id === el.question_id) {
+                        return true;
+                    }
+                });
+                return {
+                    mark: el.mark,
+                    comment: el.comment,
+                    topic_name: el.topic_name,
+                    question_number: (i + 1).toString(),
+                    question_text: question[0].text,
+                    advise: question[0].source
+                }
+            });
+            return arr.reduce((cnt, row) => {
+                return (cnt + `
+                <tr class="ro2">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td style="text-align:right; width:19.25pt; " class="ce7"><p>${row.question_number}</p></td>
+        <td colspan="2" style="text-align:left;width:70.21pt; " class="ce11"><p>${row.question_text}</p></td>
+        <td style="text-align:right; width:64.01pt; " class="ce7"><p>${row.mark}</p></td>
+        <td style="text-align:left;width:180.6pt; " class="ce12"><p>${row.comment}</p></td>
+        <td style="text-align:left;width:154.35pt; " class="ce12"><p>${row.advise}</p></td>
+    </tr>
+      `);
+            }, `<tr class="ro2">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="6" style="text-align:left;width:19.25pt; " class="ce6"><p>${arr[0].topic_name.toUpperCase()} question block</p></td>
+    </tr>`)
+        }
+    }
+
+    return `        <style type="text/css">
+        @page {
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show
+        }
+
+        td, th {
+            vertical-align: top;
+            font-size: 10pt;
+            padding: 2px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            clear: both;
+        }
+
+        ol, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        span.footnodeNumber {
+            padding-right: 1em;
+        }
+
+        span.annotation_style_by_filter {
+            font-size: 95%;
+            font-family: Arial;
+            background-color: #fff000;
+            margin: 0;
+            border: 0;
+            padding: 0;
+        }
+
+        span.heading_numbering {
+            margin-right: 0.8rem;
+        }
+
+        * {
+            margin: 0;
+        }
+
+        .ta1 {
+            writing-mode: lr-tb;
+        }
+
+        .ce1 {
+            font-family: Liberation Sans;
+            vertical-align: middle;
+            text-align: center ! important;
+            font-size: 14pt;
+            font-weight: bold;
+        }
+
+        .ce10 {
+            font-family: Liberation Sans;
+            border: 2px solid black;
+            vertical-align: middle;
+            text-align: center ! important;
+        }
+
+        .ce11 {
+            font-family: Liberation Sans;
+            border: 2px solid black;;
+            vertical-align: middle;
+            text-align: left ! important;
+            margin-left: 0pt;
+        }
+
+        .ce12 {
+            font-family: Liberation Sans;
+            border: 2px solid black;
+        }
+
+        .ce13 {
+            font-family: Liberation Sans;
+            border: 2px solid black;;
+            vertical-align: middle;
+            margin-left: 0pt;
+        }
+
+        .ce14 {
+            font-family: Liberation Sans;
+            text-align: left ! important;
+            margin-left: 0pt;
+        }
+
+        .ce15 {
+            font-family: Liberation Sans;
+            font-weight: bold;
+        }
+
+        .ce2 {
+            font-family: Liberation Sans;
+            vertical-align: middle;
+            text-align: left ! important;
+            margin-left: 0pt;
+        }
+
+        .ce3 {
+            font-family: Liberation Sans;
+            vertical-align: middle;
+            margin-left: 0pt;
+        }
+
+        .ce4 {
+            font-family: Liberation Sans;
+            vertical-align: middle;
+            text-align: center ! important;
+        }
+
+        .ce5 {
+            font-family: Liberation Sans;
+            border: 2px solid black;
+            vertical-align: middle;
+            text-align: center ! important;
+            margin-left: 0pt;
+            font-weight: bold;
+        }
+
+        .ce6 {
+            font-family: Liberation Sans;
+            border: 2px solid black;
+            vertical-align: middle;
+            text-align: center ! important;
+            font-weight: bold;
+        }
+
+        .ce7 {
+            font-family: Liberation Sans;
+            border: 2px solid black;
+            text-align: center ! important;
+            margin-left: 0pt;
+        }
+
+        .ce8 {
+            font-family: Liberation Sans;
+            vertical-align: middle;
+            text-align: left ! important;
+            margin-left: 0pt;
+            font-weight: bold;
+        }
+
+        .ce9 {
+            font-family: Liberation Sans;
+            vertical-align: top;
+            text-align: left ! important;
+            margin-left: 0pt;
+            font-size: 7pt;
+            font-weight: bold;
+        }
+        {
+        }
+    </style>
+</head>
+<body dir="ltr" style="max-width:841.69pt;">
+<table border="0" cellspacing="0" cellpadding="0" class="ta1">
+    <colgroup>
+        <col width="27"/>
+        <col width="30"/>
+        <col width="108"/>
+        <col width="234"/>
+        <col width="99"/>
+        <col width="278"/>
+        <col width="238"/>
+    </colgroup>
+    <tr class="ro1">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="6" style="text-align:left;width:19.25pt; " class="ce1"><p>Interview № ${interviewID}</p></td>
+    </tr>
+    <tr class="ro2">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="2" style="text-align:left;width:19.25pt; " class="ce2"><p>Date of interview:</p></td>
+        <td style="text-align:left;width:152.05pt; " class="ce15"><p>${interview[0].date}</p></td>
+        <td style="text-align:left;width:64.01pt; " > </td>
+        <td style="text-align:left;width:180.6pt; " > </td>
+        <td style="text-align:left;width:154.35pt; " > </td>
+    </tr>
+    <tr class="ro2">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="2" style="text-align:left;width:19.25pt; " class="ce3"><p>Interviewee:</p></td>
+        <td style="text-align:left;width:152.05pt; " class="ce15"><p>${interview[0].name}</p></td>
+        <td style="text-align:left;width:64.01pt; " > </td>
+        <td style="text-align:left;width:180.6pt; " > </td>
+        <td style="text-align:left;width:154.35pt; " > </td>
+    </tr>
+    <tr class="ro2">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="2" style="text-align:left;width:19.25pt; " class="ce2"><p>Specialization:</p></td>
+        <td style="text-align:left;width:152.05pt; " class="ce15"><p>${interview[0].specialization}</p></td>
+        <td style="text-align:left;width:64.01pt; " > </td>
+        <td style="text-align:left;width:180.6pt; " > </td>
+        <td style="text-align:left;width:154.35pt; " > </td>
+    </tr>
+    <tr class="ro2">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="2" style="text-align:left;width:19.25pt; " class="ce2"><p>Qualification:</p></td>
+        <td style="text-align:left;width:152.05pt; " class="ce15"><p>D${interview[0].level}</p></td>
+        <td style="text-align:left;width:64.01pt; " > </td>
+        <td style="text-align:left;width:180.6pt; " > </td>
+        <td style="text-align:left;width:154.35pt; " > </td>
+    </tr>
+    <tr class="ro2">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="6" style="text-align:left;width:19.25pt; " class="ce4"> </td>
+    </tr>
+    <tr class="ro3">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td style="text-align:left;width:19.25pt; " class="ce5"><p>№</p></td>
+        <td colspan="2" style="text-align:left;width:70.21pt; " class="ce5"><p>Question </p></td>
+        <td style="text-align:left;width:64.01pt; " class="ce5"><p>Mark,%</p></td>
+        <td style="text-align:left;width:180.6pt; " class="ce5"><p>Comment</p></td>
+        <td style="text-align:left;width:154.35pt; " class="ce5"><p>Advise to exhaust</p></td>
+    </tr>
+    ${rowsRender(cssBlock)}
+    ${rowsRender(htmlBlock)}
+    ${rowsRender(jsBlock)}
+    <tr class="ro4">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="6" style="text-align:left;width:19.25pt; " class="ce4"> </td>
+    </tr>
+    <tr class="ro4">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="3" style="text-align:left;width:19.25pt; " class="ce8"><p>Total questions: <span
+                class="T1">${cards.length}</span></p></td>
+        <td style="text-align:left;width:64.01pt; " > </td>
+        <td style="text-align:left;width:180.6pt; " > </td>
+        <td style="text-align:left;width:154.35pt; " > </td>
+    </tr>
+    <tr class="ro5">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="3" style="text-align:left;width:19.25pt; " class="ce8"><p> </p>
+            <p>Average mark(%): <span class="T1">${averageMark}</span></p></td>
+        <td style="text-align:left;width:64.01pt; " > </td>
+        <td style="text-align:left;width:180.6pt; " > </td>
+        <td style="text-align:left;width:154.35pt; " > </td>
+    </tr>
+    <tr class="ro6">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td style="text-align:left;width:19.25pt; " class="ce8"> </td>
+        <td style="text-align:left;width:70.21pt; " class="ce14"> </td>
+        <td style="text-align:left;width:152.05pt; " class="ce14"> </td>
+        <td style="text-align:left;width:64.01pt; " > </td>
+        <td style="text-align:left;width:180.6pt; " > </td>
+        <td style="text-align:left;width:154.35pt; " > </td>
+    </tr>
+    <tr class="ro7">
+        <td style="text-align:left;width:17.74pt; " > </td>
+        <td colspan="6" style="text-align:left;width:19.25pt; " class="ce9"><p>Made with Interviewer application</p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+        `
+}
+
+module.exports.reportGenerator = reportGenerator;
+module.exports.printReportGenerator = printReportGenerator;

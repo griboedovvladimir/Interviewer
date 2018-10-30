@@ -5,6 +5,8 @@ const cors = require('cors');
 const sql = require("mysql");
 const DB_CONSTANTS = require("./constants/DB").obj;
 const PATHS_CONSTANTS = require("./constants/paths").obj;
+const report = require('./report-generator');
+const nodemailer = require('nodemailer');
 
 function DBconnect(DBrequest) {
     return new Promise((res, rej) => {
@@ -115,337 +117,48 @@ app.get(PATHS_CONSTANTS.SEND_EMAIL_PATH + '/:id', (req, res) => {
     setTimeout(() => {
         res.end(JSON.stringify(true))
     }, 2000);
+    report.printReportGenerator(req.params.id).then(report=>{
+    nodemailer.createTestAccount((err, account) => {
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            // port: 465,
+            // secure: false, // true for 465, false for other ports
+            service: "Gmail",
+            auth: {
+                user: "vladzimir.griboedov@gmail.com", // generated ethereal user
+                pass: "MP1257723" // generated ethereal password
+            }
+        });
 
+        let mailOptions = {
+            from: '"Interviewer" <vladzimir.griboedov@gmail.com>', // sender address
+            to: 'likecoffee@yandex.ru', // list of receivers
+            subject: 'Interviewer report', // Subject line
+            text: 'Your interview result', // plain text body
+            html: report// html body
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+        });
+    });
+    });
 });
-
-/*------------------- EXCEL GENERATOR ------------------------*/
-
-const excel = require('node-excel-export');
 
 app.post(PATHS_CONSTANTS.GET_EXCEL_PATH, (req, res) => {
-
-    console.log(req.body.interviewId);
-// You can define styles as json object
-    const styles = {
-        header: {
-            fill: {
-                fgColor: {
-                    rgb: 'FFFFFFFF'
-                }
-            },
-            font: {
-                color: {
-                    rgb: '0000000'
-                },
-                sz: 14,
-                bold: true,
-            },
-            alignment: {
-                horizontal: 'center'
-            }
-        },
-        table_header: {
-            fill: {
-                fgColor: {
-                    rgb: 'FFFFFFFF'
-                }
-            },
-            font: {
-                color: {
-                    rgb: '0000000'
-                },
-                sz: 14,
-                bold: true,
-            },
-            alignment: {
-                horizontal: 'center'
-            },
-            border: {
-                top: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                bottom: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                left: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                right: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                }
-            }
-        },
-        text_center: {
-            alignment: {
-                horizontal: 'center'
-            },
-            border: {
-                top: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                bottom: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                left: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                right: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                }
-            }
-        },
-        cellBordering:{
-            border: {
-                top: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                bottom: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                left: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                },
-                right: {
-                    style: 'thin',
-                    color: {
-                        rgb: '0000000'
-                    }
-                }
-            }
-        },
-        cellFontBold: {
-            font: {
-                color: {
-                    rgb: '0000000'
-                },
-                bold: true,
-            }
-        },
-        cellPink: {
-            fill: {
-                fgColor: {
-                    rgb: 'FFFFCCFF'
-                }
-            }
-        },
-        cellGreen: {
-            fill: {
-                fgColor: {
-                    rgb: 'FF00FF00'
-                }
-            }
-        }
-    };
-
-//Array of objects representing heading rows (very top)
-    const heading = [
-        [' ', {value: 'Interview № 15', style: styles.header}],
-        [' ', {value: 'Date of interview:', style: styles.cellFontBold}, '', '16.09.2018'],
-        [' ', {value: 'Interviewee:', style: styles.cellFontBold}, '', 'John Doe'], // <-- It can be only values
-        [' ', {value: 'Specialization:', style: styles.cellFontBold}, '', 'Frontend developer'],
-        [' ', {value: 'Qualification:', style: styles.cellFontBold}, '', 'D2'],
-        []
-    ];
-
-//Here you specify the export structure
-    const specification = {
-        margin_left: {
-            displayName: ' ',
-            headerStyle: styles.cellFontBold,
-            cellStyle: styles.cellFontBold, // <- Cell style
-            width: 20
-        },
-
-        question_number: { // <- the key should match the actual data key
-            displayName: '№', // <- Here you specify the column header
-            headerStyle: styles.table_header, // <- Header style
-            cellStyle: {...styles.cellBordering, font:{bold: true}},
-            width: 25 // <- width in pixels
-        },
-        question_text: {
-            displayName: 'Question',
-            headerStyle: styles.table_header,
-            // cellFormat: function (value, row) { // <- Renderer function, you can access also any row.property
-            //     return (value === 1) ? 'Active' : 'Inactive';
-            // },
-            cellStyle: styles.cellBordering,
-            width: 250 // <- width in chars (when the number is passed as string)
-        },
-        mark: {
-            displayName: 'Mark,%',
-            headerStyle: styles.table_header,
-            cellStyle: styles.text_center,
-            width: 60 // <- width in pixels
-        },
-        comment: {
-            displayName: 'Comment',
-            headerStyle: styles.table_header,
-            cellStyle: styles.cellBordering,
-            width: 250 // <- width in pixels
-        },
-        advise: {
-            displayName: 'Advise to exhaust',
-            headerStyle: styles.table_header,
-            cellStyle: styles.cellBordering,
-            width: 250 // <- width in pixels
-        }
-    };
-
-// The data set should have the following shape (Array of Objects)
-// The order of the keys is irrelevant, it is also irrelevant if the
-// dataset contains more fields as the report is build based on the
-// specification provided above. But you should have all the fields
-// that are listed in the report specification
-    const dataset = [
-        {
-            margin_left: "",
-            question_number: 'CSS question block',
-            question_text: '',
-            mark: '',
-            comment: '',
-            advise: ''
-        },
-        {
-            margin_left: "",
-            question_number: '1',
-            question_text: 'What are the CSS frameworks?',
-            mark: '45',
-            comment: 'Some comment',
-            advise: 'Read more books'
-        },
-        {
-            margin_left: "",
-            question_number: '2',
-            question_text: 'What are the CSS frameworks?',
-            mark: '70',
-            comment: '',
-            advise: ''
-        },
-        {
-            margin_left: "",
-            question_number: '3',
-            question_text: 'What are the CSS frameworks?',
-            mark: '80',
-            comment: '',
-            advise: ''
-        },
-        {
-            margin_left: "",
-            question_number: 'HTML question block',
-            question_text: '',
-            mark: '',
-            comment: '',
-            advise: ''
-        },
-        {
-            margin_left: "",
-            question_number: '3',
-            question_text: 'What are the HTML?',
-            mark: '80',
-            comment: '',
-            advise: ''
-        },
-        {
-            margin_left: "",
-            question_number: '',
-            question_text: '',
-            mark: '',
-            comment: '',
-            advise: ''
-        },
-        {
-            margin_left: "",
-            question_number: 'Total questions: 3',
-            question_text: '',
-            mark: '',
-            comment: '',
-            advise: ''
-        },
-        {
-            margin_left: "",
-            question_number: 'Average mark(%): 65',
-            question_text: '',
-            mark: '',
-            comment: '',
-            advise: ''
-        },
-    ];
-
-// Define an array of merges. 1-1 = A:1
-// The merges are independent of the data.
-// A merge will overwrite all data _not_ in the top-left cell.
-    const merges = [
-        {start: {row: 1, column: 2}, end: {row: 1, column: 8}},
-        {start: {row: 2, column: 2}, end: {row: 2, column: 3}},
-        {start: {row: 2, column: 4}, end: {row: 2, column: 8}},
-        {start: {row: 3, column: 2}, end: {row: 3, column: 3}},
-        {start: {row: 3, column: 4}, end: {row: 3, column: 8}},
-        {start: {row: 4, column: 2}, end: {row: 4, column: 3}},
-        {start: {row: 4, column: 4}, end: {row: 4, column: 8}},
-        {start: {row: 5, column: 2}, end: {row: 5, column: 3}},
-        {start: {row: 5, column: 4}, end: {row: 5, column: 8}},
-        {start: {row: 6, column: 1}, end: {row: 6, column: 8}},
-        {start: {row: 8, column: 2}, end: {row: 8, column: 6}},
-        {start: {row: 12, column: 2}, end: {row: 12, column: 6}},
-        {start: {row: 14, column: 2}, end: {row: 14, column: 6}},
-        {start: {row: 15, column: 2}, end: {row: 15, column: 3}},
-        {start: {row: 16, column: 2}, end: {row: 16, column: 3}},
-    ];
-
-// Create the excel report.
-// This function will return Buffer
-    const report = excel.buildExport(
-        [ // <- Notice that this is an array. Pass multiple sheets to create multi sheet report
-            {
-                name: 'Interview', // <- Specify sheet name (optional)
-                heading: heading, // <- Raw heading array (optional)
-                merges: merges, // <- Merge cell ranges
-                specification: specification, // <- Report specification
-                data: dataset, // <-- Report data
-            }
-        ]
-    );
-
-// You can then return this straight
-    res.attachment('report.xlsx'); // This is sails.js specific (in general you need to set headers)
+    res.attachment('report.xlsx');
     res.responseType = "blob";
-    return res.send(report);
-// OR you can save this buffer to the disk by creating a file.
-
+    report.reportGenerator(req.body.interviewId).then(report=>{
+        res.send(report)
+    });
 });
 
+app.post(PATHS_CONSTANTS.GET_PRINT_PATH, (req, res) => {
+    report.printReportGenerator(req.body.interviewId).then(report=>{
+        res.send(JSON.stringify(report));
+    });
+});
 
 app.listen(4000, () => console.log('InterviewerAPI listening on port 4040!'));
