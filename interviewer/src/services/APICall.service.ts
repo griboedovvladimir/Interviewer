@@ -101,6 +101,13 @@ export class APICallService {
         }).then(req => req.blob());
     }
 
+    public getPrint(interviewId:any){
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.GET_PRINT_PATH, {
+            ...POST_CONFIG,
+            body: JSON.stringify({"interviewId":interviewId})
+        }).then(req => req.json());
+    }
+
     public sendByEmail(interviewId:any){
         return fetch(CONSTANTS.API_HOST + CONSTANTS.SEND_EMAIL_PATH + '/' + interviewId, {
             method: 'GET'

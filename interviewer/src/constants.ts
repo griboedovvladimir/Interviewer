@@ -11,6 +11,7 @@ export const QUESTION_CARDS = '/questioncards';
 export const QUESTION_CARD_CHECK = '/questioncardcheck';
 export const RIGHTS_CHECK = '/rightscheck';
 export const GET_EXCEL_PATH = '/excel';
+export const GET_PRINT_PATH = '/printreport';
 export const SEND_EMAIL_PATH = '/sendemail';
 
 /*----------------- ROUTES -----------------------*/
