@@ -113,50 +113,64 @@ app.post(PATHS_CONSTANTS.RIGHTS_CHECK, (req, res) => {
     })
 });
 
-app.get(PATHS_CONSTANTS.SEND_EMAIL_PATH + '/:id', (req, res) => {
+app.post(PATHS_CONSTANTS.GET_USER_EMAIL, (req, res) => {
+    DBconnect('SELECT * FROM `user` WHERE token = "' + req.body.token + '"').then(result => {
+        res.end(JSON.stringify(result));
+    })
+});
+
+app.post(PATHS_CONSTANTS.SEND_EMAIL_PATH, (req, res) => {
     setTimeout(() => {
         res.end(JSON.stringify(true))
     }, 2000);
-    report.printReportGenerator(req.params.id).then(report=>{
-    nodemailer.createTestAccount((err, account) => {
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            // port: 465,
-            // secure: false, // true for 465, false for other ports
-            service: "Gmail",
-            auth: {
-                user: "vladzimir.griboedov@gmail.com", // generated ethereal user
-                pass: "MP1257723" // generated ethereal password
-            }
-        });
+    report.reportGenerator(req.body.interviewId).then(report => {
+        nodemailer.createTestAccount((err, account) => {
+            let transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                // port: 465,
+                // secure: false, // true for 465, false for other ports
+                service: "Gmail",
+                auth: {
+                    user: "vladzimir.griboedov@gmail.com", // generated ethereal user
+                    pass: "MP1257723" // generated ethereal password
+                }
+            });
 
-        let mailOptions = {
-            from: '"Interviewer" <vladzimir.griboedov@gmail.com>', // sender address
-            to: 'likecoffee@yandex.ru', // list of receivers
-            subject: 'Interviewer report', // Subject line
-            text: 'Your interview result', // plain text body
-            html: report// html body
-        };
+            let mailOptions = {
+                from: '"Interviewer" <vladzimir.griboedov@gmail.com>', // sender address
+                to: req.body.email, // list of receivers
+                subject: 'Interviewer report', // Subject line
+                text: 'Your interview result', // plain text body
+                html: `<h2>Hello from interviewer!</h2>
+<h3>The file with the results of your interview is attached to this letter.</h3>
+`,// html body
+                attachments: [
+                    {
+                        filename: 'interview.xlsx',
+                        content: new Buffer(report, 'utf-8')
+                    }
+                ]
+            };
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.log(error);
-            }
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+            });
         });
-    });
     });
 });
 
 app.post(PATHS_CONSTANTS.GET_EXCEL_PATH, (req, res) => {
     res.attachment('report.xlsx');
     res.responseType = "blob";
-    report.reportGenerator(req.body.interviewId).then(report=>{
+    report.reportGenerator(req.body.interviewId).then(report => {
         res.send(report)
     });
 });
 
 app.post(PATHS_CONSTANTS.GET_PRINT_PATH, (req, res) => {
-    report.printReportGenerator(req.body.interviewId).then(report=>{
+    report.printReportGenerator(req.body.interviewId).then(report => {
         res.send(JSON.stringify(report));
     });
 });

@@ -573,8 +573,7 @@ async function printReportGenerator(interviewID) {
         {
         }
     </style>
-</head>
-<body dir="ltr" style="max-width:841.69pt;">
+
 <table border="0" cellspacing="0" cellpadding="0" class="ta1">
     <colgroup>
         <col width="27"/>
@@ -671,8 +670,6 @@ async function printReportGenerator(interviewID) {
         </td>
     </tr>
 </table>
-</body>
-</html>
         `
 }
 

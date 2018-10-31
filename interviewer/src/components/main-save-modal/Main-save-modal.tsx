@@ -10,7 +10,7 @@ import {connect} from "react-redux";
 export class MainSaveModal extends Component {
     public props: any;
     public state = {
-        sendButtonText:'Send to interviewee'
+        sendButtonText: 'Send to my email'
     };
     public api: APICallService;
 
@@ -22,29 +22,31 @@ export class MainSaveModal extends Component {
     @bound
     public onPrint() {
         let printWindow = window.open();
-this.api.getPrint(this.props.row.interview_id).then(
-    result=>{
-        printWindow!.document.open('text/plain');
-        printWindow!.document.write(result);
-        printWindow!.document.close();
-        printWindow!.focus();
-        printWindow!.print();
-    }
-);
+        this.api.getPrint(this.props.row.interview_id).then(
+            result => {
+                printWindow!.document.open('text/plain');
+                printWindow!.document.write(result);
+                printWindow!.document.close();
+                printWindow!.focus();
+                printWindow!.print();
+            }
+        );
     }
 
     @bound
     public sendByEmail() {
-        this.setState({...this.state, sendButtonText:'Sending ...'});
-        this.api.sendByEmail(this.props.row.interview_id).then(res=>{
-            if(res){
-                this.setState({...this.state, sendButtonText:'Send to interviewee'});
-            }
-        })
+        this.setState({...this.state, sendButtonText: 'Sending ...'});
+        this.api.getUserEmail().then((user:any) => {
+            this.api.sendByEmail(this.props.row.interview_id, user[0].email).then(res => {
+                if (res) {
+                    this.setState({...this.state, sendButtonText: 'Send to my email'});
+                }
+            })
+        });
     }
 
     @bound
-    public downloadExcel(){
+    public downloadExcel() {
         this.api.getExcel(this.props.row.interview_id).then(res => {
             const objectUrl: string = URL.createObjectURL(res);
             const a: HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
@@ -53,7 +55,6 @@ this.api.getPrint(this.props.row.interview_id).then(
             a.download = 'interviewer.xlsx';
             document.body.appendChild(a);
             a.click();
-
             document.body.removeChild(a);
             URL.revokeObjectURL(objectUrl);
         });
@@ -66,9 +67,11 @@ this.api.getPrint(this.props.row.interview_id).then(
                     <div className="mdc-component__section mdc-component__section--size-small">
                         <div className="modal-title">Choice action with report</div>
                         <div className="save-modal-wrapper">
-                            <div onClick={this.downloadExcel}><i className="material-icons">save</i><p>Save as excel file</p></div>
+                            <div onClick={this.downloadExcel}><i className="material-icons">save</i><p>Save as excel
+                                file</p></div>
                             <div onClick={this.onPrint}><i className="material-icons">print</i><p>Print</p></div>
-                            <div onClick={this.sendByEmail}><i className="material-icons">email</i><p>{this.state.sendButtonText}</p></div>
+                            <div onClick={this.sendByEmail}><i className="material-icons">email</i>
+                                <p>{this.state.sendButtonText}</p></div>
                         </div>
                     </div>
                 </div>

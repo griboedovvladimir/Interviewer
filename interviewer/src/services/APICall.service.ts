@@ -108,9 +108,17 @@ export class APICallService {
         }).then(req => req.json());
     }
 
-    public sendByEmail(interviewId:any){
-        return fetch(CONSTANTS.API_HOST + CONSTANTS.SEND_EMAIL_PATH + '/' + interviewId, {
-            method: 'GET'
+    public getUserEmail(){
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.GET_USER_EMAIL, {
+            ...POST_CONFIG,
+            body: JSON.stringify({"token":localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY_AUTH_KEY)})
+        }).then(req => req.json());
+    }
+
+    public sendByEmail(interviewId:any,userEmail:string){
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.SEND_EMAIL_PATH, {
+            ...POST_CONFIG,
+            body: JSON.stringify({"interviewId":interviewId, "email":userEmail})
         }).then(req => req.json());
     }
 }

@@ -9,5 +9,6 @@ exports.obj = {
     QUESTION_BY_ID: '/questionbyid',
     GET_EXCEL_PATH: '/excel',
     SEND_EMAIL_PATH:'/sendemail',
-    GET_PRINT_PATH: '/printreport'
+    GET_PRINT_PATH: '/printreport',
+    GET_USER_EMAIL: '/useremail'
 };
