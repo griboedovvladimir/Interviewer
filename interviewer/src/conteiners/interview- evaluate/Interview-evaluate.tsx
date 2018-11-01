@@ -23,7 +23,6 @@ class InterviewEvaluate extends Component {
     }
 
     public componentDidMount() {
-
     }
 
     public componentDidUpdate() {
@@ -34,7 +33,7 @@ class InterviewEvaluate extends Component {
     @bound
     public doEvaluate(e: any) {
         e.preventDefault();
-        let interview = {
+        let questionCard = {
             questionId: this.props.question.question_id,
             interviewId: this.props.interviewID,
             topic: this.props.question.name,
@@ -42,25 +41,29 @@ class InterviewEvaluate extends Component {
             comment: e.target.comment ? e.target.comment.value : ''
         };
         this.api.getInterview();
+        this.api.markIntervewAsCompleted(this.props.interviewID);
         if (!this.props.dirty.mark) {
-            this.api.createQuestionCard(interview);
+            this.api.createQuestionCard(questionCard);
         }
         else {
             this.api.editQuestionCard({
                 question_card_id: this.props.dirty.question_card_id,
-                ...interview
+                ...questionCard
             });
         }
         this.props.action.getDirtyQuestion({
-            ...interview
+            ...questionCard
         });
+        this.api.getInterview().then(res => {
+            this.props.action.getInterview(res);
+        })
         this.snackbarClass = CONSTANTS.SNACKBAR_CLASS_ACTIVE;
         setTimeout(() => {
             this.snackbarClass = CONSTANTS.SNACKBAR_CLASS_HIDDEN;
             this.props.action.getDirtyQuestion({
-                ...interview
+                ...questionCard
             });
-        }, 2000)
+        }, 2000);
     }
 
 

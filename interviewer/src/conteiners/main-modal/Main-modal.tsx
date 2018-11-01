@@ -26,7 +26,7 @@ class MainModal extends Component {
             specialization: e.target.specialization.value,
             level: e.target.level.value,
             date: getDateByString(),
-            status: 'ok'
+            status: 'empty'
         };
         this.api.addInterview(interview).then(
             (newId: any) => {

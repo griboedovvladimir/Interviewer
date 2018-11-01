@@ -42,6 +42,7 @@ export class AdministrationPage extends Component {
                         <main className="mdl-layout__content">
                             {this.state.isAdmin ?
                             <div className="page-content">
+                                <h1>Menu</h1>
                                 <AdministrationTable/>
                             </div>: <h1 className="admin-placeholder">Your don't have rights for this page</h1>
                             }

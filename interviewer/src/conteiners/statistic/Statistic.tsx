@@ -57,7 +57,7 @@ class Statistic extends Component {
                 charts: Array.from(new Set(res.map((el: any) => {
                     return el.topic_name
                 })))
-            })
+            });
         })
     }
 

@@ -9,7 +9,6 @@ export class StatisticModal extends Component {
     }
 
     public render() {
-        console.log(this.props);
         return (
             <div>
                 <div className="remove">

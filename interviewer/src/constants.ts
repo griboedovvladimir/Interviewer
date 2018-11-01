@@ -14,6 +14,11 @@ export const GET_EXCEL_PATH = '/excel';
 export const GET_PRINT_PATH = '/printreport';
 export const GET_USER_EMAIL = '/useremail';
 export const SEND_EMAIL_PATH = '/sendemail';
+export const SET_INTERVIEW_STATUS = '/interviewstatus';
+
+/*--------------- ADMIN API CALLS ----------------*/
+export const GET_ALL_QUESTIONS = '/admin/getallquestions';
+
 
 /*----------------- ROUTES -----------------------*/
 

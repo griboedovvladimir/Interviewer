@@ -121,4 +121,9 @@ export class APICallService {
             body: JSON.stringify({"interviewId":interviewId, "email":userEmail})
         }).then(req => req.json());
     }
+    public markIntervewAsCompleted(interviewId:any){
+        return fetch(CONSTANTS.API_HOST + CONSTANTS.SET_INTERVIEW_STATUS + '/' + interviewId, {
+            method: 'GET'
+        });
+    }
 }

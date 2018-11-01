@@ -263,7 +263,7 @@ async function reportGenerator(interviewID) {
                     topic_name: el.topic_name,
                     question_number: (i + 1).toString(),
                     question_text: question[0].text,
-                    advise: question[0].source
+                    advise: Number(el.mark) < 65 ? question[0].source : ''
                 }
             });
             dataset.push({
@@ -387,7 +387,7 @@ async function printReportGenerator(interviewID) {
                     topic_name: el.topic_name,
                     question_number: (i + 1).toString(),
                     question_text: question[0].text,
-                    advise: question[0].source
+                    advise: Number(el.mark) < 65 ? question[0].source : ''
                 }
             });
             return arr.reduce((cnt, row) => {

@@ -46,13 +46,13 @@ app.get(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
 });
 
 app.delete(PATHS_CONSTANTS.INTERVIEW + '/:id', (req, res) => {
-    DBconnect('DELETE FROM `interview` WHERE `interview_id`=' + req.params.id)
+    DBconnect('DELETE FROM `interview` WHERE `interview_id`=' + req.params.id + '').catch(console.log)
 });
 
 app.post(PATHS_CONSTANTS.INTERVIEW, (req, res) => {
-    DBconnect('INSERT INTO `interview`(`interview_id`, `name`, `level`, `specialization`, `date`, `status`, `interviewee_id`) ' +
+    DBconnect('INSERT INTO `interview`(`interview_id`, `name`, `level`, `specialization`, `date`, `status`) ' +
         'VALUES (NULL,"' + req.body.name + '","' + req.body.level + '","' + req.body.specialization + '","' +
-        '' + req.body.date + '","' + req.body.status + '", 0)').then(results => {
+        '' + req.body.date + '","' + req.body.status + '")').then(results => {
         res.end(JSON.stringify(results.insertId))
     });
 });
@@ -87,6 +87,12 @@ app.get(PATHS_CONSTANTS.QUESTION, (req, res) => {
         'AND topic.topic_id = subtopic.topic_id AND topic.name="' + req.query.id + '"').then(results => {
         let data = {...results[req.query.question.toString()], total: results.length};
         res.end(JSON.stringify(data));
+    });
+});
+
+app.get(PATHS_CONSTANTS.SET_INTERVIEW_STATUS + '/:id', (req, res) => {
+    DBconnect('UPDATE `interview` SET `status`= "completed" WHERE `interview_id`=' + req.params.id + '').then(results => {
+        res.end();
     });
 });
 
@@ -173,6 +179,12 @@ app.post(PATHS_CONSTANTS.GET_PRINT_PATH, (req, res) => {
     report.printReportGenerator(req.body.interviewId).then(report => {
         res.send(JSON.stringify(report));
     });
+});
+
+app.get(PATHS_CONSTANTS.GET_ALL_QUESTIONS,(req, res)=>{
+    DBconnect('SELECT * FROM `question`').then(result => {
+        res.end(JSON.stringify(result));
+    })
 });
 
 app.listen(4000, () => console.log('InterviewerAPI listening on port 4040!'));

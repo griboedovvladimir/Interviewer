@@ -10,5 +10,7 @@ exports.obj = {
     GET_EXCEL_PATH: '/excel',
     SEND_EMAIL_PATH:'/sendemail',
     GET_PRINT_PATH: '/printreport',
-    GET_USER_EMAIL: '/useremail'
+    GET_USER_EMAIL: '/useremail',
+    SET_INTERVIEW_STATUS: '/interviewstatus',
+    GET_ALL_QUESTIONS: '/admin/getallquestions'
 };

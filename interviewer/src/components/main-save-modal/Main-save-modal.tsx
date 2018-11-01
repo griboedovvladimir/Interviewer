@@ -6,11 +6,13 @@ import bound from "../../decorators/bound";
 import {bindActionCreators, Dispatch} from "redux";
 import * as actions from "../../conteiners/main-table-row/actions";
 import {connect} from "react-redux";
+import * as CONSTANTS from "../../conteiners/interview- evaluate/constants";
 
 export class MainSaveModal extends Component {
     public props: any;
     public state = {
-        sendButtonText: 'Send to my email'
+        sendButtonText: 'Send to my email',
+        snackbarClass: CONSTANTS.SNACKBAR_CLASS_HIDDEN
     };
     public api: APICallService;
 
@@ -20,44 +22,63 @@ export class MainSaveModal extends Component {
     }
 
     @bound
+    public statusChecker(action: any) {
+        if (this.props.row.status === 'completed') {
+            action();
+        }
+        else {
+            this.setState({...this.state, snackbarClass: CONSTANTS.SNACKBAR_CLASS_ACTIVE});
+            setTimeout(() => {
+                this.setState({...this.state, snackbarClass: CONSTANTS.SNACKBAR_CLASS_HIDDEN});
+            }, 2000)
+        }
+    }
+
+    @bound
     public onPrint() {
-        let printWindow = window.open();
-        this.api.getPrint(this.props.row.interview_id).then(
-            result => {
-                printWindow!.document.open('text/plain');
-                printWindow!.document.write(result);
-                printWindow!.document.close();
-                printWindow!.focus();
-                printWindow!.print();
-            }
-        );
+        this.statusChecker(() => {
+            let printWindow = window.open();
+            this.api.getPrint(this.props.row.interview_id).then(
+                result => {
+                    printWindow!.document.open('text/plain');
+                    printWindow!.document.write(result);
+                    printWindow!.document.close();
+                    printWindow!.focus();
+                    printWindow!.print();
+                }
+            );
+        })
     }
 
     @bound
     public sendByEmail() {
-        this.setState({...this.state, sendButtonText: 'Sending ...'});
-        this.api.getUserEmail().then((user:any) => {
-            this.api.sendByEmail(this.props.row.interview_id, user[0].email).then(res => {
-                if (res) {
-                    this.setState({...this.state, sendButtonText: 'Send to my email'});
-                }
-            })
-        });
+        this.statusChecker(() => {
+            this.setState({...this.state, sendButtonText: 'Sending ...'});
+            this.api.getUserEmail().then((user: any) => {
+                this.api.sendByEmail(this.props.row.interview_id, user[0].email).then(res => {
+                    if (res) {
+                        this.setState({...this.state, sendButtonText: 'Send to my email'});
+                    }
+                })
+            });
+        })
     }
 
     @bound
     public downloadExcel() {
-        this.api.getExcel(this.props.row.interview_id).then(res => {
-            const objectUrl: string = URL.createObjectURL(res);
-            const a: HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
+        this.statusChecker(() => {
+            this.api.getExcel(this.props.row.interview_id).then(res => {
+                const objectUrl: string = URL.createObjectURL(res);
+                const a: HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
 
-            a.href = objectUrl;
-            a.download = 'interviewer.xlsx';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(objectUrl);
-        });
+                a.href = objectUrl;
+                a.download = 'interviewer.xlsx';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(objectUrl);
+            });
+        })
     }
 
     public render() {
@@ -74,6 +95,9 @@ export class MainSaveModal extends Component {
                                 <p>{this.state.sendButtonText}</p></div>
                         </div>
                     </div>
+                </div>
+                <div className={this.state.snackbarClass}>
+                    <div>Interview is empty</div>
                 </div>
             </div>
         )
