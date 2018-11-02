@@ -36,7 +36,7 @@ export class AdministrationTableRow extends Component {
                         <textarea defaultValue={this.props.rowData.source}/>
                     }
                     </td>
-                <td>npm
+                <td>
                     <a id="create" onClick={this.onEdit}><i
                         className="material-icons person-actions">{this.state.editButton}</i></a>
                     {/*<a id="save"><i className="material-icons person-actions">save</i></a>*/}
