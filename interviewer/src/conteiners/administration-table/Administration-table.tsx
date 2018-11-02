@@ -20,7 +20,17 @@ export class AdministrationTable extends Component {
 
     public render() {
         let rows = this.state.rows.map((el: any, i: any) => {
-            return <AdministrationTableRow key={el.interview_id} rowData={el}/>;
+            if (this.props.selectedPage === 0) {
+                if (i < 10) {
+                    return <AdministrationTableRow key={el.question_id} rowData={el}/>;
+                }
+            }
+            if (this.props.selectedPage > 0) {
+                if (i > (this.props.selectedPage + 1) * 10 - 10 && i < (this.props.selectedPage + 1) * 10 + 10) {
+                    return <AdministrationTableRow key={el.question_id} rowData={el}/>;
+                }
+            }
+            return false;
         });
         return (
             <table className="mdl-data-table mdl-js-data-table persons-table">
@@ -28,8 +38,9 @@ export class AdministrationTable extends Component {
                 <tr>
                     <th>ID</th>
                     <th>Rating</th>
-                    <th>Text</th>
-                    <th>Source</th>
+                    <th className="mdl-data-table__cell--non-numeric">Text</th>
+                    <th className="mdl-data-table__cell--non-numeric">Source</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>

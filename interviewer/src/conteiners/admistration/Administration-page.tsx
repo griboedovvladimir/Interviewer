@@ -9,12 +9,14 @@ import {Redirect} from "react-router";
 import {AdministrationTable} from "../administration-table/Administration-table";
 import bound from "../../decorators/bound";
 import {APICallService} from "../../services/APICall.service";
-import './Administration-page.css'
+import './Administration-page.css';
+import ReactPaginate from 'react-paginate';
 
 export class AdministrationPage extends Component {
     public props: any;
     public state={
-        isAdmin:false
+        isAdmin:false,
+        currentPaginatePage:0
     };
     public api: APICallService;
 
@@ -24,6 +26,11 @@ export class AdministrationPage extends Component {
         if(this.props.logged) {
             this.checkRights();
         }
+    }
+
+    @bound
+    public  handlePageClick(e:any){
+        this.setState({...this.state,currentPaginatePage:e.selected})
     }
 
     @bound
@@ -43,7 +50,20 @@ export class AdministrationPage extends Component {
                             {this.state.isAdmin ?
                             <div className="page-content">
                                 <h1>Menu</h1>
-                                <AdministrationTable/>
+                                <div id = "react-paginate" >
+                                    <ReactPaginate previousLabel={"previous"}
+                                                   nextLabel={"next"}
+                                                   breakLabel={<a href="">...</a>}
+                                                   breakClassName={"break-me"}
+                                                   pageCount={2}
+                                                   marginPagesDisplayed={2}
+                                                   pageRangeDisplayed={5}
+                                                   onPageChange={this.handlePageClick}
+                                                   containerClassName={"pagination"}
+                                        // subContainerClassName={"pages pagination"}
+                                                   activeClassName={"active"} />
+                                </div>
+                                <AdministrationTable selectedPage={this.state.currentPaginatePage} />
                             </div>: <h1 className="admin-placeholder">Your don't have rights for this page</h1>
                             }
                         </main>
