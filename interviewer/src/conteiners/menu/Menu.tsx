@@ -45,6 +45,7 @@ export class Menu extends Component {
     @bound
     public setRedirect(e: any) {
         this.setState({
+            ...this.state,
             redirect: e.target.id
         })
     }

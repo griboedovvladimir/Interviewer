@@ -2,11 +2,14 @@ import * as React from "react";
 import {Component} from 'react';
 import {AdminAPICallService} from "../../services/AdminAPICall.service";
 import {AdministrationTableRow} from "../administration-table-row/Administration-table-row";
+import ReactPaginate from "react-paginate";
+import bound from "../../decorators/bound";
 
 export class AdministrationTable extends Component {
     public props: any;
     public state = {
-        rows: []
+        rows: [],
+        selectedPage:0
     };
     public api: AdminAPICallService;
 
@@ -18,25 +21,45 @@ export class AdministrationTable extends Component {
         })
     }
 
+    @bound
+    public  handlePageClick(e:any){
+        this.setState({...this.state,selectedPage:e.selected})
+    }
+
     public render() {
         let rows = this.state.rows.map((el: any, i: any) => {
-            if (this.props.selectedPage === 0) {
+            if (this.state.selectedPage === 0) {
                 if (i < 10) {
                     return <AdministrationTableRow key={el.question_id} rowData={el}/>;
                 }
             }
-            if (this.props.selectedPage > 0) {
-                if (i > (this.props.selectedPage + 1) * 10 - 10 && i < (this.props.selectedPage + 1) * 10 + 10) {
+            if (this.state.selectedPage > 0) {
+                if (i > (this.state.selectedPage + 1) * 10 - 10 && i < (this.state.selectedPage + 1) * 10 + 10) {
                     return <AdministrationTableRow key={el.question_id} rowData={el}/>;
                 }
             }
             return false;
         });
         return (
+            <div>
+                <div id = "react-paginate" >
+                    <ReactPaginate previousLabel={"previous"}
+                                   nextLabel={"next"}
+                                   breakLabel={<a href="">...</a>}
+                                   breakClassName={"break-me"}
+                                   pageCount={2}
+                                   marginPagesDisplayed={2}
+                                   pageRangeDisplayed={5}
+                                   onPageChange={this.handlePageClick}
+                                   containerClassName={"pagination"}
+                        // subContainerClassName={"pages pagination"}
+                                   activeClassName={"active"} />
+                </div>
             <table className="mdl-data-table mdl-js-data-table persons-table">
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Subtopic</th>
                     <th>Rating</th>
                     <th className="mdl-data-table__cell--non-numeric">Text</th>
                     <th className="mdl-data-table__cell--non-numeric">Source</th>
@@ -47,6 +70,7 @@ export class AdministrationTable extends Component {
                 {rows}
                 </tbody>
             </table>
+            </div>
         )
     }
 }

@@ -26,6 +26,11 @@ export class AdministrationTableRow extends Component {
                         <input type="number" defaultValue={this.props.rowData.raiting}/>
                     }
                 </td>
+                <td>
+                    {this.state.editButton === 'create' ? <div>{this.props.rowData.subtopic_id}</div> :
+                        <input type="number" defaultValue={this.props.rowData.subtopic_id}/>
+                    }
+                </td>
                 <td className="mdl-data-table__cell--non-numeric">
                     {this.state.editButton === 'create' ? <div>{this.props.rowData.text}</div> :
                         <textarea defaultValue={this.props.rowData.text}/>

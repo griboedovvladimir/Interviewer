@@ -1,0 +1,40 @@
+h1{
+  text-align: center;
+}
+.admin-menu{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px auto;
+  justify-content: center;
+  color: #fff;
+  font-weight:bold;
+  div{
+    background-color: #00857c;
+    margin: 4px;
+    padding: 5px;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .admin-menu{
+    margin: 40px auto 10px;
+    display: flex;
+    flex-wrap: wrap;
+    div{
+      background-color: #00857c;
+      margin: 4px;
+      padding: 5px;
+      cursor: pointer;
+      height: 40px;
+    }
+  }
+
+}
+
+.admin-menu-active{
+  background-color: #006b62 !important;
+  color: #e5ffff;
+}

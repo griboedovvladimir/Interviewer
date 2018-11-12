@@ -3,10 +3,11 @@ export class MenuActivator {
 
     }
     public activate() {
-        if (!document.getElementById('burger')) {
+        if (!document.getElementById('burger-conteiner')) {
             let leftButton = document.createElement('div');
             leftButton.classList.add('mdl-layout__tab-bar-button');
             leftButton.classList.add('mdl-layout__tab-bar-left-button');
+            leftButton.id = "burger-conteiner";
             let leftButtonIcon = document.createElement('i');
             leftButtonIcon.classList.add('material-icons');
             leftButtonIcon.id = 'burger';
@@ -37,6 +38,8 @@ export class MenuActivator {
     }
 
     public deactivate() {
-            document.getElementById('burger')!.remove();
+        if(document.getElementById('burger-conteiner')) {
+            document.getElementById('burger-conteiner')!.remove();
+        }
     }
 }

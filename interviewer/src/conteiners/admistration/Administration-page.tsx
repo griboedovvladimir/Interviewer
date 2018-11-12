@@ -10,7 +10,8 @@ import {AdministrationTable} from "../administration-table/Administration-table"
 import bound from "../../decorators/bound";
 import {APICallService} from "../../services/APICall.service";
 import './Administration-page.css';
-import ReactPaginate from 'react-paginate';
+
+import {AdministrationMenu} from "../administration-menu/Administration-menu";
 
 export class AdministrationPage extends Component {
     public props: any;
@@ -28,10 +29,6 @@ export class AdministrationPage extends Component {
         }
     }
 
-    @bound
-    public  handlePageClick(e:any){
-        this.setState({...this.state,currentPaginatePage:e.selected})
-    }
 
     @bound
     public checkRights(){
@@ -39,6 +36,11 @@ export class AdministrationPage extends Component {
             this.setState({...this.state, isAdmin: res});
         });
     }
+    @bound
+    public switchedMenuItem(itemId:string){
+        console.log(itemId)
+    }
+
 
     public render() {
         if(this.props.logged) {
@@ -49,21 +51,8 @@ export class AdministrationPage extends Component {
                         <main className="mdl-layout__content">
                             {this.state.isAdmin ?
                             <div className="page-content">
-                                <h1>Menu</h1>
-                                <div id = "react-paginate" >
-                                    <ReactPaginate previousLabel={"previous"}
-                                                   nextLabel={"next"}
-                                                   breakLabel={<a href="">...</a>}
-                                                   breakClassName={"break-me"}
-                                                   pageCount={2}
-                                                   marginPagesDisplayed={2}
-                                                   pageRangeDisplayed={5}
-                                                   onPageChange={this.handlePageClick}
-                                                   containerClassName={"pagination"}
-                                        // subContainerClassName={"pages pagination"}
-                                                   activeClassName={"active"} />
-                                </div>
-                                <AdministrationTable selectedPage={this.state.currentPaginatePage} />
+                                <AdministrationMenu switcherCallback = {this.switchedMenuItem}/>
+                                <AdministrationTable/>
                             </div>: <h1 className="admin-placeholder">Your don't have rights for this page</h1>
                             }
                         </main>
