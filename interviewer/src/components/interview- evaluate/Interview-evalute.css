@@ -1,81 +1,80 @@
-.snackbar-active{
+.snackbar-active {
   width: 100%;
   height: 100%;
   background-color: #000000;
   color: #fff;
   position: absolute;
-  bottom:0px;
+  bottom: 0px;
   opacity: 0.8;
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: visible;
   transition: opacity 0.5s 0.5s ease-in;
-  div{
-    font-size: 30px;
-  }
 }
-
-.snackbar-hidden{
+.snackbar-active div {
+  font-size: 30px;
+}
+.snackbar-hidden {
   width: 100%;
   height: 100%;
   background-color: #000000;
   color: #fff;
   position: absolute;
-  bottom:0px;
+  bottom: 0px;
   opacity: 0;
   display: flex;
   visibility: hidden;
   justify-content: center;
   align-items: center;
   transition: opacity 0.5s 0.5s ease-out;
-  div{
-    font-size: 30px;
-  }
 }
-
-.slider-titles{
+.snackbar-hidden div {
+  font-size: 30px;
+}
+.MuiSlider-track-3 {
+  background-color: #00857c !important;
+}
+.MuiSlider-thumb-6 {
+  background-color: #00857c !important;
+}
+.MuiSlider-activated-12 {
+  background-color: #00857c !important;
+}
+.slider-titles {
   display: flex;
   justify-content: space-between;
-  color:#00857c;
+  color: #00857c;
   font-size: 12px;
 }
-
-.slider-marks{
+.slider-marks {
   display: flex;
   justify-content: space-between;
-  color:#00857c;
-  padding:3px 24px;
+  color: #00857c;
+  padding: 3px 24px;
 }
-
-
-.slider-marks-mark{
+.slider-marks-mark {
   font-size: 12px;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
-
-.slider-marks-circle{
-  width:5px;
+.slider-marks-circle {
+  width: 5px;
   height: 5px;
   border-radius: 50%;
   background-color: #00857c;
   align-self: center;
 }
-
-
-.card-textarea{
+.card-textarea {
   width: 100%;
   outline-color: #b2dfdb;
   margin-top: 10px;
   padding: 5px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
-
-input[type=range]{
+input[type=range] {
   -webkit-appearance: none;
 }
-
 input[type=range]::-webkit-slider-runnable-track {
   width: 300px;
   height: 3px;
@@ -83,21 +82,18 @@ input[type=range]::-webkit-slider-runnable-track {
   border: none;
   border-radius: 3px;
 }
-
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: none;
   height: 13px;
   width: 13px;
   border-radius: 50%;
-  background:  #00857c;
+  background: #00857c;
   margin-top: -5px;
 }
-
 input[type=range]:focus {
   outline: none;
 }
-
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #b2dfdb;
 }

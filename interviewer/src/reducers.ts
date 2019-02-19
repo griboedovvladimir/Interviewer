@@ -1,7 +1,7 @@
-export {login} from "./conteiners/login/reducers";
-export {interview} from "./conteiners/main/reducers";
-export {question} from './conteiners/interview/reducers';
-export {dirty} from './conteiners/interview/reducers';
-export {row} from './conteiners/main-table-row/reducers';
+export {login} from "./components/login/reducers";
+export {interview} from "./components/main/reducers";
+export {question} from './components/interview/reducers';
+export {dirty} from './components/interview/reducers';
+export {row} from './components/main-table-row/reducers';
 
 

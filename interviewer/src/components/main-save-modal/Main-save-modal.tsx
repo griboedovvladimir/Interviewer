@@ -4,9 +4,9 @@ import './Main-save-modal.css'
 import {APICallService} from "../../services/APICall.service";
 import bound from "../../decorators/bound";
 import {bindActionCreators, Dispatch} from "redux";
-import * as actions from "../../conteiners/main-table-row/actions";
+import * as actions from "../main-table-row/actions";
 import {connect} from "react-redux";
-import * as CONSTANTS from "../../conteiners/interview- evaluate/constants";
+import * as CONSTANTS from "../interview- evaluate/constants";
 
 export class MainSaveModal extends Component {
     public props: any;

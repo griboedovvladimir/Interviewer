@@ -1,20 +1,20 @@
 import * as React from "react";
-import {Component} from 'react';
-import {bindActionCreators, Dispatch} from 'redux';
-import {connect} from 'react-redux';
-import * as actions from './../main-table/actions';
+import { Component } from 'react';
+import { bindActionCreators, Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from '../main-table/actions';
 import './Statistic.css'
 import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
-import {APICallService} from "../../services/APICall.service";
+import { APICallService } from "../../services/APICall.service";
 import * as CONSTANTS from '../../constants'
 import StatisticChart from "../statistic-chart/Statistic-chart";
 
 class Statistic extends Component {
     public props: any;
     public state = {
-        cssCards: {cards: [], percentage: undefined, topic: ""},
-        htmlCards: {cards: [], percentage: undefined, topic: ""},
-        jsCards: {cards: [], percentage: undefined, topic: ""},
+        cssCards: { cards: [], percentage: undefined, topic: "" },
+        htmlCards: { cards: [], percentage: undefined, topic: "" },
+        jsCards: { cards: [], percentage: undefined, topic: "" },
         cards: [],
         charts: []
     };
@@ -23,7 +23,7 @@ class Statistic extends Component {
         super(props);
         this.api = new APICallService();
 
-        if (!this.props.interview[0]) {
+        if (!this.props.interview[ 0 ]) {
             this.api.getInterview().then(res => {
                 this.props.action.getInterview(res.reverse());
             });
@@ -42,7 +42,7 @@ class Statistic extends Component {
                     return prev + Number(el.mark);
                 }, 0) / cards.length) : undefined;
 
-                return {cards, percentage, topic}
+                return { cards, percentage, topic }
             }
 
             Array.from(new Set(res.map((el: any) => {
@@ -50,9 +50,9 @@ class Statistic extends Component {
             })));
 
             this.setState({
-                cssCards: {...getCardsByTopic('js')},
-                htmlCards: {...getCardsByTopic('html')},
-                jsCards: {...getCardsByTopic('css')},
+                cssCards: { ...getCardsByTopic('js') },
+                htmlCards: { ...getCardsByTopic('html') },
+                jsCards: { ...getCardsByTopic('css') },
                 cards: res,
                 charts: Array.from(new Set(res.map((el: any) => {
                     return el.topic_name
@@ -63,17 +63,17 @@ class Statistic extends Component {
 
     public render() {
         let charts = this.state.charts.map((el: any, i: any) => {
-            return <StatisticChart key={el} interviewID={this.props.match.params.id}
-                                   chartdata={this.state[el + 'Cards']}/>;
+            return <StatisticChart key={ el } interviewID={ this.props.match.params.id }
+                                   chartdata={ this.state[ el + 'Cards' ] }/>;
         });
-        if (this.props.interview[0]) {
+        if (this.props.interview[ 0 ]) {
             return (
                 <div className="page-content">
-                    <Breadcrumbs interviewID={this.props.match.params.id}
-                                 parent={CONSTANTS.BREADCRUMBS_PARENT_STATISTIC}/>
-                    {!!this.state.cards.length ?
+                    <Breadcrumbs interviewID={ this.props.match.params.id }
+                                 parent={ CONSTANTS.BREADCRUMBS_PARENT_STATISTIC }/>
+                    { !!this.state.cards.length ?
                         <div className="charts">
-                            {charts}
+                            { charts }
                         </div> :
                         <div className="interview-placeholder">Interview is empty</div>
                     }
@@ -90,7 +90,7 @@ const mapStateToProps = (state: any, OwnProps: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    action: bindActionCreators({...actions}, dispatch)
+    action: bindActionCreators({ ...actions }, dispatch)
 });
 
 

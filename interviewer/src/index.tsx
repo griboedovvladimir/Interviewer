@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './conteiners/App';
+import App from './components/App';
 import './styles/index.css';
 import {combineReducers,createStore } from 'redux'
 import { devToolsEnhancer } from 'redux-devtools-extension';

@@ -5,7 +5,6 @@ import * as actions from "../main/actions";
 import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
 import {getDateByString} from "../../helpers/getDateByString";
-import bound from '../../decorators/bound'
 import * as CONSTANTS from '../../constants';
 import './Main-moadal.css';
 
@@ -18,8 +17,8 @@ class MainModal extends Component {
         this.api = new APICallService();
     }
 
-    @bound
-    public handleSubmit(e: any) {
+
+    public handleSubmit = (e: any)=> {
         e.preventDefault();
         let interview = {
             name: e.target.interviewName.value,
@@ -68,8 +67,8 @@ class MainModal extends Component {
 
                             <div className="select">
                                 <select id="specialization" name="specialization" className="select-text"
-                                        required={true}>
-                                    <option value="" disabled={true} selected={true}/>
+                                        required={true} defaultValue={''}>
+                                    <option value="" disabled={true}/>
                                     <option value="Frontend developer">Frontend developer</option>
                                     <option value="Frontend developer">Frontend developer</option>
                                     <option value="Frontend developer">Frontend developer</option>
@@ -80,8 +79,8 @@ class MainModal extends Component {
                             </div>
 
                             <div className="select">
-                                <select id="level" name="level" className="select-text" required={true}>
-                                    <option value="" disabled={true} selected={true}/>
+                                <select id="level" name="level" className="select-text" required={true}  defaultValue={''}>
+                                    <option value="" disabled={true} />
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

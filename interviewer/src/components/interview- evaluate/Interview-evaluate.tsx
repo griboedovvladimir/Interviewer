@@ -1,21 +1,35 @@
 import * as React from "react";
-import {Component} from 'react';
-import {bindActionCreators, Dispatch} from "redux";
+import { Component } from 'react';
+import { bindActionCreators, Dispatch } from "redux";
 import * as actions from "../interview/actions";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import bound from "../../decorators/bound";
-import {APICallService} from "../../services/APICall.service";
+import { APICallService } from "../../services/APICall.service";
 import "./Interview-evalute.css";
 import * as CONSTANTS from './constants';
+import { withStyles } from '@material-ui/core/styles';
+import Slider from '@material-ui/lab/Slider';
+
+const styles = {
+    root: {
+        width: '100%',
+    },
+    slider: {
+        padding: '22px 0px',
+        margin: '0 26px'
+    },
+};
 
 
-class InterviewEvaluate extends Component {
-    public props: any;
-    public state: any;
+class InterviewEvaluate extends Component <any, any> {
     public buttonText = CONSTANTS.BUTTON_TEXT_EVALUTE;
     public buttonClass = CONSTANTS.BUTTON_EDIT_CLASS;
     public snackbarClass = CONSTANTS.SNACKBAR_CLASS_HIDDEN;
     public material: any;
+    public state = {
+        value: 50,
+    };
+
 
     constructor(props: any, private api: APICallService) {
         super(props);
@@ -25,10 +39,21 @@ class InterviewEvaluate extends Component {
     public componentDidMount() {
     }
 
-    public componentDidUpdate() {
+    public componentDidUpdate(prevProps: any) {
         let form = document.getElementById(CONSTANTS.FORM_ID) as HTMLFormElement;
         form.reset();
     }
+
+    public componentWillReceiveProps(nextProps: Readonly<any>, nextContext: any): void {
+        if (nextProps.dirty.mark !== this.props.dirty.mark) {
+            this.setState({ ...this.state, value: this.props.dirty.mark });
+        }
+    }
+
+    public handleChange = (event: any, value: number) => {
+        this.setState({ value });
+    };
+
 
     @bound
     public doEvaluate(e: any) {
@@ -44,8 +69,7 @@ class InterviewEvaluate extends Component {
         this.api.markIntervewAsCompleted(this.props.interviewID);
         if (!this.props.dirty.mark) {
             this.api.createQuestionCard(questionCard);
-        }
-        else {
+        } else {
             this.api.editQuestionCard({
                 question_card_id: this.props.dirty.question_card_id,
                 ...questionCard
@@ -68,6 +92,9 @@ class InterviewEvaluate extends Component {
 
 
     public render() {
+        const { classes } = this.props;
+        const { value } = this.state;
+
         if (this.props.dirty.mark) {
             this.buttonText = CONSTANTS.BUTTON_TEXT_EDIT;
             this.buttonClass = CONSTANTS.BUTTON_EDIT_CLASS;
@@ -78,7 +105,7 @@ class InterviewEvaluate extends Component {
         }
 
         return (
-            <form id="evaluteForm" onSubmit={this.doEvaluate}>
+            <form id="evaluteForm" onSubmit={ this.doEvaluate }>
                 <div className="question-card-wide mdl-card mdl-shadow--2dp">
                     <div className="mdl-card__actions mdl-card--border">
                         <div className="slider-titles">
@@ -91,33 +118,29 @@ class InterviewEvaluate extends Component {
                             <div className="slider-marks-circle"/>
                             <div className="slider-marks-circle"/>
                         </div>
-                        {this.props.dirty.mark &&
-                        <div className="slider-line">
-                            <input id="slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
-                                   min="0" max="100" defaultValue={this.props.dirty.mark} tabIndex={0}/>
+                        <div className={ classes.root }>
+                            <Slider
+                                classes={ { container: classes.slider } }
+                                value={ value === undefined ? 0 : +value }
+                                aria-labelledby="label"
+                                onChange={ this.handleChange }
+                            />
                         </div>
-                        }
-                        {!this.props.dirty.mark &&
-                        <div className="slider-line">
-                            <input id="slider" name="slider" className="mdl-slider mdl-js-slider" type="range"
-                                   min="0" max="100" tabIndex={0}/>
-                        </div>
-                        }
-                        {this.props.dirty.mark &&
-                        <textarea name="comment" className="card-textarea" defaultValue={this.props.dirty.comment}
+                        { this.props.dirty.mark &&
+                        <textarea name="comment" className="card-textarea" defaultValue={ this.props.dirty.comment }
                                   placeholder="Comment"/>
                         }
-                        {!this.props.dirty.mark &&
+                        { !this.props.dirty.mark &&
                         <textarea name="comment" className="card-textarea" placeholder="Comment"/>
                         }
                         <div className="mdc-component mdc-component__buttons">
-                            <div className={this.buttonClass}>
-                                <button name="btn" type="submit" className="mdc-button mdc-button">{this.buttonText}
+                            <div className={ this.buttonClass }>
+                                <button name="btn" type="submit" className="mdc-button mdc-button">{ this.buttonText }
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className={this.snackbarClass}>
+                    <div className={ this.snackbarClass }>
                         <div>Changes saved successfully</div>
                     </div>
                 </div>
@@ -132,7 +155,7 @@ const mapStateToProps = (state: any, OwnProps: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    action: bindActionCreators({...actions}, dispatch)
+    action: bindActionCreators({ ...actions }, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(InterviewEvaluate);
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(InterviewEvaluate));

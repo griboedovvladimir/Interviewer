@@ -187,4 +187,4 @@ app.get(PATHS_CONSTANTS.GET_ALL_QUESTIONS,(req, res)=>{
     })
 });
 
-app.listen(4000, () => console.log('InterviewerAPI listening on port 4040!'));
+app.listen(4040, () => console.log('InterviewerAPI listening on port 4040!'));

@@ -4,7 +4,7 @@ import {bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from '../main/actions';
 import bound from "../../decorators/bound";
-import {StatisticModal} from "../../components/statistic-modal/Statistic-modal";
+import {StatisticModal} from "../statistic-modal/Statistic-modal";
 import './Statistic-hart.css';
 import {APICallService} from "../../services/APICall.service";
 

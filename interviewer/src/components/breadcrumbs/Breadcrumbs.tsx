@@ -1,11 +1,11 @@
 import * as React from "react";
-import {Component} from 'react';
-import {bindActionCreators, Dispatch} from 'redux';
-import {connect} from 'react-redux';
+import { Component } from 'react';
+import { bindActionCreators, Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import * as actions from '../main/actions';
-import {InterviewInterface} from "../../interfaces/interview.interface";
+import { InterviewInterface } from "../../interfaces/interview.interface";
 import bound from "../../decorators/bound";
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 import * as CONSTANTS from "../../constants";
 import "./Breadcrumbs.css"
 
@@ -55,13 +55,13 @@ export class Breadcrumbs extends Component {
 
     public renderRedirectToStatistic(): any {
         if (this.state.redirectToStatistic && this.props.parent === CONSTANTS.BREADCRUMBS_PARENT_INTERVIEW) {
-            return <Redirect to={CONSTANTS.MAIN_PAGE_STATISTIC + this.props.interviewID}/>
+            return <Redirect to={ CONSTANTS.MAIN_PAGE_STATISTIC + this.props.interviewID }/>
         }
     };
 
     public renderRedirectToInterview(): any {
         if (this.state.redirectToInterview && this.props.parent === CONSTANTS.BREADCRUMBS_PARENT_STATISTIC) {
-            return <Redirect to={CONSTANTS.MAIN_PAGE_INTERVIEW + this.props.interviewID}/>
+            return <Redirect to={ CONSTANTS.MAIN_PAGE_INTERVIEW + this.props.interviewID }/>
         }
     };
 
@@ -69,16 +69,16 @@ export class Breadcrumbs extends Component {
     public render() {
         return (
             <div className="breadcrumbs">
-                {this.renderRedirectToStatistic()}
-                {this.renderRedirectToInterview()}
-                <span id="toInterview" className="mdl-chip" onClick={this.setRedirectToInterview}>
-    <span className={'mdl-chip__text ' + this.refClassInterview}>Interview</span>
+                { this.renderRedirectToStatistic() }
+                { this.renderRedirectToInterview() }
+                <span id="toInterview" className="mdl-chip" onClick={ this.setRedirectToInterview }>
+    <span className={ 'mdl-chip__text ' + this.refClassInterview }>Interview</span>
 </span>
-                <span id="toStatistic" className="mdl-chip" onClick={this.setRedirectToStatistic}>
-                        <span className={'mdl-chip__text ' + this.refClassName}>{this.interview.name}</span>
+                <span id="toStatistic" className="mdl-chip" onClick={ this.setRedirectToStatistic }>
+                        <span className={ 'mdl-chip__text ' + this.refClassName }>{ this.interview.name }</span>
 </span>
                 <span className="mdl-chip">
-                        <span className="mdl-chip__text">{'D' + this.interview.level}</span>
+                        <span className="mdl-chip__text">{ 'D' + this.interview.level }</span>
 </span>
             </div>
         )
@@ -91,7 +91,7 @@ const mapStateToProps = (state: any, OwnProps: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    action: bindActionCreators({...actions}, dispatch)
+    action: bindActionCreators({ ...actions }, dispatch)
 });
 
 

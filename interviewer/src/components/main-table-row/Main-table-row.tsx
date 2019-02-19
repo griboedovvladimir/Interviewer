@@ -2,7 +2,7 @@ import * as React from "react";
 import {Component} from 'react';
 import {InterviewInterface} from "../../interfaces/interview.interface";
 import {bindActionCreators, Dispatch} from "redux";
-import * as actions from "../main-table-row/actions";
+import * as actions from "./actions";
 import {connect} from "react-redux";
 import {APICallService} from "../../services/APICall.service";
 import bound from '../../decorators/bound'

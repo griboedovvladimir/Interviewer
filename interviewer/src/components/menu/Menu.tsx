@@ -54,12 +54,10 @@ export class Menu extends Component {
         switch (this.state.redirect) {
             case "main_item":
                 return <Redirect to='/'/>;
-            break;
             case "administration_item":
                if(window.location.pathname !== '/administration/') {
                    return <Redirect to='/administration/'/>;
                }
-            break;
         }
     }
 
